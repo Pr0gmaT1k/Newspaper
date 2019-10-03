@@ -13,11 +13,20 @@ import ObjectMapper
 
 final class NPWebServiceClient {
     // MARK: - Properties
-    fileprivate static let keychainService = KeychainService(serviceType: Environment.TestApp.appName)
-    fileprivate static let networkStack = NetworkStack(baseURL: Environment.TestApp.baseURL,
+    fileprivate static let keychainService = KeychainService(serviceType: Environment.Newspaper.appName)
+    fileprivate static let networkStack = NetworkStack(baseURL: Environment.Newspaper.baseURL,
                                                        keychainService: keychainService)
     
+    private static let emailKey = "email"
+    private static let pwdKey = "password"
     
-    // Mark:- Services
-    
+    // MARK: - Services
+    func auth(email: String, pwd: String) -> Observable<Auth?> {
+        let requestParameters = RequestParameters(method: .post, route: NPRoute.signIn, parameters: [NPWebServiceClient.emailKey: email, NPWebServiceClient.pwdKey: pwd])
+        
+        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Auth? in
+            print("\(json)")
+            return Mapper<Auth>().map(JSONObject: json)
+        }
+    }
 }

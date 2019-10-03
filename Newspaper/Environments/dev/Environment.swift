@@ -7,8 +7,8 @@
 //
 
 enum Environment {
-  struct TestApp {
-    static let baseURL = "https://newspaper.coddea.com"
+  struct Newspaper {
+    static let baseURL = "https://newspaper.coddea.com/v1"
     static let appName = "newspaper"
   }
 }
