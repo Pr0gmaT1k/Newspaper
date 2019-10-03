@@ -27,7 +27,6 @@
 		BA8F5B0123465619009E266E /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F5AFD23465619009E266E /* Images.swift */; };
 		BA8F5B0223465619009E266E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F5AFE23465619009E266E /* Colors.swift */; };
 		BA8F5B0323465619009E266E /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F5AFF23465619009E266E /* Storyboards.swift */; };
-		BA8F5B052346573B009E266E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F5B042346573B009E266E /* SceneDelegate.swift */; };
 		BAA4C40A23465C8D00F7E420 /* AuthMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C40423465C8D00F7E420 /* AuthMapper.swift */; };
 		BAA4C40B23465C8D00F7E420 /* PostsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C40523465C8D00F7E420 /* PostsMapper.swift */; };
 		BAA4C40C23465C8D00F7E420 /* StatusMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C40623465C8D00F7E420 /* StatusMapper.swift */; };
@@ -97,7 +96,6 @@
 		BA8F5AFD23465619009E266E /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		BA8F5AFE23465619009E266E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BA8F5AFF23465619009E266E /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
-		BA8F5B042346573B009E266E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BAA4C40423465C8D00F7E420 /* AuthMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthMapper.swift; sourceTree = "<group>"; };
 		BAA4C40523465C8D00F7E420 /* PostsMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsMapper.swift; sourceTree = "<group>"; };
 		BAA4C40623465C8D00F7E420 /* StatusMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMapper.swift; sourceTree = "<group>"; };
@@ -298,7 +296,6 @@
 		BAD30669234650CE002335CF /* Newspaper */ = {
 			isa = PBXGroup;
 			children = (
-				BA8F5B042346573B009E266E /* SceneDelegate.swift */,
 				BA46C558234652BD00FC1E0D /* AppDelegate.swift */,
 				BA46C56E234652BD00FC1E0D /* Constants */,
 				BA46C56B234652BD00FC1E0D /* Environments */,
@@ -569,7 +566,6 @@
 				BAA4C40E23465C8D00F7E420 /* PostMapper.swift in Sources */,
 				BAA4C40D23465C8D00F7E420 /* UserMapper.swift in Sources */,
 				BA46C57A234652BD00FC1E0D /* AppDelegate.swift in Sources */,
-				BA8F5B052346573B009E266E /* SceneDelegate.swift in Sources */,
 				BAA4C41623465C9500F7E420 /* Users.swift in Sources */,
 				BAA4C40C23465C8D00F7E420 /* StatusMapper.swift in Sources */,
 				BAA4C40F23465C8D00F7E420 /* UsersMapper.swift in Sources */,
@@ -752,6 +748,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Newspaper/Ressources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -772,6 +769,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Newspaper/Ressources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
