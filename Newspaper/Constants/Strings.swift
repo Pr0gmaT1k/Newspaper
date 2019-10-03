@@ -11,8 +11,12 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
-  /// toto
-  internal static let toto = L10n.tr("Localizable", "toto")
+  /// todos los derechos reservados Jumpittlabs 2019
+  internal static let copyright = L10n.tr("Localizable", "Copyright")
+  /// Ingresar
+  internal static let signIn = L10n.tr("Localizable", "SignIn")
+  /// Crear cuenta
+  internal static let signUp = L10n.tr("Localizable", "SignUp")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DN6-wQ-VXB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K3X-m7-hbD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Prompt-Regular.ttf">
+            <string>Prompt-Regular</string>
+        </array>
+        <array key="Prompt-SemiBold.ttf">
+            <string>Prompt-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--LoginVC-->
         <scene sceneID="2Ct-ja-0Ul">
@@ -20,7 +28,106 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vY-Rg-INn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953.62318840579712" y="20.758928571428569"/>
+            <point key="canvasLocation" x="965" y="-63"/>
+        </scene>
+        <!--AuthVC-->
+        <scene sceneID="wjA-pu-qo0">
+            <objects>
+                <viewController storyboardIdentifier="AuthVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K3X-m7-hbD" customClass="AuthVC" customModule="Newspaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SuQ-af-0Dz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-OF-1qh">
+                                <rect key="frame" x="15" y="215.49999999999997" width="384" height="237.50000000000009"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iiq-OF-1qh" secondAttribute="height" multiplier="383 :237" id="PLc-K1-f6e"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newspaper" translatesAutoresizingMaskIntoConstraints="NO" id="z3x-pk-yIL">
+                                <rect key="frame" x="68" y="103" width="278" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="z3x-pk-yIL" secondAttribute="height" multiplier="280:47" id="3W7-Pm-k9y"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qW2-9o-9SD">
+                                <rect key="frame" x="15" y="828" width="384" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="WIY-ei-NGX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBt-IR-H5D">
+                                <rect key="frame" x="76" y="573" width="262" height="56"/>
+                                <color key="backgroundColor" red="0.38431372549019605" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="dsa-gt-Frd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-SemiBold" family="Prompt" pointSize="14"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdW-7E-q7y">
+                                <rect key="frame" x="76" y="653" width="262" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="psO-N6-KzL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-SemiBold" family="Prompt" pointSize="14"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.38431372549999998" green="0.0" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xBt-IR-H5D" firstAttribute="top" secondItem="iiq-OF-1qh" secondAttribute="bottom" constant="120" id="48o-Dq-hGH"/>
+                            <constraint firstItem="wi3-F4-2VZ" firstAttribute="trailing" secondItem="z3x-pk-yIL" secondAttribute="trailing" constant="68" id="776-ti-Buc"/>
+                            <constraint firstItem="iiq-OF-1qh" firstAttribute="leading" secondItem="wi3-F4-2VZ" secondAttribute="leading" constant="15" id="DmY-80-laF"/>
+                            <constraint firstItem="wi3-F4-2VZ" firstAttribute="trailing" secondItem="iiq-OF-1qh" secondAttribute="trailing" constant="15" id="L4c-yc-0da"/>
+                            <constraint firstItem="qW2-9o-9SD" firstAttribute="leading" secondItem="wi3-F4-2VZ" secondAttribute="leading" constant="15" id="QaU-y2-j8L"/>
+                            <constraint firstItem="wi3-F4-2VZ" firstAttribute="bottom" secondItem="qW2-9o-9SD" secondAttribute="bottom" constant="18" id="YqI-M9-WMC"/>
+                            <constraint firstItem="iiq-OF-1qh" firstAttribute="top" secondItem="z3x-pk-yIL" secondAttribute="bottom" constant="65.5" id="bgv-nl-zEe"/>
+                            <constraint firstItem="wi3-F4-2VZ" firstAttribute="centerY" secondItem="iiq-OF-1qh" secondAttribute="bottom" id="c8A-My-pEX"/>
+                            <constraint firstItem="z3x-pk-yIL" firstAttribute="leading" secondItem="wi3-F4-2VZ" secondAttribute="leading" constant="68" id="i2a-nw-sB9"/>
+                            <constraint firstItem="xBt-IR-H5D" firstAttribute="leading" secondItem="wi3-F4-2VZ" secondAttribute="leading" constant="76" id="lCw-74-zl0"/>
+                            <constraint firstItem="YdW-7E-q7y" firstAttribute="leading" secondItem="wi3-F4-2VZ" secondAttribute="leading" constant="76" id="pjO-Uk-yl4"/>
+                            <constraint firstItem="YdW-7E-q7y" firstAttribute="top" secondItem="xBt-IR-H5D" secondAttribute="bottom" constant="24" id="ror-Vt-Bpk"/>
+                            <constraint firstItem="wi3-F4-2VZ" firstAttribute="trailing" secondItem="qW2-9o-9SD" secondAttribute="trailing" constant="15" id="t0y-VU-Dlz"/>
+                            <constraint firstItem="wi3-F4-2VZ" firstAttribute="trailing" secondItem="YdW-7E-q7y" secondAttribute="trailing" constant="76" id="ybV-S5-FAC"/>
+                            <constraint firstItem="wi3-F4-2VZ" firstAttribute="trailing" secondItem="xBt-IR-H5D" secondAttribute="trailing" constant="76" id="zxl-Ki-A2W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wi3-F4-2VZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="copyrightLabel" destination="qW2-9o-9SD" id="xfx-hp-XIp"/>
+                        <outlet property="signInButton" destination="xBt-IR-H5D" id="JtB-vm-n6L"/>
+                        <outlet property="signUpButton" destination="YdW-7E-q7y" id="DWV-as-4ui"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Iv-mS-aqG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26.086956521739133" y="-64.285714285714278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="3" width="383" height="237"/>
+        <image name="newspaper" width="280" height="47"/>
+    </resources>
 </document>

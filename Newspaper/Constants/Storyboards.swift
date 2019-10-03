@@ -20,7 +20,9 @@ internal enum StoryboardScene {
   internal enum Main: StoryboardType {
     internal static let storyboardName = "Main"
 
-    internal static let initialScene = InitialSceneType<Newspaper.LoginVC>(storyboard: Main.self)
+    internal static let initialScene = InitialSceneType<Newspaper.AuthVC>(storyboard: Main.self)
+
+    internal static let authVC = SceneType<Newspaper.AuthVC>(storyboard: Main.self, identifier: "AuthVC")
 
     internal static let loginVC = SceneType<Newspaper.LoginVC>(storyboard: Main.self, identifier: "LoginVC")
   }

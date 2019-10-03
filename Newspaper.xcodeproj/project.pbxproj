@@ -39,6 +39,27 @@
 		BAA4C41923465C9500F7E420 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41323465C9500F7E420 /* Auth.swift */; };
 		BAA4C41A23465C9500F7E420 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41423465C9500F7E420 /* Status.swift */; };
 		BAA4C41B23465C9500F7E420 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41523465C9500F7E420 /* User.swift */; };
+		BAA4C41E2346703D00F7E420 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41D2346703D00F7E420 /* Fonts.swift */; };
+		BAA4C434234670F500F7E420 /* Prompt-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C421234670F500F7E420 /* Prompt-ThinItalic.ttf */; };
+		BAA4C435234670F500F7E420 /* Prompt-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C422234670F500F7E420 /* Prompt-BlackItalic.ttf */; };
+		BAA4C436234670F500F7E420 /* Prompt-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C423234670F500F7E420 /* Prompt-ExtraLight.ttf */; };
+		BAA4C437234670F500F7E420 /* Prompt-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C424234670F500F7E420 /* Prompt-MediumItalic.ttf */; };
+		BAA4C438234670F500F7E420 /* Prompt-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C425234670F500F7E420 /* Prompt-BoldItalic.ttf */; };
+		BAA4C439234670F500F7E420 /* Prompt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C426234670F500F7E420 /* Prompt-Medium.ttf */; };
+		BAA4C43A234670F500F7E420 /* Prompt-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C427234670F500F7E420 /* Prompt-Light.ttf */; };
+		BAA4C43B234670F500F7E420 /* Prompt-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C428234670F500F7E420 /* Prompt-ExtraBold.ttf */; };
+		BAA4C43C234670F500F7E420 /* Prompt-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C429234670F500F7E420 /* Prompt-Thin.ttf */; };
+		BAA4C43D234670F500F7E420 /* Prompt-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C42A234670F500F7E420 /* Prompt-LightItalic.ttf */; };
+		BAA4C43E234670F500F7E420 /* Prompt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C42B234670F500F7E420 /* Prompt-Bold.ttf */; };
+		BAA4C43F234670F500F7E420 /* Prompt-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C42C234670F500F7E420 /* Prompt-SemiBold.ttf */; };
+		BAA4C440234670F500F7E420 /* Prompt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C42D234670F500F7E420 /* Prompt-Regular.ttf */; };
+		BAA4C441234670F500F7E420 /* Prompt-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C42E234670F500F7E420 /* Prompt-ExtraLightItalic.ttf */; };
+		BAA4C442234670F500F7E420 /* Prompt-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C42F234670F500F7E420 /* Prompt-SemiBoldItalic.ttf */; };
+		BAA4C443234670F500F7E420 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C430234670F500F7E420 /* OFL.txt */; };
+		BAA4C444234670F500F7E420 /* Prompt-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C431234670F500F7E420 /* Prompt-ExtraBoldItalic.ttf */; };
+		BAA4C445234670F500F7E420 /* Prompt-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C432234670F500F7E420 /* Prompt-Italic.ttf */; };
+		BAA4C446234670F500F7E420 /* Prompt-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C433234670F500F7E420 /* Prompt-Black.ttf */; };
+		BAA4C44A2346720D00F7E420 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C4492346720D00F7E420 /* AuthVC.swift */; };
 		BAD30682234650CF002335CF /* NewspaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD30681234650CF002335CF /* NewspaperTests.swift */; };
 		BAD3068D234650CF002335CF /* NewspaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3068C234650CF002335CF /* NewspaperUITests.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +129,27 @@
 		BAA4C41323465C9500F7E420 /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		BAA4C41423465C9500F7E420 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		BAA4C41523465C9500F7E420 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BAA4C41D2346703D00F7E420 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		BAA4C421234670F500F7E420 /* Prompt-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-ThinItalic.ttf"; sourceTree = "<group>"; };
+		BAA4C422234670F500F7E420 /* Prompt-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-BlackItalic.ttf"; sourceTree = "<group>"; };
+		BAA4C423234670F500F7E420 /* Prompt-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-ExtraLight.ttf"; sourceTree = "<group>"; };
+		BAA4C424234670F500F7E420 /* Prompt-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-MediumItalic.ttf"; sourceTree = "<group>"; };
+		BAA4C425234670F500F7E420 /* Prompt-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-BoldItalic.ttf"; sourceTree = "<group>"; };
+		BAA4C426234670F500F7E420 /* Prompt-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Medium.ttf"; sourceTree = "<group>"; };
+		BAA4C427234670F500F7E420 /* Prompt-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Light.ttf"; sourceTree = "<group>"; };
+		BAA4C428234670F500F7E420 /* Prompt-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-ExtraBold.ttf"; sourceTree = "<group>"; };
+		BAA4C429234670F500F7E420 /* Prompt-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Thin.ttf"; sourceTree = "<group>"; };
+		BAA4C42A234670F500F7E420 /* Prompt-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-LightItalic.ttf"; sourceTree = "<group>"; };
+		BAA4C42B234670F500F7E420 /* Prompt-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Bold.ttf"; sourceTree = "<group>"; };
+		BAA4C42C234670F500F7E420 /* Prompt-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-SemiBold.ttf"; sourceTree = "<group>"; };
+		BAA4C42D234670F500F7E420 /* Prompt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Regular.ttf"; sourceTree = "<group>"; };
+		BAA4C42E234670F500F7E420 /* Prompt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		BAA4C42F234670F500F7E420 /* Prompt-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		BAA4C430234670F500F7E420 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		BAA4C431234670F500F7E420 /* Prompt-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		BAA4C432234670F500F7E420 /* Prompt-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Italic.ttf"; sourceTree = "<group>"; };
+		BAA4C433234670F500F7E420 /* Prompt-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Black.ttf"; sourceTree = "<group>"; };
+		BAA4C4492346720D00F7E420 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		BAD30667234650CE002335CF /* Newspaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newspaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD3067D234650CF002335CF /* NewspaperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewspaperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD30681234650CF002335CF /* NewspaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewspaperTests.swift; sourceTree = "<group>"; };
@@ -154,6 +196,7 @@
 		BA46C559234652BD00FC1E0D /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				BAA4C41F234670F500F7E420 /* Fonts */,
 				BA46C55A234652BD00FC1E0D /* Assets.xcassets */,
 				BA46C55B234652BD00FC1E0D /* LaunchScreen.storyboard */,
 				BA46C55F234652BD00FC1E0D /* Info.plist */,
@@ -227,6 +270,7 @@
 		BA46C56E234652BD00FC1E0D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				BAA4C41D2346703D00F7E420 /* Fonts.swift */,
 				BA8F5AFE23465619009E266E /* Colors.swift */,
 				BA8F5AFD23465619009E266E /* Images.swift */,
 				BA8F5AFF23465619009E266E /* Storyboards.swift */,
@@ -240,7 +284,7 @@
 		BA46C571234652BD00FC1E0D /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				BA46C572234652BD00FC1E0D /* LoginVC.swift */,
+				BAA4C41C23466A8E00F7E420 /* Auth */,
 				BA46C573234652BD00FC1E0D /* Main.storyboard */,
 			);
 			path = Module;
@@ -269,6 +313,49 @@
 				BA46C579234652BD00FC1E0D /* NPRoute.swift */,
 			);
 			path = Newspaper;
+			sourceTree = "<group>";
+		};
+		BAA4C41C23466A8E00F7E420 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BA46C572234652BD00FC1E0D /* LoginVC.swift */,
+				BAA4C4492346720D00F7E420 /* AuthVC.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		BAA4C41F234670F500F7E420 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BAA4C420234670F500F7E420 /* Prompt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BAA4C420234670F500F7E420 /* Prompt */ = {
+			isa = PBXGroup;
+			children = (
+				BAA4C421234670F500F7E420 /* Prompt-ThinItalic.ttf */,
+				BAA4C422234670F500F7E420 /* Prompt-BlackItalic.ttf */,
+				BAA4C423234670F500F7E420 /* Prompt-ExtraLight.ttf */,
+				BAA4C424234670F500F7E420 /* Prompt-MediumItalic.ttf */,
+				BAA4C425234670F500F7E420 /* Prompt-BoldItalic.ttf */,
+				BAA4C426234670F500F7E420 /* Prompt-Medium.ttf */,
+				BAA4C427234670F500F7E420 /* Prompt-Light.ttf */,
+				BAA4C428234670F500F7E420 /* Prompt-ExtraBold.ttf */,
+				BAA4C429234670F500F7E420 /* Prompt-Thin.ttf */,
+				BAA4C42A234670F500F7E420 /* Prompt-LightItalic.ttf */,
+				BAA4C42B234670F500F7E420 /* Prompt-Bold.ttf */,
+				BAA4C42C234670F500F7E420 /* Prompt-SemiBold.ttf */,
+				BAA4C42D234670F500F7E420 /* Prompt-Regular.ttf */,
+				BAA4C42E234670F500F7E420 /* Prompt-ExtraLightItalic.ttf */,
+				BAA4C42F234670F500F7E420 /* Prompt-SemiBoldItalic.ttf */,
+				BAA4C430234670F500F7E420 /* OFL.txt */,
+				BAA4C431234670F500F7E420 /* Prompt-ExtraBoldItalic.ttf */,
+				BAA4C432234670F500F7E420 /* Prompt-Italic.ttf */,
+				BAA4C433234670F500F7E420 /* Prompt-Black.ttf */,
+			);
+			path = Prompt;
 			sourceTree = "<group>";
 		};
 		BAD3065E234650CE002335CF = {
@@ -445,10 +532,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA4C445234670F500F7E420 /* Prompt-Italic.ttf in Resources */,
+				BAA4C444234670F500F7E420 /* Prompt-ExtraBoldItalic.ttf in Resources */,
+				BAA4C443234670F500F7E420 /* OFL.txt in Resources */,
 				BA46C58A234652BD00FC1E0D /* Main.storyboard in Resources */,
+				BAA4C434234670F500F7E420 /* Prompt-ThinItalic.ttf in Resources */,
 				BA46C588234652BD00FC1E0D /* Localizable.strings in Resources */,
+				BAA4C435234670F500F7E420 /* Prompt-BlackItalic.ttf in Resources */,
+				BAA4C436234670F500F7E420 /* Prompt-ExtraLight.ttf in Resources */,
+				BAA4C442234670F500F7E420 /* Prompt-SemiBoldItalic.ttf in Resources */,
+				BAA4C43C234670F500F7E420 /* Prompt-Thin.ttf in Resources */,
+				BAA4C439234670F500F7E420 /* Prompt-Medium.ttf in Resources */,
+				BAA4C438234670F500F7E420 /* Prompt-BoldItalic.ttf in Resources */,
+				BAA4C43A234670F500F7E420 /* Prompt-Light.ttf in Resources */,
+				BAA4C43B234670F500F7E420 /* Prompt-ExtraBold.ttf in Resources */,
+				BAA4C43F234670F500F7E420 /* Prompt-SemiBold.ttf in Resources */,
+				BAA4C441234670F500F7E420 /* Prompt-ExtraLightItalic.ttf in Resources */,
+				BAA4C446234670F500F7E420 /* Prompt-Black.ttf in Resources */,
 				BA46C57B234652BD00FC1E0D /* Assets.xcassets in Resources */,
+				BAA4C43E234670F500F7E420 /* Prompt-Bold.ttf in Resources */,
+				BAA4C437234670F500F7E420 /* Prompt-MediumItalic.ttf in Resources */,
 				BA46C587234652BD00FC1E0D /* Colors.txt in Resources */,
+				BAA4C440234670F500F7E420 /* Prompt-Regular.ttf in Resources */,
+				BAA4C43D234670F500F7E420 /* Prompt-LightItalic.ttf in Resources */,
 				BA46C57C234652BD00FC1E0D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,7 +631,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SRCDIR=\"$PROJECT_DIR/Newspaper\"\n$PODS_ROOT/SwiftGen/bin/swiftgen storyboards -t scenes-swift4 \"$SRCDIR\" --output \"$SRCDIR/Constants/Storyboards.swift\"\n$PODS_ROOT/SwiftGen/bin/swiftgen xcassets -t swift4 \"$SRCDIR/Ressources/Assets.xcassets\" --output \"$SRCDIR/Constants/Images.swift\"\n$PODS_ROOT/SwiftGen/bin/swiftgen strings -t structured-swift4 \"$SRCDIR/Constants/Localizable.strings\" --output \"$SRCDIR/Constants/Strings.swift\"\n$PODS_ROOT/SwiftGen/bin/swiftgen colors -t swift4 \"$SRCDIR/Constants/Colors.txt\" --output \"$SRCDIR/Constants/Colors.swift\"\n";
+			shellScript = "SRCDIR=\"$PROJECT_DIR/Newspaper\"\n$PODS_ROOT/SwiftGen/bin/swiftgen storyboards -t scenes-swift4 \"$SRCDIR\" --output \"$SRCDIR/Constants/Storyboards.swift\"\n$PODS_ROOT/SwiftGen/bin/swiftgen xcassets -t swift4 \"$SRCDIR/Ressources/Assets.xcassets\" --output \"$SRCDIR/Constants/Images.swift\"\n$PODS_ROOT/SwiftGen/bin/swiftgen strings -t structured-swift4 \"$SRCDIR/Constants/Localizable.strings\" --output \"$SRCDIR/Constants/Strings.swift\"\n$PODS_ROOT/SwiftGen/bin/swiftgen colors -t swift4 \"$SRCDIR/Constants/Colors.txt\" --output \"$SRCDIR/Constants/Colors.swift\"\n$PODS_ROOT/SwiftGen/bin/swiftgen fonts -t swift4 \"$SRCDIR/Ressources/Fonts\" --output \"$SRCDIR/Constants/Fonts.swift\"\n";
 		};
 		BA8F5AFB2346558F009E266E /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -570,6 +676,7 @@
 				BAA4C40C23465C8D00F7E420 /* StatusMapper.swift in Sources */,
 				BAA4C40F23465C8D00F7E420 /* UsersMapper.swift in Sources */,
 				BA46C583234652BD00FC1E0D /* Sequence+Utils.swift in Sources */,
+				BAA4C44A2346720D00F7E420 /* AuthVC.swift in Sources */,
 				BA8F5B0323465619009E266E /* Storyboards.swift in Sources */,
 				BA46C58D234652BD00FC1E0D /* NPRoute.swift in Sources */,
 				BA46C589234652BD00FC1E0D /* LoginVC.swift in Sources */,
@@ -577,6 +684,7 @@
 				BA46C586234652BD00FC1E0D /* Environment.swift in Sources */,
 				BA46C58C234652BD00FC1E0D /* NPWebServiceClient.swift in Sources */,
 				BA46C580234652BD00FC1E0D /* Realm.swift in Sources */,
+				BAA4C41E2346703D00F7E420 /* Fonts.swift in Sources */,
 				BA46C582234652BD00FC1E0D /* Array+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
