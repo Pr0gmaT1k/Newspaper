@@ -1,27 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Auth" representedClassName="Auth" syncable="YES" codeGenerationType="class">
-        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exp" optional="YES" attributeType="String"/>
+        <attribute name="message" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="token" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Car" representedClassName="Car" syncable="YES" codeGenerationType="class">
-        <attribute name="code" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image" attributeType="String" syncable="YES"/>
-        <attribute name="make" attributeType="String" syncable="YES"/>
-        <attribute name="model" attributeType="String" syncable="YES"/>
-        <attribute name="ownerImage" attributeType="String" syncable="YES"/>
-        <attribute name="ownerName" attributeType="String" syncable="YES"/>
-        <attribute name="price" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="year" attributeType="String" syncable="YES"/>
+    <entity name="Post" representedClassName="Post" syncable="YES" codeGenerationType="class">
+        <attribute name="body" optional="YES" attributeType="String"/>
+        <attribute name="created_at" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="postDescription" optional="YES" attributeType="String">
+            <userInfo>
+                <entry key="JSONKeyPath" value="description"/>
+            </userInfo>
+        </attribute>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="updated_at" optional="YES" attributeType="String"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <userInfo>
+            <entry key="identityAttribute" value="id"/>
+        </userInfo>
     </entity>
-    <entity name="CarList" representedClassName="CarList" syncable="YES" codeGenerationType="class">
-        <attribute name="carImageBaseUrl" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="carOwnerBaseUrl" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="cars" toMany="YES" deletionRule="Nullify" destinationEntity="Car" syncable="YES"/>
+    <entity name="Posts" representedClassName="Posts" syncable="YES" codeGenerationType="class">
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post"/>
+    </entity>
+    <entity name="Status" representedClassName="Status" syncable="YES" codeGenerationType="class">
+        <attribute name="message" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="created_at" optional="YES" attributeType="String"/>
+        <attribute name="dni" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastname" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password_digest" optional="YES" attributeType="String"/>
+        <attribute name="updated_at" optional="YES" attributeType="String"/>
+        <userInfo>
+            <entry key="identityAttribute" value="id"/>
+        </userInfo>
+    </entity>
+    <entity name="Users" representedClassName="Users" syncable="YES" codeGenerationType="class">
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User"/>
     </entity>
     <elements>
-        <element name="Auth" positionX="-63" positionY="-18" width="128" height="60"/>
-        <element name="Car" positionX="-36" positionY="36" width="128" height="180"/>
-        <element name="CarList" positionX="-54" positionY="0" width="128" height="90"/>
+        <element name="Auth" positionX="-63" positionY="-27" width="128" height="103"/>
+        <element name="User" positionX="-27" positionY="27" width="128" height="163"/>
+        <element name="Users" positionX="-9" positionY="99" width="128" height="73"/>
+        <element name="Post" positionX="9" positionY="108" width="128" height="148"/>
+        <element name="Posts" positionX="-18" positionY="90" width="128" height="73"/>
+        <element name="Status" positionX="-18" positionY="99" width="128" height="73"/>
     </elements>
 </model>
