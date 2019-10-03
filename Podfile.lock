@@ -1,0 +1,63 @@
+PODS:
+  - Alamofire (4.9.0)
+  - KeychainAccess (3.2.0)
+  - Kingfisher (5.7.1)
+  - NetworkStack (0.1.6):
+    - Alamofire (~> 4.0)
+    - KeychainAccess (~> 3.1)
+    - RxSwift (~> 4.0)
+  - ObjectMapper (3.5.1)
+  - Realm (3.17.3):
+    - Realm/Headers (= 3.17.3)
+  - Realm/Headers (3.17.3)
+  - RealmSwift (3.17.3):
+    - Realm (= 3.17.3)
+  - Reusable (4.1.0):
+    - Reusable/Storyboard (= 4.1.0)
+    - Reusable/View (= 4.1.0)
+  - Reusable/Storyboard (4.1.0)
+  - Reusable/View (4.1.0)
+  - RxSwift (4.5.0)
+  - SwiftGen (6.1.0)
+  - SwiftLint (0.35.0)
+
+DEPENDENCIES:
+  - Kingfisher
+  - NetworkStack
+  - ObjectMapper
+  - RealmSwift
+  - Reusable
+  - RxSwift
+  - SwiftGen
+  - SwiftLint
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - KeychainAccess
+    - Kingfisher
+    - NetworkStack
+    - ObjectMapper
+    - Realm
+    - RealmSwift
+    - Reusable
+    - RxSwift
+    - SwiftGen
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
+  Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
+  NetworkStack: b3b64b19fb27bbe323a7f1b1ca18325df4fc4e2a
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
+  RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
+  Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
+  SwiftLint: 5553187048b900c91aa03552807681bb6b027846
+
+PODFILE CHECKSUM: 50488d9e0bb36d5b4a9f279f8e67305deddd2d3a
+
+COCOAPODS: 1.7.5

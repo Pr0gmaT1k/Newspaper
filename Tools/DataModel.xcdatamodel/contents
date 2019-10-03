@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Auth" representedClassName="Auth" syncable="YES" codeGenerationType="class">
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Car" representedClassName="Car" syncable="YES" codeGenerationType="class">
+        <attribute name="code" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" attributeType="String" syncable="YES"/>
+        <attribute name="make" attributeType="String" syncable="YES"/>
+        <attribute name="model" attributeType="String" syncable="YES"/>
+        <attribute name="ownerImage" attributeType="String" syncable="YES"/>
+        <attribute name="ownerName" attributeType="String" syncable="YES"/>
+        <attribute name="price" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="year" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CarList" representedClassName="CarList" syncable="YES" codeGenerationType="class">
+        <attribute name="carImageBaseUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="carOwnerBaseUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cars" toMany="YES" deletionRule="Nullify" destinationEntity="Car" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Auth" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Car" positionX="-36" positionY="36" width="128" height="180"/>
+        <element name="CarList" positionX="-54" positionY="0" width="128" height="90"/>
+    </elements>
+</model>
