@@ -19,7 +19,6 @@
 		BA46C586234652BD00FC1E0D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C56D234652BD00FC1E0D /* Environment.swift */; };
 		BA46C587234652BD00FC1E0D /* Colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA46C56F234652BD00FC1E0D /* Colors.txt */; };
 		BA46C588234652BD00FC1E0D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA46C570234652BD00FC1E0D /* Localizable.strings */; };
-		BA46C589234652BD00FC1E0D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C572234652BD00FC1E0D /* LoginVC.swift */; };
 		BA46C58A234652BD00FC1E0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA46C573234652BD00FC1E0D /* Main.storyboard */; };
 		BA46C58C234652BD00FC1E0D /* NPWebServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */; };
 		BA46C58D234652BD00FC1E0D /* NPRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C579234652BD00FC1E0D /* NPRoute.swift */; };
@@ -60,6 +59,8 @@
 		BAA4C445234670F500F7E420 /* Prompt-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C432234670F500F7E420 /* Prompt-Italic.ttf */; };
 		BAA4C446234670F500F7E420 /* Prompt-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA4C433234670F500F7E420 /* Prompt-Black.ttf */; };
 		BAA4C44A2346720D00F7E420 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C4492346720D00F7E420 /* AuthVC.swift */; };
+		BAA4C44C23467EB900F7E420 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C44B23467EB900F7E420 /* SignInVC.swift */; };
+		BAA4C44E23467EC900F7E420 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C44D23467EC900F7E420 /* SignUpVC.swift */; };
 		BAD30682234650CF002335CF /* NewspaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD30681234650CF002335CF /* NewspaperTests.swift */; };
 		BAD3068D234650CF002335CF /* NewspaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3068C234650CF002335CF /* NewspaperUITests.swift */; };
 /* End PBXBuildFile section */
@@ -109,7 +110,6 @@
 		BA46C56D234652BD00FC1E0D /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		BA46C56F234652BD00FC1E0D /* Colors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Colors.txt; sourceTree = "<group>"; };
 		BA46C570234652BD00FC1E0D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		BA46C572234652BD00FC1E0D /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		BA46C573234652BD00FC1E0D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPWebServiceClient.swift; sourceTree = "<group>"; };
 		BA46C579234652BD00FC1E0D /* NPRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPRoute.swift; sourceTree = "<group>"; };
@@ -150,6 +150,8 @@
 		BAA4C432234670F500F7E420 /* Prompt-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Italic.ttf"; sourceTree = "<group>"; };
 		BAA4C433234670F500F7E420 /* Prompt-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Black.ttf"; sourceTree = "<group>"; };
 		BAA4C4492346720D00F7E420 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		BAA4C44B23467EB900F7E420 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		BAA4C44D23467EC900F7E420 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		BAD30667234650CE002335CF /* Newspaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newspaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD3067D234650CF002335CF /* NewspaperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewspaperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD30681234650CF002335CF /* NewspaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewspaperTests.swift; sourceTree = "<group>"; };
@@ -318,8 +320,9 @@
 		BAA4C41C23466A8E00F7E420 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				BA46C572234652BD00FC1E0D /* LoginVC.swift */,
 				BAA4C4492346720D00F7E420 /* AuthVC.swift */,
+				BAA4C44B23467EB900F7E420 /* SignInVC.swift */,
+				BAA4C44D23467EC900F7E420 /* SignUpVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -676,10 +679,11 @@
 				BAA4C40C23465C8D00F7E420 /* StatusMapper.swift in Sources */,
 				BAA4C40F23465C8D00F7E420 /* UsersMapper.swift in Sources */,
 				BA46C583234652BD00FC1E0D /* Sequence+Utils.swift in Sources */,
+				BAA4C44C23467EB900F7E420 /* SignInVC.swift in Sources */,
 				BAA4C44A2346720D00F7E420 /* AuthVC.swift in Sources */,
 				BA8F5B0323465619009E266E /* Storyboards.swift in Sources */,
+				BAA4C44E23467EC900F7E420 /* SignUpVC.swift in Sources */,
 				BA46C58D234652BD00FC1E0D /* NPRoute.swift in Sources */,
-				BA46C589234652BD00FC1E0D /* LoginVC.swift in Sources */,
 				BA8F5B0223465619009E266E /* Colors.swift in Sources */,
 				BA46C586234652BD00FC1E0D /* Environment.swift in Sources */,
 				BA46C58C234652BD00FC1E0D /* NPWebServiceClient.swift in Sources */,

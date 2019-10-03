@@ -13,10 +13,20 @@ import Foundation
 internal enum L10n {
   /// todos los derechos reservados Jumpittlabs 2019
   internal static let copyright = L10n.tr("Localizable", "Copyright")
+  /// Correo electrónico
+  internal static let email = L10n.tr("Localizable", "Email")
+  /// RUT
+  internal static let idNumber = L10n.tr("Localizable", "IDNumber")
+  /// Nombre
+  internal static let name = L10n.tr("Localizable", "Name")
+  /// Contraseña
+  internal static let password = L10n.tr("Localizable", "Password")
   /// Ingresar
   internal static let signIn = L10n.tr("Localizable", "SignIn")
   /// Crear cuenta
   internal static let signUp = L10n.tr("Localizable", "SignUp")
+  /// Apellido
+  internal static let surname = L10n.tr("Localizable", "Surname")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

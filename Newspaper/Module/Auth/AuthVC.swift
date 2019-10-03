@@ -14,6 +14,15 @@ final class AuthVC: UIViewController {
     @IBOutlet private weak var signInButton: UIButton!
     @IBOutlet private weak var signUpButton: UIButton!
     
+    // MARK:- IBActions
+    @IBAction func signInDidTap(_ sender: Any) {
+        self.navigationController?.pushViewController(StoryboardScene.Main.signInVC.instantiate(), animated: true)
+    }
+    
+    @IBAction func signUpDidTap(_ sender: Any) {
+        self.navigationController?.pushViewController(StoryboardScene.Main.signUpVC.instantiate(), animated: true)
+    }
+    
     // MARK:- Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
