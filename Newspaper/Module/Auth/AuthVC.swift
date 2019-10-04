@@ -16,11 +16,11 @@ final class AuthVC: UIViewController {
     
     // MARK:- IBActions
     @IBAction func signInDidTap(_ sender: Any) {
-        self.navigationController?.pushViewController(StoryboardScene.Main.signInVC.instantiate(), animated: true)
+        self.navigationController?.pushViewController(StoryboardScene.Auth.signInVC.instantiate(), animated: true)
     }
     
     @IBAction func signUpDidTap(_ sender: Any) {
-        self.navigationController?.pushViewController(StoryboardScene.Main.signUpVC.instantiate(), animated: true)
+        self.navigationController?.pushViewController(StoryboardScene.Auth.signUpVC.instantiate(), animated: true)
     }
     
     // MARK:- Funcs
