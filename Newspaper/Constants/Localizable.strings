@@ -8,3 +8,5 @@
 "Name" = "Nombre";
 "Surname" = "Apellido";
 "IDNumber" = "RUT";
+"Start" = "Comenzar";
+"CratedAccount" = "Cuenta creada";

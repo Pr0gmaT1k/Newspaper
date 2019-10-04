@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol SignUpVCDelegate: class {
+    func registerButtonDidTap(name: String, lastName: String, dni: String, email: String, pwd: String, pwdConfirmation: String)
+}
+
 final class SignUpVC: UIViewController {
     // MARK:- Properties
+    weak var delegate: SignUpVCDelegate?
     
     // MARK:- IBOutlets
     @IBOutlet private weak var titleLabel: UILabel!
@@ -27,7 +32,14 @@ final class SignUpVC: UIViewController {
     }
     
     @IBAction func registerButtonDidTouch(_ sender: Any) {
-        
+        guard let name = nameTextField.text,
+            let lastname = surnameTextField.text,
+            let email = emailTextField.text,
+            let dni = rutTextField.text,
+            let pwd = passwordTextField.text else { return }
+        // WARNING: The API require pwd confirmation but there is no textfield in relation on the zeplin design.
+        // I choose to be conform to the design.
+        delegate?.registerButtonDidTap(name: name, lastName: lastname, dni: dni, email: email, pwd: pwd, pwdConfirmation: pwd)
     }
     
     @IBAction func showPwdDidTouch(_ sender: Any) {

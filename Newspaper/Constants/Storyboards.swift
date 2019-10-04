@@ -15,13 +15,18 @@ internal enum StoryboardScene {
   internal enum Auth: StoryboardType {
     internal static let storyboardName = "Auth"
 
-    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Auth.self)
-
     internal static let authVC = SceneType<Newspaper.AuthVC>(storyboard: Auth.self, identifier: "AuthVC")
+
+    internal static let registeredVC = SceneType<Newspaper.RegisteredVC>(storyboard: Auth.self, identifier: "RegisteredVC")
 
     internal static let signInVC = SceneType<Newspaper.SignInVC>(storyboard: Auth.self, identifier: "SignInVC")
 
     internal static let signUpVC = SceneType<Newspaper.SignUpVC>(storyboard: Auth.self, identifier: "SignUpVC")
+  }
+  internal enum Feed: StoryboardType {
+    internal static let storyboardName = "Feed"
+
+    internal static let feedVC = SceneType<Newspaper.FeedVC>(storyboard: Feed.self, identifier: "FeedVC")
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"

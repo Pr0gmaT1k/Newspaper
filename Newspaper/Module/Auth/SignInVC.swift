@@ -7,11 +7,14 @@
 //
 
 import UIKit
-import RxSwift
+
+protocol SignInVCDelegate: class {
+    func signInButtonDidTap(email: String, pwd: String)
+}
 
 final class SignInVC: UIViewController {
     // MARK:- Properties
-    private let bag = DisposeBag()
+    weak var delegate: SignInVCDelegate?
     
     // MARK:- IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -29,7 +32,9 @@ final class SignInVC: UIViewController {
     }
     
     @IBAction func signInButtonDidTouch(_ sender: Any) {
-        
+        // Should be move in a coordinator
+        guard let email = emailTextField.text, let pwd = passwordTextField.text else { return }
+        delegate?.signInButtonDidTap(email: email, pwd: pwd)
     }
     
     // MARK:- Funcs

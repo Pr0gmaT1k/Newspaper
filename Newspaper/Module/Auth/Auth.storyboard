@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Qf-7J-Rid">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -58,7 +58,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Oza-kf-leG">
                                         <rect key="frame" x="16" y="0.0" width="320" height="56"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                 </subviews>
@@ -77,7 +77,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="lof-BN-Tmc">
                                         <rect key="frame" x="16" y="0.0" width="292" height="56"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGZ-ZT-fnT">
@@ -168,7 +168,7 @@
                                                             <constraint firstAttribute="height" constant="56" id="jFo-tn-yMQ"/>
                                                         </constraints>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" textContentType="name"/>
                                                     </textField>
                                                 </subviews>
@@ -190,7 +190,7 @@
                                                             <constraint firstAttribute="height" constant="56" id="01x-3W-hv2"/>
                                                         </constraints>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                                     </textField>
                                                 </subviews>
@@ -241,7 +241,7 @@
                                                             <constraint firstAttribute="height" constant="56" id="aeb-1V-cZg"/>
                                                         </constraints>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHk-Zp-jER">
@@ -289,7 +289,7 @@
                                                             <constraint firstAttribute="height" constant="56" id="5mf-O6-RKM"/>
                                                         </constraints>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
@@ -311,7 +311,7 @@
                                                             <constraint firstAttribute="height" constant="56" id="h1a-Yl-zjT"/>
                                                         </constraints>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" textContentType="family-name"/>
                                                     </textField>
                                                 </subviews>
@@ -399,7 +399,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-OF-1qh">
-                                <rect key="frame" x="15" y="215.49999999999997" width="384" height="237.50000000000009"/>
+                                <rect key="frame" x="15" y="215.5" width="384" height="237.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iiq-OF-1qh" secondAttribute="height" multiplier="383 :237" id="PLc-K1-f6e"/>
                                 </constraints>
@@ -492,26 +492,93 @@
             </objects>
             <point key="canvasLocation" x="884.05797101449286" y="-64.285714285714278"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="0ej-Ay-LWM">
+        <!--RegisteredVC-->
+        <scene sceneID="YVE-Rg-zjZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="9Qf-7J-Rid" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z96-MR-qpd">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController storyboardIdentifier="RegisteredVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XZd-eL-Blc" customClass="RegisteredVC" customModule="Newspaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zlU-GT-5GR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9" translatesAutoresizingMaskIntoConstraints="NO" id="ehb-t2-hYZ">
+                                <rect key="frame" x="0.0" y="136" width="414" height="317"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ehb-t2-hYZ" secondAttribute="height" multiplier="414:317" id="EwI-mC-2ry"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTm-fm-5FA">
+                                <rect key="frame" x="20" y="64" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="C2O-bj-fbQ"/>
+                                    <constraint firstAttribute="width" constant="25" id="R5Z-vf-i4z"/>
+                                </constraints>
+                                <state key="normal" image="ArrowBack"/>
+                                <connections>
+                                    <action selector="backButtonDidTap:" destination="XZd-eL-Blc" eventType="touchUpInside" id="7o5-de-QaQ"/>
+                                    <action selector="backButtonDidTouch:" destination="DN6-wQ-VXB" eventType="touchUpInside" id="TyP-xl-Yhh"/>
+                                    <action selector="backButtonDidTouch:" destination="DNm-qq-KIY" eventType="touchUpInside" id="rsc-69-RfF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCY-Rj-c9U">
+                                <rect key="frame" x="20" y="485" width="374" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="oUI-Xz-NMg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6g-6K-3zd">
+                                <rect key="frame" x="76" y="569" width="262" height="56"/>
+                                <color key="backgroundColor" red="0.38431372549999998" green="0.0" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Ex0-T6-pSS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-SemiBold" family="Prompt" pointSize="14"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerButtonDidTouch:" destination="DNm-qq-KIY" eventType="touchUpInside" id="BGP-yt-e9K"/>
+                                    <action selector="signInButtonDidTouch:" destination="DN6-wQ-VXB" eventType="touchUpInside" id="v2v-6o-i3l"/>
+                                    <action selector="startButtonDidTap:" destination="XZd-eL-Blc" eventType="touchUpInside" id="EKn-Tm-Cl9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="O6g-6K-3zd" firstAttribute="top" secondItem="bCY-Rj-c9U" secondAttribute="bottom" constant="39" id="4aA-0o-wtd"/>
+                            <constraint firstItem="Pjp-V9-4De" firstAttribute="trailing" secondItem="ehb-t2-hYZ" secondAttribute="trailing" id="8Qv-cd-RNe"/>
+                            <constraint firstItem="bCY-Rj-c9U" firstAttribute="top" secondItem="ehb-t2-hYZ" secondAttribute="bottom" constant="32" id="CBh-v4-ZOx"/>
+                            <constraint firstItem="qTm-fm-5FA" firstAttribute="top" secondItem="Pjp-V9-4De" secondAttribute="top" constant="20" id="Cdc-EX-ew6"/>
+                            <constraint firstItem="O6g-6K-3zd" firstAttribute="leading" secondItem="Pjp-V9-4De" secondAttribute="leading" constant="76" id="DXR-i9-l8R"/>
+                            <constraint firstItem="Pjp-V9-4De" firstAttribute="trailing" secondItem="O6g-6K-3zd" secondAttribute="trailing" constant="76" id="LaN-MY-bEI"/>
+                            <constraint firstItem="bCY-Rj-c9U" firstAttribute="leading" secondItem="Pjp-V9-4De" secondAttribute="leading" constant="20" id="NWI-Rx-v8v"/>
+                            <constraint firstItem="Pjp-V9-4De" firstAttribute="centerY" secondItem="ehb-t2-hYZ" secondAttribute="bottom" id="XUY-QC-cEJ"/>
+                            <constraint firstItem="ehb-t2-hYZ" firstAttribute="leading" secondItem="Pjp-V9-4De" secondAttribute="leading" id="Z6y-v5-x60"/>
+                            <constraint firstItem="Pjp-V9-4De" firstAttribute="trailing" secondItem="bCY-Rj-c9U" secondAttribute="trailing" constant="20" id="btm-Cj-Jmd"/>
+                            <constraint firstItem="qTm-fm-5FA" firstAttribute="leading" secondItem="Pjp-V9-4De" secondAttribute="leading" constant="20" id="plP-43-vG5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Pjp-V9-4De"/>
+                    </view>
                     <connections>
-                        <segue destination="K3X-m7-hbD" kind="relationship" relationship="rootViewController" id="4b6-g4-asg"/>
+                        <outlet property="startButton" destination="O6g-6K-3zd" id="e84-k9-WYt"/>
+                        <outlet property="titleLabel" destination="bCY-Rj-c9U" id="IdG-iP-UIo"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uc2-8E-l1E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gP-vp-1eW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26.086956521739133" y="-64.285714285714278"/>
+            <point key="canvasLocation" x="3247.826086956522" y="-64.285714285714278"/>
         </scene>
     </scenes>
     <resources>
         <image name="3" width="383" height="237"/>
+        <image name="9" width="414" height="322"/>
         <image name="ArrowBack" width="96" height="96"/>
         <image name="newspaper" width="280" height="47"/>
         <image name="showPwd" width="170.66667175292969" height="170.66667175292969"/>

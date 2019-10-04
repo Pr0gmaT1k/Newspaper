@@ -13,6 +13,8 @@ import Foundation
 internal enum L10n {
   /// todos los derechos reservados Jumpittlabs 2019
   internal static let copyright = L10n.tr("Localizable", "Copyright")
+  /// Cuenta creada
+  internal static let cratedAccount = L10n.tr("Localizable", "CratedAccount")
   /// Correo electrónico
   internal static let email = L10n.tr("Localizable", "Email")
   /// RUT
@@ -25,6 +27,8 @@ internal enum L10n {
   internal static let signIn = L10n.tr("Localizable", "SignIn")
   /// Crear cuenta
   internal static let signUp = L10n.tr("Localizable", "SignUp")
+  /// Comenzar
+  internal static let start = L10n.tr("Localizable", "Start")
   /// Apellido
   internal static let surname = L10n.tr("Localizable", "Surname")
 }

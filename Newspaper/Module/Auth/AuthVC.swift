@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol AuthVCDelegate: class {
+    func authVCSignInButtonDidTap()
+    func authVCSignUpButtonDidTap()
+}
+
 final class AuthVC: UIViewController {
+    // MARK:- Properties
+    weak var delegate: AuthVCDelegate?
+    
     // MARK:- IBOutlets
     @IBOutlet private weak var copyrightLabel: UILabel!
     @IBOutlet private weak var signInButton: UIButton!
@@ -16,11 +24,11 @@ final class AuthVC: UIViewController {
     
     // MARK:- IBActions
     @IBAction func signInDidTap(_ sender: Any) {
-        self.navigationController?.pushViewController(StoryboardScene.Auth.signInVC.instantiate(), animated: true)
+        delegate?.authVCSignInButtonDidTap()
     }
     
     @IBAction func signUpDidTap(_ sender: Any) {
-        self.navigationController?.pushViewController(StoryboardScene.Auth.signUpVC.instantiate(), animated: true)
+        delegate?.authVCSignUpButtonDidTap()
     }
     
     // MARK:- Funcs

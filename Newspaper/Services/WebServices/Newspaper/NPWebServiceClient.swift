@@ -13,20 +13,35 @@ import ObjectMapper
 
 final class NPWebServiceClient {
     // MARK: - Properties
-    fileprivate static let keychainService = KeychainService(serviceType: Environment.Newspaper.appName)
-    fileprivate static let networkStack = NetworkStack(baseURL: Environment.Newspaper.baseURL,
-                                                       keychainService: keychainService)
-    
-    private static let emailKey = "email"
-    private static let pwdKey = "password"
+    private static let keychainService = KeychainService(serviceType: Environment.Newspaper.appName)
+    private static let networkStack = NetworkStack(baseURL: Environment.Newspaper.baseURL, keychainService: keychainService)
+    public static var isLogged: Bool {
+        // TODO: Verify is the token is expired
+        //return self.keychainService.accessToken != nil
+        return false
+    }
     
     // MARK: - Services
-    func auth(email: String, pwd: String) -> Observable<Auth?> {
-        let requestParameters = RequestParameters(method: .post, route: NPRoute.signIn, parameters: [NPWebServiceClient.emailKey: email, NPWebServiceClient.pwdKey: pwd])
+    func auth(email: String, pwd: String) -> Observable<Void> {
+        let requestParameters = RequestParameters(method: .post, route: NPRoute.signIn, parameters: [JSONKeys.email: email, JSONKeys.pwd: pwd])
         
-        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Auth? in
-            print("\(json)")
-            return Mapper<Auth>().map(JSONObject: json)
+        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Void in
+            let auth = Mapper<Auth>().map(JSONObject: json)
+            NPWebServiceClient.keychainService.accessToken = auth?.token
+        }
+    }
+    
+    func register(name: String,
+                  lastname: String,
+                  dni: String,
+                  email: String,
+                  pwd: String,
+                  pwdConfimation: String) -> Observable<Void> {
+        let requestParameters = RequestParameters(method: .post, route: NPRoute.signUp, parameters: [JSONKeys.dni: dni, JSONKeys.name: name, JSONKeys.lastName: lastname, JSONKeys.email: email, JSONKeys.pwd: pwd, JSONKeys.pwdConfirmation: pwdConfimation])
+        
+        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Void in
+            let auth = Mapper<Auth>().map(JSONObject: json)
+            NPWebServiceClient.keychainService.accessToken = auth?.token
         }
     }
 }
