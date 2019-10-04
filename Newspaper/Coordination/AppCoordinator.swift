@@ -12,32 +12,28 @@ import UIKit
 
 final class AppCoordinator: CoordinatorPresentable {
     
-    typealias ViewController = UIViewController
     var childCoordinators: [Coordinator] = []
-    var rootViewController: ViewController
-    private var appWindow: UIWindow
+    var rootViewController = UIViewController()
     
     init(window: UIWindow) {
-        appWindow = window
-        if NPWebServiceClient.isLogged {
-            let coordinator = FeedCoordinator()
-            rootViewController = coordinator.rootViewController
-            addChildCoordinator(coordinator)
-            coordinator.start()
-            appWindow.rootViewController = rootViewController
-            coordinator.delegate = self
-        } else {
-            let coordinator = AuthCoordinator()
-            rootViewController = coordinator.rootViewController
-            addChildCoordinator(coordinator)
-            coordinator.start()
-            appWindow.rootViewController = rootViewController
-            coordinator.delegate = self
-        }
+        self.rootViewController.view.backgroundColor = .white
+        window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
     
-    func start() {}
+    func start() {
+        if NPWebServiceClient.isLogged {
+            let coordinator = FeedCoordinator()
+            coordinator.delegate = self
+            presentCoordinator(coordinator, animated: false)
+            coordinator.start()
+        } else {
+            let coordinator = AuthCoordinator()
+            coordinator.delegate = self
+            presentCoordinator(coordinator, animated: false)
+            coordinator.start()
+        }
+    }
 }
 
 
@@ -45,11 +41,9 @@ final class AppCoordinator: CoordinatorPresentable {
 extension AppCoordinator: AuthCoordinatorDelegate {
     func authCoordinatorDidFinish(_ coordinator: AuthCoordinator) {
         dismissCoordinator(coordinator, animated: true)
-        let feedCoordinator = FeedCoordinator()
-        appWindow.rootViewController = feedCoordinator.rootViewController
-        rootViewController = feedCoordinator.rootViewController
-        addChildCoordinator(feedCoordinator)
-        feedCoordinator.start()
+        let feedcoordinator = FeedCoordinator()
+        presentCoordinator(feedcoordinator, animated: true)
+        feedcoordinator.delegate = self
     }
 }
 

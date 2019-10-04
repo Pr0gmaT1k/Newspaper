@@ -37,7 +37,7 @@ final class NPWebServiceClient {
                   email: String,
                   pwd: String,
                   pwdConfimation: String) -> Observable<Void> {
-        let requestParameters = RequestParameters(method: .post, route: NPRoute.signUp, parameters: [JSONKeys.dni: dni, JSONKeys.name: name, JSONKeys.lastName: lastname, JSONKeys.email: email, JSONKeys.pwd: pwd, JSONKeys.pwdConfirmation: pwdConfimation])
+        let requestParameters = RequestParameters(method: .post, route: NPRoute.signUp, parameters: [JSONKeys.user: [JSONKeys.dni: dni, JSONKeys.name: name, JSONKeys.lastName: lastname, JSONKeys.email: email, JSONKeys.pwd: pwd, JSONKeys.pwdConfirmation: pwdConfimation]])
         
         return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Void in
             let auth = Mapper<Auth>().map(JSONObject: json)

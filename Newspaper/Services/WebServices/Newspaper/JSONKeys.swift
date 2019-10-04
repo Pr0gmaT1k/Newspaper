@@ -7,6 +7,7 @@
 //
 
 struct JSONKeys {
+    static let user = "user"
     static let email = "email"
     static let pwd = "password"
     static let dni = "dni"

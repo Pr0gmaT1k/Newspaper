@@ -31,6 +31,8 @@ final class AuthCoordinator: CoordinatorNavigable {
         navigationController.navigationBar.isHidden = true
         self.navigator = Navigator(navigationController: navigationController)
         self.rootViewController = navigationController
+        self.rootViewController.modalPresentationStyle = .fullScreen
+        self.rootViewController.modalTransitionStyle = .crossDissolve
         authVC.delegate = self
     }
     
@@ -54,6 +56,14 @@ final class AuthCoordinator: CoordinatorNavigable {
             }
         }.disposed(by: bag)
     }
+    
+    private func signInThenEndCoordinator(email: String, pwd: String) {
+        signIn(email: email, pwd: pwd) { sucess in
+            if sucess {
+                self.delegate?.authCoordinatorDidFinish(self)
+            }
+        }
+    }
 }
 
 // MARK:- AuthVC Delegate
@@ -74,32 +84,26 @@ extension AuthCoordinator: AuthVCDelegate {
 // MARK:- SIGNIN VC Delegate
 extension AuthCoordinator: SignInVCDelegate {
     func signInButtonDidTap(email: String, pwd: String) {
-        signIn(email: email, pwd: pwd) { sucess in
-            if sucess {
-                self.delegate?.authCoordinatorDidFinish(self)
-            }
-        }
+        self.signInThenEndCoordinator(email: email, pwd: pwd)
     }
 }
 
 // MARK:- SIGNUP VC Delegate
 extension AuthCoordinator: SignUpVCDelegate {
     func registerButtonDidTap(name: String,
-                              lastName: String,
-                              dni email: String,
-                              email dni: String,
-                              pwd: String,
-                              pwdConfirmation: String) {
+                               lastName: String,
+                               dni: String,
+                               email: String,
+                               pwd: String,
+                               pwdConfirmation: String) {
         wsClient.register(name: name, lastname: lastName, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfirmation)
             .observeOn(MainScheduler.instance)
-            .subscribe { event in
+            .subscribe { [weak self] event in
                 switch event {
                 case .completed: break
                 case .error(let error): print(error)
                 case .next:
-                    let vc = StoryboardScene.Auth.registeredVC.instantiate()
-                    vc.delegate = self
-                    self.rootViewController.pushViewController(vc, animated: true)
+                    self?.signInThenEndCoordinator(email: email, pwd: pwd)
                 }
         }.disposed(by: bag)
     }

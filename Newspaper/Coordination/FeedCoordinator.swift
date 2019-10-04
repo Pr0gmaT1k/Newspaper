@@ -29,9 +29,9 @@ final class FeedCoordinator: CoordinatorNavigable {
         navigationController.navigationBar.isHidden = true
         self.navigator = Navigator(navigationController: navigationController)
         self.rootViewController = navigationController
+        self.rootViewController.modalPresentationStyle = .fullScreen
+        self.rootViewController.modalTransitionStyle = .crossDissolve
     }
     
-    func start() {
-        
-    }
+    func start() {}
 }
