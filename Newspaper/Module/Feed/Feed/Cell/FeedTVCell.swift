@@ -19,7 +19,7 @@ final class FeedTVCell: UITableViewCell, NibReusable {
     func fill(post: Post?) {
         titleLabel.text = post?.title
         descriptionLabel.text = post?.postDescription
-        let randomNumber = arc4random_uniform(23) + 1
+        let randomNumber = Int.random(in: 1...23)
         imageCell.image = UIImage(named: "\(randomNumber)")
     }
 }

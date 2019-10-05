@@ -33,6 +33,8 @@ internal enum L10n {
   internal static let surname = L10n.tr("Localizable", "Surname")
 
   internal enum Feed {
+    /// Agregar
+    internal static let addPost = L10n.tr("Localizable", "feed.addPost")
     internal enum Header {
       /// Mi feed
       internal static let title = L10n.tr("Localizable", "feed.header.title")

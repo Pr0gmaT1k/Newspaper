@@ -72,6 +72,10 @@ extension FeedCoordinator: FeedVCDelegate {
             }
         }.disposed(by: bag)
     }
+    
+    func addpost() {
+        
+    }
 }
 
 // MARK:- ProfileVC Delegate

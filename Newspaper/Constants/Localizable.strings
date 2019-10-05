@@ -20,3 +20,4 @@
 
 // MARK: Feed
 "feed.header.title" = "Mi feed";
+"feed.addPost" = "Agregar";

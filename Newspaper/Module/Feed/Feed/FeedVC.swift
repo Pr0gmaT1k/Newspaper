@@ -11,6 +11,7 @@ import UIKit
 // MARK:- Delegate
 protocol FeedVCDelegate: class {
     func requestposts(vc: FeedVC)
+    func addpost()
 }
 
 // MARK:- Class
@@ -22,7 +23,14 @@ final class FeedVC: UIViewController {
     private var photoSource: [UIImage]?
     
     // MARK:- IBOutlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var addPostButton: UIButton!
+    
+    // MARK:- IBActions
+    @IBAction func addPostButtonDidTap(_ sender: Any) {
+        delegate?.addpost()
+    }
+    
     
     // MARK:- Funcs
     override func viewDidLoad() {
@@ -31,6 +39,7 @@ final class FeedVC: UIViewController {
         self.tableView.dataSource = self
         self.tableView.rowHeight = self.tableView.frame.width / FeedVC.cellRatio
         self.tableView.register(cellType: FeedTVCell.self)
+        self.addPostButton.setTitle(L10n.Feed.addPost, for: .normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {

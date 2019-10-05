@@ -187,19 +187,46 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5G-FD-oWg">
+                                <rect key="frame" x="240" y="739" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.011764705882352941" green="0.85490196078431369" blue="0.76862745098039209" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="V8o-iZ-r4q"/>
+                                    <constraint firstAttribute="width" constant="150" id="cjs-mP-ciu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-SemiBold" family="Prompt" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="plus" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addPostButtonDidTap:" destination="ZiU-yG-CxK" eventType="touchUpInside" id="6w9-wj-obZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="RmX-fv-74E" firstAttribute="trailing" secondItem="2WK-fi-LW2" secondAttribute="trailing" id="0c4-AH-zNp"/>
+                            <constraint firstItem="RmX-fv-74E" firstAttribute="trailing" secondItem="D5G-FD-oWg" secondAttribute="trailing" constant="24" id="55i-5t-EC8"/>
+                            <constraint firstItem="RmX-fv-74E" firstAttribute="bottom" secondItem="D5G-FD-oWg" secondAttribute="bottom" constant="24" id="6JA-cq-iI4"/>
                             <constraint firstItem="2WK-fi-LW2" firstAttribute="leading" secondItem="RmX-fv-74E" secondAttribute="leading" id="KWz-m5-Y8E"/>
                             <constraint firstItem="RmX-fv-74E" firstAttribute="bottom" secondItem="2WK-fi-LW2" secondAttribute="bottom" id="Pay-iY-8lI"/>
                             <constraint firstItem="2WK-fi-LW2" firstAttribute="top" secondItem="RmX-fv-74E" secondAttribute="top" id="ehg-gE-GqL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RmX-fv-74E"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="2WK-fi-LW2"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" image="heart.fill" catalog="system" id="X9j-oL-3Bq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addPostButton" destination="D5G-FD-oWg" id="y6b-3r-4Lh"/>
                         <outlet property="tableView" destination="2WK-fi-LW2" id="8X8-mi-sDC"/>
                     </connections>
                 </viewController>
@@ -226,5 +253,6 @@
         <image name="command" catalog="system" width="64" height="58"/>
         <image name="heart.fill" catalog="system" width="64" height="58"/>
         <image name="person.circle.fill" catalog="system" width="64" height="62"/>
+        <image name="plus" catalog="system" width="64" height="58"/>
     </resources>
 </document>
