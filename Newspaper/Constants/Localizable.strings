@@ -1,4 +1,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 // MARK: Common
-"toto" = "toto";
-
+"Copyright" = "todos los derechos reservados Jumpittlabs 2019";
+"SignIn" = "Ingresar";
+"SignUp" = "Crear cuenta";
+"Email" = "Correo electrónico";
+"Password" = "Contraseña";
+"Name" = "Nombre";
+"Surname" = "Apellido";
+"IDNumber" = "RUT";
+"Start" = "Comenzar";
+"CratedAccount" = "Cuenta creada";

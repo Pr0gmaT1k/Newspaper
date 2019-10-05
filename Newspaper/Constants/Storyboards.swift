@@ -12,17 +12,26 @@ import UIKit
 
 // swiftlint:disable explicit_type_interface identifier_name line_length type_body_length type_name
 internal enum StoryboardScene {
+  internal enum Auth: StoryboardType {
+    internal static let storyboardName = "Auth"
+
+    internal static let authVC = SceneType<Newspaper.AuthVC>(storyboard: Auth.self, identifier: "AuthVC")
+
+    internal static let registeredVC = SceneType<Newspaper.RegisteredVC>(storyboard: Auth.self, identifier: "RegisteredVC")
+
+    internal static let signInVC = SceneType<Newspaper.SignInVC>(storyboard: Auth.self, identifier: "SignInVC")
+
+    internal static let signUpVC = SceneType<Newspaper.SignUpVC>(storyboard: Auth.self, identifier: "SignUpVC")
+  }
+  internal enum Feed: StoryboardType {
+    internal static let storyboardName = "Feed"
+
+    internal static let feedVC = SceneType<Newspaper.FeedVC>(storyboard: Feed.self, identifier: "FeedVC")
+  }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
 
     internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: LaunchScreen.self)
-  }
-  internal enum Main: StoryboardType {
-    internal static let storyboardName = "Main"
-
-    internal static let initialScene = InitialSceneType<Newspaper.LoginVC>(storyboard: Main.self)
-
-    internal static let loginVC = SceneType<Newspaper.LoginVC>(storyboard: Main.self, identifier: "LoginVC")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
