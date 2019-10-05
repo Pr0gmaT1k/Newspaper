@@ -31,6 +31,19 @@ internal enum L10n {
   internal static let start = L10n.tr("Localizable", "Start")
   /// Apellido
   internal static let surname = L10n.tr("Localizable", "Surname")
+
+  internal enum Profile {
+    /// Cerrar sesión
+    internal static let closeSession = L10n.tr("Localizable", "profile.closeSession")
+    /// RUT
+    internal static let dni = L10n.tr("Localizable", "profile.dni")
+    /// Correo electrónico
+    internal static let email = L10n.tr("Localizable", "profile.email")
+    /// Nombre y appelido
+    internal static let names = L10n.tr("Localizable", "profile.names")
+    /// Perfile
+    internal static let profile = L10n.tr("Localizable", "profile.profile")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

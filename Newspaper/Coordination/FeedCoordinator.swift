@@ -11,7 +11,7 @@ import UIKit
 // MARK: - Delegate
 
 protocol FeedCoordinatorDelegate: class {
-    func feedCoordinatorDidFinish(_ coordinator: FeedCoordinator)
+    func feedCoordinatorDidFinish(_ coordinator: FeedCoordinator, closeSession: Bool)
 }
 
 // MARK: - Coordinator
@@ -52,7 +52,13 @@ extension FeedCoordinator: FeedVCDelegate {
 
 // MARK:- ProfileVC Delegate
 extension FeedCoordinator: ProfileVCDelegate {
+    func closeSession() {
+        
+    }
     
+    func requestUser() {
+        
+    }
 }
 
 // MARK:- FriendVC Delegate
