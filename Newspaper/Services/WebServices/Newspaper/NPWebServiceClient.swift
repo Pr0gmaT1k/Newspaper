@@ -17,8 +17,8 @@ final class NPWebServiceClient {
     private static let networkStack = NetworkStack(baseURL: Environment.Newspaper.baseURL, keychainService: keychainService)
     public static var isLogged: Bool {
         // TODO: Verify is the token is expired
-        //return self.keychainService.accessToken != nil
-        return false
+        return self.keychainService.accessToken != nil
+        //return false
     }
     
     // MARK: - Services

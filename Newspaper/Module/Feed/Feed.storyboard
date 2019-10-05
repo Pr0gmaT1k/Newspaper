@@ -8,20 +8,75 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--FeedVC-->
+        <!--FriendVC-->
         <scene sceneID="ae1-OM-lsF">
             <objects>
-                <viewController storyboardIdentifier="FeedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="flL-2b-xxy" customClass="FeedVC" customModule="Newspaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FriendVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="flL-2b-xxy" customClass="FriendVC" customModule="Newspaper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c60-f8-wIQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="N89-0r-It1"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="command" catalog="system" selectedImage="command" id="fed-Y4-Uj9"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUP-pP-1Lr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="403" y="-220"/>
+            <point key="canvasLocation" x="1051" y="282"/>
+        </scene>
+        <!--ProfileVC-->
+        <scene sceneID="5qb-Rp-Oeb">
+            <objects>
+                <viewController storyboardIdentifier="ProfileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1wl-Vl-T7b" customClass="ProfileVC" customModule="Newspaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="voj-Np-Nd3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ih7-rV-vbY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="person.circle.fill" catalog="system" selectedImage="person.circle.fill" id="toP-NJ-pIC"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oZm-OT-lBO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="-390"/>
+        </scene>
+        <!--FeedVC-->
+        <scene sceneID="Lph-yM-9Su">
+            <objects>
+                <viewController storyboardIdentifier="FeedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZiU-yG-CxK" customClass="FeedVC" customModule="Newspaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E1C-0x-aVx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="RmX-fv-74E"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" image="heart.fill" catalog="system" selectedImage="heart.fill" id="X9j-oL-3Bq"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qDO-0r-cXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="-1035"/>
+        </scene>
+        <!--Tab BarVC-->
+        <scene sceneID="9pM-cK-Ttk">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AAA-6v-Ybh" customClass="TabBarVC" customModule="Newspaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gCI-8g-PZp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pB9-jn-WO0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="72" y="-390"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="command" catalog="system" width="64" height="58"/>
+        <image name="heart.fill" catalog="system" width="64" height="58"/>
+        <image name="person.circle.fill" catalog="system" width="64" height="62"/>
+    </resources>
 </document>

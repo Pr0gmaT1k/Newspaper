@@ -16,6 +16,9 @@
 		BA22AA852347D5DA00E77EE3 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA22AA842347D5DA00E77EE3 /* Feed.storyboard */; };
 		BA22AA872347D5EA00E77EE3 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AA862347D5EA00E77EE3 /* FeedVC.swift */; };
 		BA22AA892347EA8C00E77EE3 /* RegisteredVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AA882347EA8C00E77EE3 /* RegisteredVC.swift */; };
+		BA22AA8B2348C9AB00E77EE3 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AA8A2348C9AB00E77EE3 /* ProfileVC.swift */; };
+		BA22AA8D2348CADB00E77EE3 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AA8C2348CADB00E77EE3 /* TabBarVC.swift */; };
+		BA22AA8F2348CFFF00E77EE3 /* FriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AA8E2348CFFF00E77EE3 /* FriendVC.swift */; };
 		BA46C57A234652BD00FC1E0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C558234652BD00FC1E0D /* AppDelegate.swift */; };
 		BA46C57B234652BD00FC1E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA46C55A234652BD00FC1E0D /* Assets.xcassets */; };
 		BA46C57C234652BD00FC1E0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA46C55B234652BD00FC1E0D /* LaunchScreen.storyboard */; };
@@ -115,6 +118,9 @@
 		BA22AA842347D5DA00E77EE3 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		BA22AA862347D5EA00E77EE3 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		BA22AA882347EA8C00E77EE3 /* RegisteredVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredVC.swift; sourceTree = "<group>"; };
+		BA22AA8A2348C9AB00E77EE3 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		BA22AA8C2348CADB00E77EE3 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		BA22AA8E2348CFFF00E77EE3 /* FriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendVC.swift; sourceTree = "<group>"; };
 		BA46C558234652BD00FC1E0D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA46C55A234652BD00FC1E0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA46C55C234652BD00FC1E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -230,6 +236,9 @@
 			children = (
 				BA22AA842347D5DA00E77EE3 /* Feed.storyboard */,
 				BA22AA862347D5EA00E77EE3 /* FeedVC.swift */,
+				BA22AA8A2348C9AB00E77EE3 /* ProfileVC.swift */,
+				BA22AA8C2348CADB00E77EE3 /* TabBarVC.swift */,
+				BA22AA8E2348CFFF00E77EE3 /* FriendVC.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -727,9 +736,11 @@
 				BAA4C41623465C9500F7E420 /* Users.swift in Sources */,
 				BAA4C40C23465C8D00F7E420 /* StatusMapper.swift in Sources */,
 				BA22AA7C2347C33400E77EE3 /* Coordinator.swift in Sources */,
+				BA22AA8B2348C9AB00E77EE3 /* ProfileVC.swift in Sources */,
 				BAA4C40F23465C8D00F7E420 /* UsersMapper.swift in Sources */,
 				BA46C583234652BD00FC1E0D /* Sequence+Utils.swift in Sources */,
 				BAA4C44C23467EB900F7E420 /* SignInVC.swift in Sources */,
+				BA22AA8F2348CFFF00E77EE3 /* FriendVC.swift in Sources */,
 				BA22AA7A2347C2F900E77EE3 /* AppCoordinator.swift in Sources */,
 				BAA4C44A2346720D00F7E420 /* AuthVC.swift in Sources */,
 				BA8F5B0323465619009E266E /* Storyboards.swift in Sources */,
@@ -738,6 +749,7 @@
 				BA46C58D234652BD00FC1E0D /* NPRoute.swift in Sources */,
 				BA8F5B0223465619009E266E /* Colors.swift in Sources */,
 				BA46C586234652BD00FC1E0D /* Environment.swift in Sources */,
+				BA22AA8D2348CADB00E77EE3 /* TabBarVC.swift in Sources */,
 				BA46C58C234652BD00FC1E0D /* NPWebServiceClient.swift in Sources */,
 				BA46C580234652BD00FC1E0D /* Realm.swift in Sources */,
 				BAA4C41E2346703D00F7E420 /* Fonts.swift in Sources */,
