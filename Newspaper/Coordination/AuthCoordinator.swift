@@ -56,14 +56,6 @@ final class AuthCoordinator: CoordinatorNavigable {
             }
         }.disposed(by: bag)
     }
-    
-    private func signInThenEndCoordinator(email: String, pwd: String) {
-        signIn(email: email, pwd: pwd) { sucess in
-            if sucess {
-                self.delegate?.authCoordinatorDidFinish(self)
-            }
-        }
-    }
 }
 
 // MARK:- AuthVC Delegate
@@ -84,26 +76,37 @@ extension AuthCoordinator: AuthVCDelegate {
 // MARK:- SIGNIN VC Delegate
 extension AuthCoordinator: SignInVCDelegate {
     func signInButtonDidTap(email: String, pwd: String) {
-        self.signInThenEndCoordinator(email: email, pwd: pwd)
+        signIn(email: email, pwd: pwd) { [unowned self] sucess in
+            if sucess {
+                self.delegate?.authCoordinatorDidFinish(self)
+            }
+        }
     }
 }
 
 // MARK:- SIGNUP VC Delegate
 extension AuthCoordinator: SignUpVCDelegate {
     func registerButtonDidTap(name: String,
-                               lastName: String,
-                               dni: String,
-                               email: String,
-                               pwd: String,
-                               pwdConfirmation: String) {
+                              lastName: String,
+                              dni: String,
+                              email: String,
+                              pwd: String,
+                              pwdConfirmation: String) {
         wsClient.register(name: name, lastname: lastName, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfirmation)
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 switch event {
                 case .completed: break
-                case .error(let error): print(error)
+                case .error(let error):
+                    print(error)
                 case .next:
-                    self?.signInThenEndCoordinator(email: email, pwd: pwd)
+                    self?.signIn(email: email, pwd: pwd) { sucess in
+                        if sucess {
+                            let vc = StoryboardScene.Auth.registeredVC.instantiate()
+                            vc.delegate = self
+                            self?.navigator.push(vc, animated: true)
+                        }
+                    }
                 }
         }.disposed(by: bag)
     }

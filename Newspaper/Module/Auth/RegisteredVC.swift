@@ -8,18 +8,20 @@
 
 import UIKit
 
+// MARK:- Delegate
 protocol RegisteredVCDelegate: class {
     func startButtonTapped()
     func backButtonDidTapped()
 }
 
+// MARK:- Class
 final class RegisteredVC: UIViewController {
     // MARK:- Properties
     weak var delegate: RegisteredVCDelegate?
     
     // MARK:- IBOutlets
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var startButton: UIButton!
     
     // MARK:- IBActions
     @IBAction func startButtonDidTap(_ sender: Any) {
@@ -32,5 +34,7 @@ final class RegisteredVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.titleLabel.text = L10n.cratedAccount
+        self.startButton.setTitle(L10n.start, for: .normal)
     }
 }

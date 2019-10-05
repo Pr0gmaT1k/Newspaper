@@ -8,10 +8,12 @@
 
 import UIKit
 
+// MARK:- Delegate
 protocol SignInVCDelegate: class {
     func signInButtonDidTap(email: String, pwd: String)
 }
 
+// MARK:- Class
 final class SignInVC: UIViewController {
     // MARK:- Properties
     weak var delegate: SignInVCDelegate?

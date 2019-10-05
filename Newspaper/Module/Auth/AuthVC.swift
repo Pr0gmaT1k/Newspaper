@@ -8,11 +8,14 @@
 
 import UIKit
 
+// MARK:- Delegate
 protocol AuthVCDelegate: class {
     func authVCSignInButtonDidTap()
     func authVCSignUpButtonDidTap()
 }
 
+
+// MARK:- Class
 final class AuthVC: UIViewController {
     // MARK:- Properties
     weak var delegate: AuthVCDelegate?
