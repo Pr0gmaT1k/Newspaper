@@ -74,7 +74,9 @@ extension FeedCoordinator: FeedVCDelegate {
     }
     
     func addpost() {
-        
+        let vc = StoryboardScene.Feed.createPostVC.instantiate()
+        vc.delegate = self
+        self.navigator.push(vc, animated: true)
     }
 }
 
@@ -95,4 +97,19 @@ extension FeedCoordinator: ProfileVCDelegate {
 // MARK:- FriendVC Delegate
 extension FeedCoordinator: FriendVCDelegate {
     
+}
+
+// MARK:- CreatePost Delegate
+extension FeedCoordinator: CreatePostVCDelegate {
+    func createPost(title: String, description: String?, body: String?) {
+        
+    }
+    
+    func addImage() {
+        
+    }
+    
+    func back() {
+        self.navigator.popViewController(animated: true)
+    }
 }
