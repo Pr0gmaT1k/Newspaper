@@ -11,10 +11,12 @@
 "Start" = "Comenzar";
 "CratedAccount" = "Cuenta creada";
 
-//MARK: Profile
+// MARK: Profile
 "profile.profile" = "Perfile";
 "profile.names" = "Nombre y appelido";
 "profile.email" = "Correo electrónico";
 "profile.dni" = "RUT";
 "profile.closeSession" = "Cerrar sesión";
 
+// MARK: Feed
+"feed.header.title" = "Mi feed";

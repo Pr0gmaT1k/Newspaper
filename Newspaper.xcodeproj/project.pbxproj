@@ -32,6 +32,10 @@
 		BA22AAA82348D61200E77EE3 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA22AA9B2348D61200E77EE3 /* Roboto-Bold.ttf */; };
 		BA22AAA92348D61200E77EE3 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA22AA9C2348D61200E77EE3 /* Roboto-Thin.ttf */; };
 		BA22AAAA2348D61200E77EE3 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA22AA9D2348D61200E77EE3 /* Roboto-Black.ttf */; };
+		BA22AAB023490F4A00E77EE3 /* FeedTVHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AAAE23490F4A00E77EE3 /* FeedTVHeader.swift */; };
+		BA22AAB123490F4A00E77EE3 /* FeedTVHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA22AAAF23490F4A00E77EE3 /* FeedTVHeader.xib */; };
+		BA22AAB423490F7700E77EE3 /* FeedTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AAB223490F7700E77EE3 /* FeedTVCell.swift */; };
+		BA22AAB523490F7700E77EE3 /* FeedTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA22AAB323490F7700E77EE3 /* FeedTVCell.xib */; };
 		BA46C57A234652BD00FC1E0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C558234652BD00FC1E0D /* AppDelegate.swift */; };
 		BA46C57B234652BD00FC1E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA46C55A234652BD00FC1E0D /* Assets.xcassets */; };
 		BA46C57C234652BD00FC1E0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA46C55B234652BD00FC1E0D /* LaunchScreen.storyboard */; };
@@ -147,6 +151,10 @@
 		BA22AA9B2348D61200E77EE3 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		BA22AA9C2348D61200E77EE3 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		BA22AA9D2348D61200E77EE3 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		BA22AAAE23490F4A00E77EE3 /* FeedTVHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTVHeader.swift; sourceTree = "<group>"; };
+		BA22AAAF23490F4A00E77EE3 /* FeedTVHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTVHeader.xib; sourceTree = "<group>"; };
+		BA22AAB223490F7700E77EE3 /* FeedTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTVCell.swift; sourceTree = "<group>"; };
+		BA22AAB323490F7700E77EE3 /* FeedTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTVCell.xib; sourceTree = "<group>"; };
 		BA46C558234652BD00FC1E0D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA46C55A234652BD00FC1E0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA46C55C234652BD00FC1E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -260,8 +268,8 @@
 		BA22AA832347D5C200E77EE3 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				BA22AAAB23490EDD00E77EE3 /* Feed */,
 				BA22AA842347D5DA00E77EE3 /* Feed.storyboard */,
-				BA22AA862347D5EA00E77EE3 /* FeedVC.swift */,
 				BA22AA8A2348C9AB00E77EE3 /* ProfileVC.swift */,
 				BA22AA8C2348CADB00E77EE3 /* TabBarVC.swift */,
 				BA22AA8E2348CFFF00E77EE3 /* FriendVC.swift */,
@@ -287,6 +295,34 @@
 				BA22AA9D2348D61200E77EE3 /* Roboto-Black.ttf */,
 			);
 			path = Roboto;
+			sourceTree = "<group>";
+		};
+		BA22AAAB23490EDD00E77EE3 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				BA22AAAD23490EF900E77EE3 /* Header */,
+				BA22AAAC23490EF000E77EE3 /* Cell */,
+				BA22AA862347D5EA00E77EE3 /* FeedVC.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		BA22AAAC23490EF000E77EE3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BA22AAB223490F7700E77EE3 /* FeedTVCell.swift */,
+				BA22AAB323490F7700E77EE3 /* FeedTVCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BA22AAAD23490EF900E77EE3 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				BA22AAAE23490F4A00E77EE3 /* FeedTVHeader.swift */,
+				BA22AAAF23490F4A00E77EE3 /* FeedTVHeader.xib */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		BA46C559234652BD00FC1E0D /* Ressources */ = {
@@ -639,6 +675,7 @@
 				BA22AA9E2348D61200E77EE3 /* Roboto-Medium.ttf in Resources */,
 				BA22AAA42348D61200E77EE3 /* Roboto-LightItalic.ttf in Resources */,
 				BAA4C445234670F500F7E420 /* Prompt-Italic.ttf in Resources */,
+				BA22AAB523490F7700E77EE3 /* FeedTVCell.xib in Resources */,
 				BA22AAA32348D61200E77EE3 /* Roboto-BoldItalic.ttf in Resources */,
 				BAA4C444234670F500F7E420 /* Prompt-ExtraBoldItalic.ttf in Resources */,
 				BAA4C443234670F500F7E420 /* OFL.txt in Resources */,
@@ -656,6 +693,7 @@
 				BAA4C438234670F500F7E420 /* Prompt-BoldItalic.ttf in Resources */,
 				BAA4C43A234670F500F7E420 /* Prompt-Light.ttf in Resources */,
 				BAA4C43B234670F500F7E420 /* Prompt-ExtraBold.ttf in Resources */,
+				BA22AAB123490F4A00E77EE3 /* FeedTVHeader.xib in Resources */,
 				BAA4C43F234670F500F7E420 /* Prompt-SemiBold.ttf in Resources */,
 				BAA4C441234670F500F7E420 /* Prompt-ExtraLightItalic.ttf in Resources */,
 				BA22AAA12348D61200E77EE3 /* Roboto-MediumItalic.ttf in Resources */,
@@ -777,6 +815,7 @@
 				BA46C585234652BD00FC1E0D /* String+Utils.swift in Sources */,
 				BA22AA7E2347C34F00E77EE3 /* Navigator.swift in Sources */,
 				BA22AA892347EA8C00E77EE3 /* RegisteredVC.swift in Sources */,
+				BA22AAB423490F7700E77EE3 /* FeedTVCell.swift in Sources */,
 				BA8F5B0123465619009E266E /* Images.swift in Sources */,
 				BAA4C40B23465C8D00F7E420 /* PostsMapper.swift in Sources */,
 				BAA4C41823465C9500F7E420 /* Post.swift in Sources */,
@@ -801,6 +840,7 @@
 				BA46C583234652BD00FC1E0D /* Sequence+Utils.swift in Sources */,
 				BAA4C44C23467EB900F7E420 /* SignInVC.swift in Sources */,
 				BA22AA8F2348CFFF00E77EE3 /* FriendVC.swift in Sources */,
+				BA22AAB023490F4A00E77EE3 /* FeedTVHeader.swift in Sources */,
 				BA22AA7A2347C2F900E77EE3 /* AppCoordinator.swift in Sources */,
 				BAA4C44A2346720D00F7E420 /* AuthVC.swift in Sources */,
 				BA8F5B0323465619009E266E /* Storyboards.swift in Sources */,

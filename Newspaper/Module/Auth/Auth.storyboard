@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -565,6 +564,11 @@
                             <constraint firstItem="qTm-fm-5FA" firstAttribute="leading" secondItem="Pjp-V9-4De" secondAttribute="leading" constant="20" id="plP-43-vG5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pjp-V9-4De"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qTm-fm-5FA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="startButton" destination="O6g-6K-3zd" id="e84-k9-WYt"/>
