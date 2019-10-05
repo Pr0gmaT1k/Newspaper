@@ -10,14 +10,16 @@ import UIKit
 
 // MARK:- Delegate
 protocol FeedVCDelegate: class {
-    
+    func requestposts(vc: FeedVC)
 }
 
 // MARK:- Class
 final class FeedVC: UIViewController {
     // MARK:- Properties
     weak var delegate: FeedVCDelegate?
-    private static let cellRatio: CGFloat = 364 / 220 // (Height / Width)
+    private static let cellRatio: CGFloat = 1920 / 1080 // (with / heigh)
+    private var source: [Post?]?
+    private var photoSource: [UIImage]?
     
     // MARK:- IBOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -30,17 +32,26 @@ final class FeedVC: UIViewController {
         self.tableView.rowHeight = self.tableView.frame.width / FeedVC.cellRatio
         self.tableView.register(cellType: FeedTVCell.self)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        delegate?.requestposts(vc: self)
+    }
+    
+    func updatePosts(posts: Posts?) {
+        self.source = posts?.posts.map { $0 }
+        self.tableView.reloadData()
+    }
 }
 
 // MARK:- UITableView Delegate / Data Source
 extension FeedVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return source?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(for: indexPath) as FeedTVCell
-        cell.fill(post: nil)
+        cell.fill(post: source?[indexPath.row])
         return cell
     }
     

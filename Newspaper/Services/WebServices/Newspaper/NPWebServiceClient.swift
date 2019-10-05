@@ -66,8 +66,12 @@ final class NPWebServiceClient {
         
     }
     
-    func posts() {
-        
+    func posts() -> Observable<Posts?> {
+        let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
+        let requestParameters = RequestParameters(method: .get, route: NPRoute.posts, headers: [JSONKeys.authorisation: token])
+        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Posts? in
+            return Mapper<Posts>().map(JSONObject: json)
+        }
     }
     
     func disconnect() {
