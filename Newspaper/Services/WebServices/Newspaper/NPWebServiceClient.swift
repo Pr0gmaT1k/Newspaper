@@ -44,4 +44,25 @@ final class NPWebServiceClient {
             NPWebServiceClient.keychainService.accessToken = auth?.token
         }
     }
+    
+    func user()-> Observable<User?> {
+        let token = NPWebServiceClient.keychainService.accessToken ?? "" // Error will be returned by the WS if token is empty.
+        let requestParameters = RequestParameters(method: .get, route: NPRoute.user(userId: 1), headers: [JSONKeys.authorisation: token])
+        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> User? in
+            let userJson = (json as? [String: Any])?[JSONKeys.user]
+            return Mapper<User>().map(JSONObject: userJson)
+        }
+    }
+    
+    func users() {
+        
+    }
+    
+    func post() {
+        
+    }
+    
+    func posts() {
+        
+    }
 }

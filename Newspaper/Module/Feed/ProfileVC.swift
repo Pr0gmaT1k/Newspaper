@@ -11,7 +11,7 @@ import UIKit
 // MARK:- Delegate
 protocol ProfileVCDelegate: class {
     func closeSession()
-    func requestUser()
+    func requestUser(profileVC: ProfileVC)
 }
 
 // MARK:- Class
@@ -42,12 +42,18 @@ final class ProfileVC: UIViewController {
         emailTitleLabel.text = L10n.Profile.email.uppercased()
         dniTitleLabel.text = L10n.Profile.dni.uppercased()
         closeSessionButton.setTitle(L10n.Profile.closeSession.uppercased(), for: .normal)
-        delegate?.requestUser()
+        // Could not be set in storyboard because borderColor take CGColor
+        // and storyboard give a UIColor.
+        closeSessionButton.layer.borderColor = ColorName.primary.color.cgColor
     }
     
-    func fill(user: User) {
-        self.profileNamesLabel.text = (user.name ?? "") + " " + (user.lastname ?? "")
-        self.profileEmailLabel.text = user.email
-        self.profileDdniLabel.text = user.dni
+    override func viewDidAppear(_ animated: Bool) {
+        delegate?.requestUser(profileVC: self)
+    }
+    
+    func fill(user: User?) {
+        self.profileNamesLabel.text = (user?.name ?? "") + " " + (user?.lastname ?? "")
+        self.profileEmailLabel.text = user?.email
+        self.profileDdniLabel.text = user?.dni
     }
 }

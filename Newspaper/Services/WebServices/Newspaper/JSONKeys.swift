@@ -14,4 +14,5 @@ struct JSONKeys {
     static let name = "name"
     static let lastName = "lastname"
     static let pwdConfirmation = "password_confirmation"
+    static let authorisation = "Authorization"
 }
