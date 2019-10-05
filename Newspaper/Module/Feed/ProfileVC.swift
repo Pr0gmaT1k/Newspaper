@@ -1,22 +1,22 @@
 //
-//  FeedViewController.swift
+//  ProfileVC.swift
 //  Newspaper
 //
-//  Created by azerty on 04/10/2019.
+//  Created by azerty on 05/10/2019.
 //  Copyright © 2019 azerty. All rights reserved.
 //
 
 import UIKit
 
 // MARK:- Delegate
-protocol FeedVCDelegate: class {
+protocol ProfileVCDelegate: class {
     
 }
 
 // MARK:- Class
-final class FeedVC: UIViewController {
+final class ProfileVC: UIViewController {
     // MARK:- Properties
-    weak var delegate: FeedVCDelegate?
+    weak var delegate: ProfileVCDelegate?
     
     // MARK:- IBOutlets
     

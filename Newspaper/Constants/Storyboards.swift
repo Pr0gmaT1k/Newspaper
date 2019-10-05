@@ -27,6 +27,12 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Feed"
 
     internal static let feedVC = SceneType<Newspaper.FeedVC>(storyboard: Feed.self, identifier: "FeedVC")
+
+    internal static let friendVC = SceneType<Newspaper.FriendVC>(storyboard: Feed.self, identifier: "FriendVC")
+
+    internal static let profileVC = SceneType<Newspaper.ProfileVC>(storyboard: Feed.self, identifier: "ProfileVC")
+
+    internal static let tabBarVC = SceneType<Newspaper.TabBarVC>(storyboard: Feed.self, identifier: "TabBarVC")
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
