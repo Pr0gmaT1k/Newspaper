@@ -354,15 +354,13 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Ehr-jJ-3eU" firstAttribute="leading" secondItem="oV7-7N-j3V" secondAttribute="leading" id="Dba-fR-K0O"/>
+                                    <constraint firstItem="Ehr-jJ-3eU" firstAttribute="leading" secondItem="Ouq-Xx-aXy" secondAttribute="leading" id="Dba-fR-K0O"/>
                                     <constraint firstAttribute="bottom" secondItem="Ehr-jJ-3eU" secondAttribute="bottom" id="KNY-Rh-0xp"/>
                                     <constraint firstAttribute="trailing" secondItem="Ehr-jJ-3eU" secondAttribute="trailing" id="ac9-gT-MWB"/>
-                                    <constraint firstItem="oV7-7N-j3V" firstAttribute="trailing" secondItem="Ehr-jJ-3eU" secondAttribute="trailing" id="mGD-Ev-bDG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ehr-jJ-3eU" secondAttribute="trailing" id="mGD-Ev-bDG"/>
                                     <constraint firstItem="Ehr-jJ-3eU" firstAttribute="centerX" secondItem="Ouq-Xx-aXy" secondAttribute="centerX" id="qYI-lJ-ig3"/>
                                     <constraint firstItem="Ehr-jJ-3eU" firstAttribute="top" secondItem="Ouq-Xx-aXy" secondAttribute="top" id="te9-92-UUI"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="ARa-xv-eeL"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="oV7-7N-j3V"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
