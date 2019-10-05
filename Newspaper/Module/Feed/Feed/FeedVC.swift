@@ -39,7 +39,7 @@ final class FeedVC: UIViewController {
         self.tableView.dataSource = self
         self.tableView.rowHeight = self.tableView.frame.width / FeedVC.cellRatio
         self.tableView.register(cellType: FeedTVCell.self)
-        self.addPostButton.setTitle(L10n.Feed.addPost, for: .normal)
+        self.addPostButton.setTitle(L10n.Feed.addPost.uppercased(), for: .normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {
