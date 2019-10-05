@@ -68,7 +68,8 @@ extension FeedCoordinator: FeedVCDelegate {
 // MARK:- ProfileVC Delegate
 extension FeedCoordinator: ProfileVCDelegate {
     func closeSession() {
-        
+        wsClient.disconnect()
+        delegate?.feedCoordinatorDidFinish(self, closeSession: true)
     }
     
     func requestUser(profileVC: ProfileVC) {

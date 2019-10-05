@@ -9,6 +9,7 @@
 import RxSwift
 import Alamofire
 import NetworkStack
+import JWTDecode
 import ObjectMapper
 
 final class NPWebServiceClient {
@@ -27,7 +28,9 @@ final class NPWebServiceClient {
         
         return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Void in
             let auth = Mapper<Auth>().map(JSONObject: json)
-            NPWebServiceClient.keychainService.accessToken = auth?.token
+            guard let token = auth?.token else { return }
+            NPWebServiceClient.keychainService.accessToken = token
+            NPWebServiceClient.keychainService.expirationInterval = (try? decode(jwt: token))?.body[JSONKeys.tokenExp] as? Double
         }
     }
     
@@ -46,8 +49,10 @@ final class NPWebServiceClient {
     }
     
     func user()-> Observable<User?> {
-        let token = NPWebServiceClient.keychainService.accessToken ?? "" // Error will be returned by the WS if token is empty.
-        let requestParameters = RequestParameters(method: .get, route: NPRoute.user(userId: 1), headers: [JSONKeys.authorisation: token])
+        let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
+        let userId: Int = (try? decode(jwt: token))?.body[JSONKeys.tokenUserID] as? Int ?? 00
+        // Error will be returned by the WS if param is empty.
+        let requestParameters = RequestParameters(method: .get, route: NPRoute.user(userId: userId), headers: [JSONKeys.authorisation: token])
         return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> User? in
             let userJson = (json as? [String: Any])?[JSONKeys.user]
             return Mapper<User>().map(JSONObject: userJson)
@@ -64,5 +69,10 @@ final class NPWebServiceClient {
     
     func posts() {
         
+    }
+    
+    func disconnect() {
+        NPWebServiceClient.keychainService.accessToken = nil
+        NPWebServiceClient.keychainService.expirationInterval = nil
     }
 }

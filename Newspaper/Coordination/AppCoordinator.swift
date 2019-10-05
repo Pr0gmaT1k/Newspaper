@@ -51,6 +51,9 @@ extension AppCoordinator: AuthCoordinatorDelegate {
 // MARK: - Feed Coordinator Delegate
 extension AppCoordinator: FeedCoordinatorDelegate {
     func feedCoordinatorDidFinish(_ coordinator: FeedCoordinator, closeSession: Bool) {
-        
+        dismissCoordinator(coordinator, animated: true)
+        let authCoordinator = AuthCoordinator()
+        presentCoordinator(authCoordinator, animated: true)
+        authCoordinator.delegate = self
     }
 }

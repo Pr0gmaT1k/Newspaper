@@ -12,7 +12,7 @@ public enum NPRoute: Routable {
     case signIn
     case signUp
     case users
-    case user(userId: Int64)
+    case user(userId: Int)
     case post(postId: Int64)
     
     public var path: String {
