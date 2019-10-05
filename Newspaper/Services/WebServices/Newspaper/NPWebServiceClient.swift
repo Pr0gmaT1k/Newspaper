@@ -9,6 +9,7 @@
 import RxSwift
 import Alamofire
 import NetworkStack
+import JWTDecode
 import ObjectMapper
 
 final class NPWebServiceClient {
@@ -16,9 +17,8 @@ final class NPWebServiceClient {
     private static let keychainService = KeychainService(serviceType: Environment.Newspaper.appName)
     private static let networkStack = NetworkStack(baseURL: Environment.Newspaper.baseURL, keychainService: keychainService)
     public static var isLogged: Bool {
-        // TODO: Verify is the token is expired
         return self.keychainService.accessToken != nil
-        //return false
+            && self.keychainService.expirationInterval ?? 0 > Date().timeIntervalSince1970 
     }
     
     // MARK: - Services
@@ -27,7 +27,9 @@ final class NPWebServiceClient {
         
         return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Void in
             let auth = Mapper<Auth>().map(JSONObject: json)
-            NPWebServiceClient.keychainService.accessToken = auth?.token
+            guard let token = auth?.token else { return }
+            NPWebServiceClient.keychainService.accessToken = token
+            NPWebServiceClient.keychainService.expirationInterval = (try? decode(jwt: token))?.body[JSONKeys.tokenExp] as? Double
         }
     }
     
@@ -43,5 +45,33 @@ final class NPWebServiceClient {
             let auth = Mapper<Auth>().map(JSONObject: json)
             NPWebServiceClient.keychainService.accessToken = auth?.token
         }
+    }
+    
+    func user()-> Observable<User?> {
+        let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
+        let userId: Int = (try? decode(jwt: token))?.body[JSONKeys.tokenUserID] as? Int ?? 00
+        // Error will be returned by the WS if param is empty.
+        let requestParameters = RequestParameters(method: .get, route: NPRoute.user(userId: userId), headers: [JSONKeys.authorisation: token])
+        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> User? in
+            let userJson = (json as? [String: Any])?[JSONKeys.user]
+            return Mapper<User>().map(JSONObject: userJson)
+        }
+    }
+    
+    func users() {
+        
+    }
+    
+    func post() {
+        
+    }
+    
+    func posts() {
+        
+    }
+    
+    func disconnect() {
+        NPWebServiceClient.keychainService.accessToken = nil
+        NPWebServiceClient.keychainService.expirationInterval = nil
     }
 }
