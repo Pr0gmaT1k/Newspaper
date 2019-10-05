@@ -32,6 +32,15 @@ internal enum L10n {
   /// Apellido
   internal static let surname = L10n.tr("Localizable", "Surname")
 
+  internal enum Feed {
+    /// Agregar
+    internal static let addPost = L10n.tr("Localizable", "feed.addPost")
+    internal enum Header {
+      /// Mi feed
+      internal static let title = L10n.tr("Localizable", "feed.header.title")
+    }
+  }
+
   internal enum Profile {
     /// Cerrar sesión
     internal static let closeSession = L10n.tr("Localizable", "profile.closeSession")

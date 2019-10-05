@@ -14,6 +14,7 @@ public enum NPRoute: Routable {
     case users
     case user(userId: Int)
     case post(postId: Int64)
+    case posts
     
     public var path: String {
         switch self {
@@ -22,6 +23,7 @@ public enum NPRoute: Routable {
         case .users: return "/user"
         case .user(userId: let userId): return "/user/\(userId)"
         case .post(postId: let postId): return "/post/\(postId)"
+        case .posts: return "/post/"
         }
     }
 }

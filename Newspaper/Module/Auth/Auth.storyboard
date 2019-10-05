@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -398,7 +397,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-OF-1qh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-OF-1qh">
                                 <rect key="frame" x="15" y="215.5" width="384" height="237.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iiq-OF-1qh" secondAttribute="height" multiplier="383 :237" id="PLc-K1-f6e"/>
@@ -500,7 +499,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9" translatesAutoresizingMaskIntoConstraints="NO" id="ehb-t2-hYZ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Congrats" translatesAutoresizingMaskIntoConstraints="NO" id="ehb-t2-hYZ">
                                 <rect key="frame" x="0.0" y="136" width="414" height="317"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ehb-t2-hYZ" secondAttribute="height" multiplier="414:317" id="EwI-mC-2ry"/>
@@ -565,6 +564,11 @@
                             <constraint firstItem="qTm-fm-5FA" firstAttribute="leading" secondItem="Pjp-V9-4De" secondAttribute="leading" constant="20" id="plP-43-vG5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pjp-V9-4De"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qTm-fm-5FA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="startButton" destination="O6g-6K-3zd" id="e84-k9-WYt"/>
@@ -577,9 +581,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3" width="383" height="237"/>
-        <image name="9" width="414" height="322"/>
         <image name="ArrowBack" width="96" height="96"/>
+        <image name="Congrats" width="414" height="322"/>
+        <image name="Welcome" width="383" height="237"/>
         <image name="newspaper" width="280" height="47"/>
         <image name="showPwd" width="170.66667175292969" height="170.66667175292969"/>
     </resources>

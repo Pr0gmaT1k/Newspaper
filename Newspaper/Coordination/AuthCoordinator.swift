@@ -97,8 +97,7 @@ extension AuthCoordinator: SignUpVCDelegate {
             .subscribe { [weak self] event in
                 switch event {
                 case .completed: break
-                case .error(let error):
-                    print(error)
+                case .error(let error): print(error)
                 case .next:
                     self?.signIn(email: email, pwd: pwd) { sucess in
                         if sucess {

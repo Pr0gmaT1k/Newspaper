@@ -62,7 +62,20 @@ final class FeedCoordinator: CoordinatorNavigable {
 
 // MARK:- FeedVC Delegate
 extension FeedCoordinator: FeedVCDelegate {
+    func requestposts(vc: FeedVC) {
+        wsClient.posts().observeOn(MainScheduler.instance)
+        .subscribe { event in
+            switch event {
+            case .completed: break
+            case .next(let posts): vc.updatePosts(posts: posts)
+            case .error(let error): print(error)
+            }
+        }.disposed(by: bag)
+    }
     
+    func addpost() {
+        
+    }
 }
 
 // MARK:- ProfileVC Delegate

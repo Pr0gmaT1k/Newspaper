@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +25,7 @@
                     <view key="view" contentMode="scaleToFill" id="c60-f8-wIQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="N89-0r-It1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="command" catalog="system" id="fed-Y4-Uj9"/>
@@ -183,11 +182,48 @@
                     <view key="view" contentMode="scaleToFill" id="E1C-0x-aVx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2WK-fi-LW2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5G-FD-oWg">
+                                <rect key="frame" x="249" y="748" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.011764705882352941" green="0.85490196078431369" blue="0.76862745098039209" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="V8o-iZ-r4q"/>
+                                    <constraint firstAttribute="width" constant="150" id="cjs-mP-ciu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-SemiBold" family="Prompt" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="plus" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addPostButtonDidTap:" destination="ZiU-yG-CxK" eventType="touchUpInside" id="6w9-wj-obZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RmX-fv-74E" firstAttribute="trailing" secondItem="2WK-fi-LW2" secondAttribute="trailing" id="0c4-AH-zNp"/>
+                            <constraint firstItem="RmX-fv-74E" firstAttribute="trailing" secondItem="D5G-FD-oWg" secondAttribute="trailing" constant="15" id="55i-5t-EC8"/>
+                            <constraint firstItem="RmX-fv-74E" firstAttribute="bottom" secondItem="D5G-FD-oWg" secondAttribute="bottom" constant="15" id="6JA-cq-iI4"/>
+                            <constraint firstItem="2WK-fi-LW2" firstAttribute="leading" secondItem="RmX-fv-74E" secondAttribute="leading" id="KWz-m5-Y8E"/>
+                            <constraint firstItem="RmX-fv-74E" firstAttribute="bottom" secondItem="2WK-fi-LW2" secondAttribute="bottom" id="Pay-iY-8lI"/>
+                            <constraint firstItem="2WK-fi-LW2" firstAttribute="top" secondItem="RmX-fv-74E" secondAttribute="top" id="ehg-gE-GqL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RmX-fv-74E"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="heart.fill" catalog="system" id="X9j-oL-3Bq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addPostButton" destination="D5G-FD-oWg" id="y6b-3r-4Lh"/>
+                        <outlet property="tableView" destination="2WK-fi-LW2" id="8X8-mi-sDC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDO-0r-cXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -212,5 +248,6 @@
         <image name="command" catalog="system" width="64" height="58"/>
         <image name="heart.fill" catalog="system" width="64" height="58"/>
         <image name="person.circle.fill" catalog="system" width="64" height="62"/>
+        <image name="plus" catalog="system" width="64" height="58"/>
     </resources>
 </document>
