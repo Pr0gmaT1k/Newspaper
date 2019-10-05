@@ -17,6 +17,7 @@ protocol FeedVCDelegate: class {
 final class FeedVC: UIViewController {
     // MARK:- Properties
     weak var delegate: FeedVCDelegate?
+    private static let cellRatio: CGFloat = 364 / 220 // (Height / Width)
     
     // MARK:- IBOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -26,6 +27,8 @@ final class FeedVC: UIViewController {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.rowHeight = self.tableView.frame.width / FeedVC.cellRatio
+        self.tableView.register(cellType: FeedTVCell.self)
     }
 }
 
@@ -36,7 +39,9 @@ extension FeedVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = self.tableView.dequeueReusableCell(for: indexPath) as FeedTVCell
+        cell.fill(post: nil)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

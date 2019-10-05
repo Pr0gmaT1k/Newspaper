@@ -7,18 +7,16 @@
 //
 
 import UIKit
+import Reusable
 
-class FeedTVCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+final class FeedTVCell: UITableViewCell, NibReusable {
+    // MARK:- IBOutlets
+    @IBOutlet private weak var imageCell: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
+    // MARK:- funcs
+    func fill(post: Post?) {
+        
+    }
 }
