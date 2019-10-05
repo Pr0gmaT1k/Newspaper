@@ -29,3 +29,5 @@
 "create.addBody" = "Detalles";
 "create.addPhoto" = "Agrega una foto";
 "create.addPostButton" = "Crear post";
+"create.countDescription" = "%u / 100";
+"create.countBody" = "%u / 1000";

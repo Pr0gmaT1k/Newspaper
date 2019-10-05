@@ -43,6 +43,14 @@ internal enum L10n {
     internal static let addPostButton = L10n.tr("Localizable", "create.addPostButton")
     /// Titulo
     internal static let addTitle = L10n.tr("Localizable", "create.addTitle")
+    /// %u / 1000
+    internal static func countBody(_ p1: Int) -> String {
+      return L10n.tr("Localizable", "create.countBody", p1)
+    }
+    /// %u / 100
+    internal static func countDescription(_ p1: Int) -> String {
+      return L10n.tr("Localizable", "create.countDescription", p1)
+    }
     /// Crear post
     internal static let title = L10n.tr("Localizable", "create.title")
   }

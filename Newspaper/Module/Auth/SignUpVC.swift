@@ -63,7 +63,6 @@ final class SignUpVC: UIViewController {
         passwordTextField.placeholder = L10n.password
         emailTextField.placeholder = L10n.email
         registerButton.setTitle(L10n.signUp.uppercased(), for: .normal)
-        
     }
     
     deinit {

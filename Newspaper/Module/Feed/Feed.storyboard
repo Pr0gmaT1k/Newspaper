@@ -295,7 +295,7 @@
                                                         </constraints>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -310,11 +310,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMT-8L-kHR">
                                                 <rect key="frame" x="32" y="297" width="350" height="90"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="QVV-1g-sfq">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="QVV-1g-sfq">
                                                         <rect key="frame" x="16" y="0.0" width="318" height="90"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -420,11 +420,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAX-eN-T25">
                                                 <rect key="frame" x="32" y="143" width="350" height="90"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="OlZ-pu-FN5">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="OlZ-pu-FN5">
                                                         <rect key="frame" x="16" y="0.0" width="318" height="90"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -493,9 +493,12 @@
                         <outlet property="addImageButton" destination="JIT-uM-bkN" id="Lb7-EW-E2Q"/>
                         <outlet property="addImageLabel" destination="Y4X-NX-j7d" id="9RT-zo-S6O"/>
                         <outlet property="addPostButton" destination="JbH-vW-VGg" id="7AX-gZ-w0K"/>
+                        <outlet property="bodyCountlabel" destination="szN-8x-hiI" id="xcD-zz-tYX"/>
                         <outlet property="bodyTextField" destination="QVV-1g-sfq" id="1bP-ie-uKS"/>
+                        <outlet property="descriptionCountLabel" destination="hSS-rW-XUp" id="AZx-Tc-pKU"/>
                         <outlet property="descriptionTextField" destination="OlZ-pu-FN5" id="OdO-Hd-TFc"/>
                         <outlet property="postImage" destination="Bnw-W4-aBk" id="pTG-SG-df8"/>
+                        <outlet property="scrollView" destination="5Gg-Ds-TJa" id="NG0-60-JXf"/>
                         <outlet property="titleLabel" destination="ldP-Cq-4SS" id="ksJ-l4-fDj"/>
                         <outlet property="titleTextField" destination="Ekd-SB-mnd" id="RND-EJ-Hx9"/>
                     </connections>
