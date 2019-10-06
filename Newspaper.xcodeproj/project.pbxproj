@@ -97,6 +97,7 @@
 		BAA5715F234A42790035719A /* User+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA5715E234A42790035719A /* User+Date.swift */; };
 		BAD30682234650CF002335CF /* NewspaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD30681234650CF002335CF /* NewspaperTests.swift */; };
 		BAD3068D234650CF002335CF /* NewspaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3068C234650CF002335CF /* NewspaperUITests.swift */; };
+		BAD7F554234A57EE006A18C2 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7F552234A57EE006A18C2 /* LoaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +228,7 @@
 		BAD30688234650CF002335CF /* NewspaperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewspaperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD3068C234650CF002335CF /* NewspaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewspaperUITests.swift; sourceTree = "<group>"; };
 		BAD3068E234650CF002335CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAD7F552234A57EE006A18C2 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,6 +585,7 @@
 		BAD30669234650CE002335CF /* Newspaper */ = {
 			isa = PBXGroup;
 			children = (
+				BAD7F551234A57D9006A18C2 /* Common */,
 				BA46C558234652BD00FC1E0D /* AppDelegate.swift */,
 				BA22AA782347C2D500E77EE3 /* Coordination */,
 				BA46C56E234652BD00FC1E0D /* Constants */,
@@ -612,6 +615,14 @@
 				BAD3068E234650CF002335CF /* Info.plist */,
 			);
 			path = NewspaperUITests;
+			sourceTree = "<group>";
+		};
+		BAD7F551234A57D9006A18C2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BAD7F552234A57EE006A18C2 /* LoaderView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		BE5C15420A3F0CFAEF04E207 /* Pods */ = {
@@ -914,6 +925,7 @@
 				BA8F5B0323465619009E266E /* Storyboards.swift in Sources */,
 				BA22AA802347C41E00E77EE3 /* AuthCoordinator.swift in Sources */,
 				BAA4C44E23467EC900F7E420 /* SignUpVC.swift in Sources */,
+				BAD7F554234A57EE006A18C2 /* LoaderView.swift in Sources */,
 				BA46C58D234652BD00FC1E0D /* NPRoute.swift in Sources */,
 				BA8F5B0223465619009E266E /* Colors.swift in Sources */,
 				BA46C586234652BD00FC1E0D /* Environment.swift in Sources */,

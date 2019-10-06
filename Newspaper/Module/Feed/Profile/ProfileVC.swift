@@ -45,15 +45,14 @@ final class ProfileVC: UIViewController {
         // Could not be set in storyboard because borderColor take CGColor
         // and storyboard give a UIColor.
         closeSessionButton.layer.borderColor = ColorName.primary.color.cgColor
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         delegate?.requestUser(profileVC: self)
+        self.showNPLoader()
     }
     
     func fill(user: User?) {
         self.profileNamesLabel.text = (user?.name ?? "") + " " + (user?.lastname ?? "")
         self.profileEmailLabel.text = user?.email
         self.profileDdniLabel.text = user?.dni
+        self.hideNPLoader()
     }
 }

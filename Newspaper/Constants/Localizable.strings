@@ -13,7 +13,7 @@
 
 // MARK: Profile
 "profile.profile" = "Perfile";
-"profile.names" = "Nombre y appelido";
+"profile.names" = "Nombre y apellido";
 "profile.email" = "Correo electrónico";
 "profile.dni" = "RUT";
 "profile.closeSession" = "Cerrar sesión";
@@ -38,4 +38,4 @@
 // MARK: UsersCell
 "users.cell.memberSince" = "Miembro desde %@";
 "users.cell.email" = "Correo electrónico";
-"users.cell.names" = "Nombre y appelido";
+"users.cell.names" = "Nombre y apellido";

@@ -40,6 +40,7 @@ final class FeedVC: UIViewController {
         self.tableView.rowHeight = self.tableView.frame.width / FeedVC.cellRatio
         self.tableView.register(cellType: FeedTVCell.self)
         self.addPostButton.setTitle(L10n.Feed.addPost.uppercased(), for: .normal)
+        self.showNPLoader()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,6 +48,7 @@ final class FeedVC: UIViewController {
     }
     
     func updatePosts(posts: Posts?) {
+        self.hideNPLoader()
         self.source = posts?.posts.reversed()
         self.tableView.reloadData()
     }
