@@ -21,18 +21,33 @@
         </array>
     </customFonts>
     <scenes>
-        <!--FriendVC-->
+        <!--UsersVC-->
         <scene sceneID="ae1-OM-lsF">
             <objects>
-                <viewController storyboardIdentifier="FriendVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="flL-2b-xxy" customClass="FriendVC" customModule="Newspaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UsersVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="flL-2b-xxy" customClass="UsersVC" customModule="Newspaper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c60-f8-wIQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yRw-bD-slo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yRw-bD-slo" firstAttribute="leading" secondItem="N89-0r-It1" secondAttribute="leading" id="JnA-yF-hts"/>
+                            <constraint firstItem="N89-0r-It1" firstAttribute="trailing" secondItem="yRw-bD-slo" secondAttribute="trailing" id="aED-f0-UTV"/>
+                            <constraint firstItem="N89-0r-It1" firstAttribute="bottom" secondItem="yRw-bD-slo" secondAttribute="bottom" id="oRE-F4-pgd"/>
+                            <constraint firstItem="yRw-bD-slo" firstAttribute="top" secondItem="N89-0r-It1" secondAttribute="top" id="sXk-nm-5Aw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="N89-0r-It1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="command" catalog="system" id="fed-Y4-Uj9"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.3.fill" catalog="system" id="fed-Y4-Uj9"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="yRw-bD-slo" id="TyY-Ie-God"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUP-pP-1Lr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -627,8 +642,8 @@
     <resources>
         <image name="ArrowBack" width="96" height="96"/>
         <image name="arrow.left" catalog="system" width="64" height="48"/>
-        <image name="command" catalog="system" width="64" height="58"/>
         <image name="heart.fill" catalog="system" width="64" height="58"/>
+        <image name="person.3.fill" catalog="system" width="72" height="35"/>
         <image name="person.circle.fill" catalog="system" width="64" height="62"/>
         <image name="photo.fill.on.rectangle.fill" catalog="system" width="64" height="48"/>
         <image name="plus" catalog="system" width="64" height="58"/>

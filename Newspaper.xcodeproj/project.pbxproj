@@ -18,7 +18,7 @@
 		BA22AA892347EA8C00E77EE3 /* RegisteredVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AA882347EA8C00E77EE3 /* RegisteredVC.swift */; };
 		BA22AA8B2348C9AB00E77EE3 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AA8A2348C9AB00E77EE3 /* ProfileVC.swift */; };
 		BA22AA8D2348CADB00E77EE3 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AA8C2348CADB00E77EE3 /* TabBarVC.swift */; };
-		BA22AA8F2348CFFF00E77EE3 /* FriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AA8E2348CFFF00E77EE3 /* FriendVC.swift */; };
+		BA22AA8F2348CFFF00E77EE3 /* UsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AA8E2348CFFF00E77EE3 /* UsersVC.swift */; };
 		BA22AA9E2348D61200E77EE3 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA22AA912348D61200E77EE3 /* Roboto-Medium.ttf */; };
 		BA22AA9F2348D61200E77EE3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA22AA922348D61200E77EE3 /* Roboto-Light.ttf */; };
 		BA22AAA02348D61200E77EE3 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA22AA932348D61200E77EE3 /* Roboto-Regular.ttf */; };
@@ -92,6 +92,9 @@
 		BAA4C44A2346720D00F7E420 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C4492346720D00F7E420 /* AuthVC.swift */; };
 		BAA4C44C23467EB900F7E420 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C44B23467EB900F7E420 /* SignInVC.swift */; };
 		BAA4C44E23467EC900F7E420 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C44D23467EC900F7E420 /* SignUpVC.swift */; };
+		BAA5715C234A30150035719A /* UserTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA5715A234A30150035719A /* UserTVCell.swift */; };
+		BAA5715D234A30150035719A /* UserTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA5715B234A30150035719A /* UserTVCell.xib */; };
+		BAA5715F234A42790035719A /* User+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA5715E234A42790035719A /* User+Date.swift */; };
 		BAD30682234650CF002335CF /* NewspaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD30681234650CF002335CF /* NewspaperTests.swift */; };
 		BAD3068D234650CF002335CF /* NewspaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3068C234650CF002335CF /* NewspaperUITests.swift */; };
 /* End PBXBuildFile section */
@@ -139,7 +142,7 @@
 		BA22AA882347EA8C00E77EE3 /* RegisteredVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredVC.swift; sourceTree = "<group>"; };
 		BA22AA8A2348C9AB00E77EE3 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BA22AA8C2348CADB00E77EE3 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
-		BA22AA8E2348CFFF00E77EE3 /* FriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendVC.swift; sourceTree = "<group>"; };
+		BA22AA8E2348CFFF00E77EE3 /* UsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVC.swift; sourceTree = "<group>"; };
 		BA22AA912348D61200E77EE3 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		BA22AA922348D61200E77EE3 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		BA22AA932348D61200E77EE3 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -214,6 +217,9 @@
 		BAA4C4492346720D00F7E420 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		BAA4C44B23467EB900F7E420 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		BAA4C44D23467EC900F7E420 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		BAA5715A234A30150035719A /* UserTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTVCell.swift; sourceTree = "<group>"; };
+		BAA5715B234A30150035719A /* UserTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTVCell.xib; sourceTree = "<group>"; };
+		BAA5715E234A42790035719A /* User+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Date.swift"; sourceTree = "<group>"; };
 		BAD30667234650CE002335CF /* Newspaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newspaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD3067D234650CF002335CF /* NewspaperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewspaperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD30681234650CF002335CF /* NewspaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewspaperTests.swift; sourceTree = "<group>"; };
@@ -340,7 +346,8 @@
 		BA39A68E234976B500494510 /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				BA22AA8E2348CFFF00E77EE3 /* FriendVC.swift */,
+				BAA57159234A2FF80035719A /* UserTVCell */,
+				BA22AA8E2348CFFF00E77EE3 /* UsersVC.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -425,6 +432,7 @@
 				BA46C567234652BD00FC1E0D /* Array+Utils.swift */,
 				BA46C568234652BD00FC1E0D /* Sequence+Utils.swift */,
 				BA46C56A234652BD00FC1E0D /* String+Utils.swift */,
+				BAA5715E234A42790035719A /* User+Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -539,6 +547,15 @@
 				BAA4C433234670F500F7E420 /* Prompt-Black.ttf */,
 			);
 			path = Prompt;
+			sourceTree = "<group>";
+		};
+		BAA57159234A2FF80035719A /* UserTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				BAA5715A234A30150035719A /* UserTVCell.swift */,
+				BAA5715B234A30150035719A /* UserTVCell.xib */,
+			);
+			path = UserTVCell;
 			sourceTree = "<group>";
 		};
 		BAD3065E234650CE002335CF = {
@@ -754,6 +771,7 @@
 				BA22AAAA2348D61200E77EE3 /* Roboto-Black.ttf in Resources */,
 				BAA4C43D234670F500F7E420 /* Prompt-LightItalic.ttf in Resources */,
 				BA22AAA52348D61200E77EE3 /* Roboto-Italic.ttf in Resources */,
+				BAA5715D234A30150035719A /* UserTVCell.xib in Resources */,
 				BA22AAA92348D61200E77EE3 /* Roboto-Thin.ttf in Resources */,
 				BA46C57C234652BD00FC1E0D /* LaunchScreen.storyboard in Resources */,
 			);
@@ -882,12 +900,14 @@
 				BA46C57A234652BD00FC1E0D /* AppDelegate.swift in Sources */,
 				BAA4C41623465C9500F7E420 /* Users.swift in Sources */,
 				BAA4C40C23465C8D00F7E420 /* StatusMapper.swift in Sources */,
+				BAA5715F234A42790035719A /* User+Date.swift in Sources */,
 				BA22AA7C2347C33400E77EE3 /* Coordinator.swift in Sources */,
 				BA22AA8B2348C9AB00E77EE3 /* ProfileVC.swift in Sources */,
 				BAA4C40F23465C8D00F7E420 /* UsersMapper.swift in Sources */,
+				BAA5715C234A30150035719A /* UserTVCell.swift in Sources */,
 				BA46C583234652BD00FC1E0D /* Sequence+Utils.swift in Sources */,
 				BAA4C44C23467EB900F7E420 /* SignInVC.swift in Sources */,
-				BA22AA8F2348CFFF00E77EE3 /* FriendVC.swift in Sources */,
+				BA22AA8F2348CFFF00E77EE3 /* UsersVC.swift in Sources */,
 				BA22AAB023490F4A00E77EE3 /* FeedTVHeader.swift in Sources */,
 				BA22AA7A2347C2F900E77EE3 /* AppCoordinator.swift in Sources */,
 				BAA4C44A2346720D00F7E420 /* AuthVC.swift in Sources */,
