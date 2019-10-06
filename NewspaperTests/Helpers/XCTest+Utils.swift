@@ -1,9 +1,9 @@
 //
 //  XCTest+Utils.swift
-//  ApolloTests
+//  NewspaperTests
 //
-//  Created by JBR on 11/03/2019.
-//  Copyright © 2019 URGO. All rights reserved.
+//  Created by azerty on 06/10/2019.
+//  Copyright © 2019 azerty. All rights reserved.
 //
 
 import XCTest

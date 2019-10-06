@@ -1,20 +1,19 @@
 //
 //  Configuration.swift
-//  ApolloTests
+//  NewspaperTests
 //
-//  Created by JBR on 08/03/2019.
-//  Copyright © 2019 URGO. All rights reserved.
+//  Created by azerty on 06/10/2019.
+//  Copyright © 2019 azerty. All rights reserved.
 //
 
 import XCTest
-import OpenKit
 
 extension XCTestCase {
 
     // MARK: - Constants
 
     public enum Constants {
-        static let defaultTimeout = Duration(50, .millisecond)
+        static let defaultTimeout = Duration(100, .millisecond)
     }
 
     // MARK: - Funcs

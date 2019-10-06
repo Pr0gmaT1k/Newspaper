@@ -10,28 +10,45 @@ import XCTest
 @testable import Newspaper
 
 final class AuthVCTests: XCTestCase {
-    
+    // MARK: - Properties
     private var viewController: AuthVC!
-    private var topLevelUIUtilities = TopLevelUIViewController<CloseWoundViewController>()
+    private var topLevelUIUtilities = TopLevelUIViewController<AuthVC>()
+    private var callDidTapSignIn: XCTestExpectation?
+    private var callDidTapSignUp: XCTestExpectation?
     
+    // MARK:- Tests
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        viewController = StoryboardScene.Auth.authVC.instantiate()
+        viewController.delegate = self
+        topLevelUIUtilities.setupTopLevelUI(with: viewController, inNavigationController: false)
     }
-
+    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+        topLevelUIUtilities.tearDownTopLevelUI()
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testTapSignIn() {
+        callDidTapSignIn = expectation(description: "will call didTapSignIn delegate")
+        viewController.signInDidTap(self)
+        wait(for: callDidTapSignIn!)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testTapSignUn() {
+        callDidTapSignUp = expectation(description: "will call didTapSignUp delegate")
+        viewController.signUpDidTap(self)
+        wait(for: callDidTapSignUp!)
     }
+}
 
+// MARK:- AuthVC Delegate
+extension AuthVCTests: AuthVCDelegate {
+    func didTapSignUp() {
+        callDidTapSignUp?.fulfill()
+    }
+    
+    func didTapSignIn() {
+        callDidTapSignIn?.fulfill()
+    }
 }

@@ -12,7 +12,7 @@ import RxSwift
 // MARK:- Delegate
 protocol FeedVCDelegate: class {
     func didTapAddPost()
-    func didSelect(post: Post)
+    func didSelect(post: Post?)
 }
 
 // MARK:- Class
@@ -79,8 +79,7 @@ extension FeedVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let post = source?[indexPath.row] else { return }
-        self.delegate?.didSelect(post: post)
+        self.delegate?.didSelect(post: source?[indexPath.row])
     }
 }
 

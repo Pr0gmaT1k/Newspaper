@@ -11,7 +11,6 @@ import UIKit
 // MARK:- Delegate
 protocol RegisteredVCDelegate: class {
     func didTapStartButton()
-    func didTapBack()
 }
 
 // MARK:- Class
@@ -26,10 +25,6 @@ final class RegisteredVC: UIViewController {
     // MARK:- IBActions
     @IBAction func startButtonDidTap(_ sender: Any) {
         delegate?.didTapStartButton()
-    }
-    
-    @IBAction func backButtonDidTap(_ sender: Any) {
-        delegate?.didTapBack()
     }
     
     override func viewDidLoad() {

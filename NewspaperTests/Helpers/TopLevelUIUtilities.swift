@@ -1,14 +1,14 @@
 //
 //  TopLevelUIUtilities.swift
-//  ApolloTests
+//  NewspaperTests
 //
-//  Created by Thomas LORNE on 26/10/2018.
-//  Copyright © 2018 URGO. All rights reserved.
+//  Created by azerty on 06/10/2019.
+//  Copyright © 2019 azerty. All rights reserved.
 //
 
 import XCTest
 import UIKit
-@testable import Apollo
+@testable import Newspaper
 
 class TopLevelUIView<T: UIView> {
     

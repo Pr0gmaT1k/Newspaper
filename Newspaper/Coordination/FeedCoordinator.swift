@@ -59,7 +59,7 @@ extension FeedCoordinator: FeedVCDelegate {
         navigator.push(vc, animated: true)
     }
     
-    func didSelect(post: Post) {
+    func didSelect(post: Post?) {
         let vc = StoryboardScene.Feed.detailsPostVC.instantiate()
         vc.delegate = self
         vc.post = post
