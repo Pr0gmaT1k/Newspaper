@@ -46,10 +46,10 @@ final class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Label
-        titleLabel.text = L10n.signIn
-        emailTextField.placeholder = L10n.email
-        passwordTextField.placeholder = L10n.password
-        signInButton.setTitle(L10n.signIn.uppercased(), for: .normal)
+        titleLabel.text = L10n.Signin.signIn
+        emailTextField.placeholder = L10n.Signin.email
+        passwordTextField.placeholder = L10n.Signin.password
+        signInButton.setTitle(L10n.Signin.signIn.uppercased(), for: .normal)
     }
 }
 

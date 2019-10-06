@@ -60,13 +60,13 @@ final class SignUpVC: UIViewController {
         self.registerForKeyboardNotifications()
         
         // Setup label
-        titleLabel.text = L10n.signUp
-        nameTextField.placeholder = L10n.name
-        surnameTextField.placeholder = L10n.surname
-        rutTextField.placeholder = L10n.idNumber
-        passwordTextField.placeholder = L10n.password
-        emailTextField.placeholder = L10n.email
-        registerButton.setTitle(L10n.signUp.uppercased(), for: .normal)
+        titleLabel.text = L10n.Signup.signUp
+        nameTextField.placeholder = L10n.Signup.name
+        surnameTextField.placeholder = L10n.Signup.surname
+        rutTextField.placeholder = L10n.Signup.idNumber
+        passwordTextField.placeholder = L10n.Signup.password
+        emailTextField.placeholder = L10n.Signup.email
+        registerButton.setTitle(L10n.Signup.signUp.uppercased(), for: .normal)
     }
     
     deinit {

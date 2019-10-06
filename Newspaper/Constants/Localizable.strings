@@ -1,15 +1,25 @@
 ////////////////////////////////////////////////////////////////////////////////
-// MARK: Common
-"Copyright" = "todos los derechos reservados Jumpittlabs 2019";
-"SignIn" = "Ingresar";
-"SignUp" = "Crear cuenta";
-"Email" = "Correo electrónico";
-"Password" = "Contraseña";
-"Name" = "Nombre";
-"Surname" = "Apellido";
-"IDNumber" = "RUT";
-"Start" = "Comenzar";
-"CratedAccount" = "Cuenta creada";
+// MARK: Auth
+"auth.copyright" = "todos los derechos reservados Jumpittlabs 2019";
+"auth.signIn" = "Ingresar";
+"auth.signUp" = "Crear cuenta";
+
+// MARK: SignIn
+"signin.email" = "Correo electrónico";
+"signin.password" = "Contraseña";
+"signin.signIn" = "Ingresar";
+
+// MARK: SignUP
+"signup.email" = "Correo electrónico";
+"signup.password" = "Contraseña";
+"signup.name" = "Nombre";
+"signup.surname" = "Apellido";
+"signup.IDNumber" = "RUT";
+"signup.signUp" = "Crear cuenta";
+
+// MARK: Registered
+"registered.accountCreated" = "Cuenta creada";
+"registered.start" = "Comenzar";
 
 // MARK: Profile
 "profile.profile" = "Perfile";

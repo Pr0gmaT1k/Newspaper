@@ -11,7 +11,6 @@ import UIKit
 // MARK:- Delegate
 protocol RegisteredVCDelegate: class {
     func didTapStartButton()
-    func didTapBack()
 }
 
 // MARK:- Class
@@ -28,13 +27,9 @@ final class RegisteredVC: UIViewController {
         delegate?.didTapStartButton()
     }
     
-    @IBAction func backButtonDidTap(_ sender: Any) {
-        delegate?.didTapBack()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.titleLabel.text = L10n.cratedAccount
-        self.startButton.setTitle(L10n.start, for: .normal)
+        self.titleLabel.text = L10n.Registered.accountCreated
+        self.startButton.setTitle(L10n.Registered.start, for: .normal)
     }
 }
