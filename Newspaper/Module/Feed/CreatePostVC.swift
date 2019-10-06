@@ -12,7 +12,6 @@ import UIKit
 protocol CreatePostVCDelegate: class {
     func createPost(title: String, description: String?, body: String?)
     func back()
-    func addImage()
 }
 
 // MARK:- Class
@@ -39,7 +38,12 @@ final class CreatePostVC: UIViewController {
     
     // MARK:- IBActions
     @IBAction func addImageButtonDidTap(_ sender: Any) {
-        delegate?.addImage()
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = .photoLibrary
+            imagePickerController.delegate = self
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func createPostDidTap(_ sender: Any) {
@@ -59,6 +63,7 @@ final class CreatePostVC: UIViewController {
     // MARK:- Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Register keyboard notifications
         self.registerForKeyboardNotifications()
         
@@ -132,5 +137,20 @@ extension CreatePostVC {
         self.scrollView.scrollIndicatorInsets = contentInsets
         self.view.endEditing(true)
         self.scrollView.isScrollEnabled = false
+    }
+}
+
+// MARK:- UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension CreatePostVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    // TODO: to be moved in the coordinator
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        self.postImage.image = image
+        picker.dismiss(animated: true, completion: nil)
     }
 }

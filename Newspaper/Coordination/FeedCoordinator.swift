@@ -112,10 +112,6 @@ extension FeedCoordinator: CreatePostVCDelegate {
         }.disposed(by: bag)
     }
     
-    func addImage() {
-        
-    }
-    
     func back() {
         self.navigator.popViewController(animated: true)
     }
