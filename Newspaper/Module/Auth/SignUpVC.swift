@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import RxSwift
 
 // MARK:- Delegate
 protocol SignUpVCDelegate: class {
-    func registerButtonDidTap(name: String, lastName: String, dni: String, email: String, pwd: String, pwdConfirmation: String)
+    func didSignedUpAndIsSignedIn()
+    func didTapBack()
 }
 
 // MARK:- Class
 final class SignUpVC: UIViewController {
     // MARK:- Properties
     weak var delegate: SignUpVCDelegate?
+    private let bag = DisposeBag()
+    private let wsClient = NPWebServiceClient()
     
     // MARK:- IBOutlets
     @IBOutlet private weak var titleLabel: UILabel!
@@ -30,7 +34,7 @@ final class SignUpVC: UIViewController {
     
     // MARK:- IBActions
     @IBAction func backButtonDidTouch(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        delegate?.didTapBack()
     }
     
     @IBAction func registerButtonDidTouch(_ sender: Any) {
@@ -41,7 +45,7 @@ final class SignUpVC: UIViewController {
             let pwd = passwordTextField.text else { return }
         // WARNING: The API require pwd confirmation but there is no textfield in relation on the zeplin design.
         // I choose to be conform to the design.
-        delegate?.registerButtonDidTap(name: name, lastName: lastname, dni: dni, email: email, pwd: pwd, pwdConfirmation: pwd)
+        signUp(name: name, lastName: lastname, dni: dni, email: email, pwd: pwd, pwdConfirmation: pwd)
     }
     
     @IBAction func showPwdDidTouch(_ sender: Any) {
@@ -103,5 +107,37 @@ extension SignUpVC {
         self.scrollView.scrollIndicatorInsets = contentInsets
         self.view.endEditing(true)
         self.scrollView.isScrollEnabled = false
+    }
+}
+
+// MARK:- WS Call
+extension SignUpVC {
+    private func signUp(name: String, lastName: String, dni: String, email: String, pwd: String, pwdConfirmation: String) {
+        self.showNPLoader()
+        wsClient.register(name: name, lastname: lastName, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfirmation)
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                switch event {
+                case .completed: break
+                case .error(let error):
+                    self?.hideNPLoader()
+                    print(error)
+                case .next: self?.signIn(email: email, pwd: pwd)
+                }
+        }.disposed(by: bag)
+    }
+    
+    private func signIn(email: String, pwd: String) {
+        self.showNPLoader()
+        wsClient.signIn(email: email, pwd: pwd)
+        .observeOn(MainScheduler.instance)
+        .subscribe { [weak self] event in
+            self?.hideNPLoader()
+            switch event {
+            case .completed: break
+            case .error(let error): print(error)
+            case .next: self?.delegate?.didSignedUpAndIsSignedIn()
+            }
+        }.disposed(by: bag)
     }
 }

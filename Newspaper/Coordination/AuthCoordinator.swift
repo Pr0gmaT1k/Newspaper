@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK: - Delegate
 protocol AuthCoordinatorDelegate: class {
@@ -17,8 +16,6 @@ protocol AuthCoordinatorDelegate: class {
 // MARK: - Coordinator
 final class AuthCoordinator: CoordinatorNavigable {
     // MARK:- Properties
-    private let bag = DisposeBag()
-    private let wsClient = NPWebServiceClient()
     weak var delegate: AuthCoordinatorDelegate?
     var childCoordinators: [Coordinator] = []
     var navigator: NavigatorType
@@ -37,32 +34,20 @@ final class AuthCoordinator: CoordinatorNavigable {
     
     func start() {}
     
-    func backButtonDidTapped() {
+    func didTapBack() {
         self.rootViewController.popViewController(animated: true)
-    }
-    
-    private func signIn(email: String, pwd: String, completion: @escaping (_ error: String?) -> Void) {
-        wsClient.auth(email: email, pwd: pwd)
-        .observeOn(MainScheduler.instance)
-        .subscribe { event in
-            switch event {
-            case .completed: break
-            case .error(let error): completion(error.localizedDescription)
-            case .next: completion(nil)
-            }
-        }.disposed(by: bag)
     }
 }
 
 // MARK:- AuthVC Delegate
 extension AuthCoordinator: AuthVCDelegate {
-    func authVCSignInButtonDidTap() {
+    func didTapSignIn() {
         let vc = StoryboardScene.Auth.signInVC.instantiate()
         vc.delegate = self
         self.navigator.push(vc, animated: true)
     }
     
-    func authVCSignUpButtonDidTap() {
+    func didTapSignUp() {
         let vc = StoryboardScene.Auth.signUpVC.instantiate()
         vc.delegate = self
         self.navigator.push(vc, animated: true)
@@ -71,49 +56,23 @@ extension AuthCoordinator: AuthVCDelegate {
 
 // MARK:- SIGNIN VC Delegate
 extension AuthCoordinator: SignInVCDelegate {
-    func signInButtonDidTap(email: String, pwd: String, vc: SignInVC) {
-        signIn(email: email, pwd: pwd) { [unowned self] error in
-            if let error = error {
-                vc.displayError(error: error)
-            } else {
-                self.delegate?.authCoordinatorDidFinish(self)
-            }
-        }
+    func didSignedIn() {
+        delegate?.authCoordinatorDidFinish(self)
     }
 }
 
 // MARK:- SIGNUP VC Delegate
 extension AuthCoordinator: SignUpVCDelegate {
-    func registerButtonDidTap(name: String,
-                              lastName: String,
-                              dni: String,
-                              email: String,
-                              pwd: String,
-                              pwdConfirmation: String) {
-        wsClient.register(name: name, lastname: lastName, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfirmation)
-            .observeOn(MainScheduler.instance)
-            .subscribe { [weak self] event in
-                switch event {
-                case .completed: break
-                case .error(let error): print(error)
-                case .next:
-                    self?.signIn(email: email, pwd: pwd) { error in
-                        if let error = error {
-                            // display error
-                        } else {
-                            let vc = StoryboardScene.Auth.registeredVC.instantiate()
-                            vc.delegate = self
-                            self?.navigator.push(vc, animated: true)
-                        }
-                    }
-                }
-        }.disposed(by: bag)
+    func didSignedUpAndIsSignedIn() {
+        let vc = StoryboardScene.Auth.registeredVC.instantiate()
+        vc.delegate = self
+        self.navigator.push(vc, animated: true)
     }
 }
 
 // MARK:- Registered VC Delegate
 extension AuthCoordinator: RegisteredVCDelegate {
-    func startButtonTapped() {
+    func didTapStartButton() {
         delegate?.authCoordinatorDidFinish(self)
     }
 }

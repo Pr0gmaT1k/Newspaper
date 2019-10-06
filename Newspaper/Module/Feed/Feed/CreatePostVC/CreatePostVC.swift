@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import RxSwift
 
 // MARK:- Delegate
 protocol CreatePostVCDelegate: class {
-    func createPost(title: String, description: String?, body: String?)
-    func back()
+    func didTapBack()
+    func didCreatePost()
 }
 
 // MARK:- Class
 final class CreatePostVC: UIViewController {
     // MARK:- Properties
+    private let bag = DisposeBag()
+    private let wsClient = NPWebServiceClient()
     weak var delegate: CreatePostVCDelegate?
     static let titleLengthLimit = 30
     static let bodylengthLimit = 1000
@@ -49,7 +52,7 @@ final class CreatePostVC: UIViewController {
     @IBAction func createPostDidTap(_ sender: Any) {
         guard let title = titleTextField.text else { return }
         if title.isEmpty == false {
-            delegate?.createPost(title: title, description: descriptionTextField.text, body: bodyTextField.text)
+            createPost(title: title, description: descriptionTextField.text, body: bodyTextField.text)
         } else {
             self.scrollView.setContentOffset(.zero, animated: true)
             self.titleFieldBackground.backgroundColor = ColorName.scarlett.color.withAlphaComponent(30/100)
@@ -57,7 +60,7 @@ final class CreatePostVC: UIViewController {
     }
     
     @IBAction func backButtonDidTap(_ sender: Any) {
-        delegate?.back()
+        delegate?.didTapBack()
     }
     
     // MARK:- Funcs
@@ -157,5 +160,20 @@ extension CreatePostVC: UIImagePickerControllerDelegate, UINavigationControllerD
         guard let image = info[.originalImage] as? UIImage else { return }
         self.postImage.image = image
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CreatePostVC {
+    func createPost(title: String, description: String?, body: String?) {
+        self.showNPLoader()
+        wsClient.createPost(title: title, description: description, body: body).observeOn(MainScheduler.instance)
+        .subscribe { [weak self] event in
+            self?.hideNPLoader()
+            switch event {
+            case .completed: break
+            case .next: self?.delegate?.didCreatePost()
+            case .error(let error): print(error)
+            }
+        }.disposed(by: bag)
     }
 }

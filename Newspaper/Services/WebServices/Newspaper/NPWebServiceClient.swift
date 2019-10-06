@@ -22,7 +22,7 @@ final class NPWebServiceClient {
     }
     
     // MARK: - Services
-    func auth(email: String, pwd: String) -> Observable<Void> {
+    func signIn(email: String, pwd: String) -> Observable<Void> {
         let requestParameters = RequestParameters(method: .post, route: NPRoute.signIn, parameters: [JSONKeys.email: email, JSONKeys.pwd: pwd])
         
         return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Void in
@@ -47,7 +47,7 @@ final class NPWebServiceClient {
         }
     }
     
-    func user()-> Observable<User?> {
+    func getCurrentUser()-> Observable<User?> {
         let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
         let userId: Int = (try? decode(jwt: token))?.body[JSONKeys.tokenUserID] as? Int ?? 00
         // Error will be returned by the WS if param is empty.
@@ -58,7 +58,7 @@ final class NPWebServiceClient {
         }
     }
     
-    func users()-> Observable<Users?> {
+    func getUsers()-> Observable<Users?> {
         let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
         // Error will be returned by the WS if param is empty.
         let requestParameters = RequestParameters(method: .get, route: NPRoute.users, headers: [JSONKeys.authorisation: token])

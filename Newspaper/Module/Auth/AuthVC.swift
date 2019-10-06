@@ -10,8 +10,8 @@ import UIKit
 
 // MARK:- Delegate
 protocol AuthVCDelegate: class {
-    func authVCSignInButtonDidTap()
-    func authVCSignUpButtonDidTap()
+    func didTapSignIn()
+    func didTapSignUp()
 }
 
 
@@ -27,11 +27,11 @@ final class AuthVC: UIViewController {
     
     // MARK:- IBActions
     @IBAction func signInDidTap(_ sender: Any) {
-        delegate?.authVCSignInButtonDidTap()
+        delegate?.didTapSignIn()
     }
     
     @IBAction func signUpDidTap(_ sender: Any) {
-        delegate?.authVCSignUpButtonDidTap()
+        delegate?.didTapSignUp()
     }
     
     // MARK:- Funcs

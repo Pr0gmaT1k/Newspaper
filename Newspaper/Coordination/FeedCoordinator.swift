@@ -7,10 +7,8 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK: - Delegate
-
 protocol FeedCoordinatorDelegate: class {
     func feedCoordinatorDidFinish(_ coordinator: FeedCoordinator, closeSession: Bool)
 }
@@ -19,12 +17,11 @@ protocol FeedCoordinatorDelegate: class {
 
 final class FeedCoordinator: CoordinatorNavigable {
     // MARK:- Properties
-    private let bag = DisposeBag()
-    private let wsClient = NPWebServiceClient()
     weak var delegate: FeedCoordinatorDelegate?
     var childCoordinators: [Coordinator] = []
     var navigator: NavigatorType
     var rootViewController: UINavigationController
+    private var retainedFeedVC: FeedVC
     
     // MARK:- Func
     init() {
@@ -40,96 +37,51 @@ final class FeedCoordinator: CoordinatorNavigable {
         rootViewController = navigationController
         rootViewController.modalPresentationStyle = .fullScreen
         rootViewController.modalTransitionStyle = .crossDissolve
+        retainedFeedVC = feedVC
         
         feedVC.delegate = self
         profileVC.delegate = self
         usersVC.delegate = self
     }
     
-    private func requestUser(completion: @escaping (User?) -> Void) {
-        wsClient.user().observeOn(MainScheduler.instance)
-        .subscribe { event in
-            switch event {
-            case .completed: break
-            case .error(let error): print(error)
-            case .next(let user): completion(user)
-            }
-        }.disposed(by: bag)
-    }
-    
     func start() {}
+    
+    func didTapBack() {
+        navigator.popViewController(animated: true)
+    }
 }
 
 // MARK:- FeedVC Delegate
 extension FeedCoordinator: FeedVCDelegate {
-    func requestposts(vc: FeedVC) {
-        wsClient.getPosts().observeOn(MainScheduler.instance)
-        .subscribe { event in
-            switch event {
-            case .completed: break
-            case .next(let posts): vc.updatePosts(posts: posts)
-            case .error(let error): print(error)
-            }
-        }.disposed(by: bag)
-    }
-    
-    func addpost() {
+    func didTapAddPost() {
         let vc = StoryboardScene.Feed.createPostVC.instantiate()
         vc.delegate = self
-        self.navigator.push(vc, animated: true)
+        navigator.push(vc, animated: true)
     }
     
-    func viewPost(post: Post) {
+    func didSelect(post: Post) {
         let vc = StoryboardScene.Feed.detailsPostVC.instantiate()
         vc.delegate = self
         vc.post = post
-        self.navigator.push(vc, animated: true)
+        navigator.push(vc, animated: true)
     }
 }
 
 // MARK:- ProfileVC Delegate
 extension FeedCoordinator: ProfileVCDelegate {
-    func closeSession() {
-        wsClient.disconnect()
+    func didClosedSession() {
         delegate?.feedCoordinatorDidFinish(self, closeSession: true)
-    }
-    
-    func requestUser(profileVC: ProfileVC) {
-        requestUser { user in
-            profileVC.fill(user: user)
-        }
     }
 }
 
 // MARK:- UsersVC Delegate
-extension FeedCoordinator: UsersVCDelegate {
-    func requestUser(vc: UsersVC) {
-        wsClient.users().observeOn(MainScheduler.instance)
-        .subscribe { event in
-            switch event {
-            case .completed: break
-            case .error(let error): print(error)
-            case .next(let users): vc.updateUser(users: users)
-            }
-        }.disposed(by: bag)
-    }
-}
+extension FeedCoordinator: UsersVCDelegate {}
 
 // MARK:- CreatePost Delegate
 extension FeedCoordinator: CreatePostVCDelegate {
-    func createPost(title: String, description: String?, body: String?) {
-        wsClient.createPost(title: title, description: description, body: body).observeOn(MainScheduler.instance)
-        .subscribe { event in
-            switch event {
-            case .completed: break
-            case .next: self.navigator.popViewController(animated: true)
-            case .error(let error): print(error)
-            }
-        }.disposed(by: bag)
-    }
-    
-    func back() {
-        self.navigator.popViewController(animated: true)
+    func didCreatePost() {
+        navigator.popViewController(animated: true)
+        retainedFeedVC.shouldRefresh = true
     }
 }
 
