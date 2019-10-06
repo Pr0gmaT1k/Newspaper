@@ -691,8 +691,8 @@
 		BAD30669234650CE002335CF /* Newspaper */ = {
 			isa = PBXGroup;
 			children = (
-				BAD7F551234A57D9006A18C2 /* Common */,
 				BA46C558234652BD00FC1E0D /* AppDelegate.swift */,
+				BAD7F551234A57D9006A18C2 /* Common */,
 				BA22AA782347C2D500E77EE3 /* Coordination */,
 				BA46C56E234652BD00FC1E0D /* Constants */,
 				BA46C56B234652BD00FC1E0D /* Environments */,

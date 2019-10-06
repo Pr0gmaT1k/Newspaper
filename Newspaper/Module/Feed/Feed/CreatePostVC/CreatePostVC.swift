@@ -41,11 +41,12 @@ final class CreatePostVC: UIViewController {
     
     // MARK:- IBActions
     @IBAction func addImageButtonDidTap(_ sender: Any) {
+        self.view.endEditing(true)
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let imagePickerController = UIImagePickerController()
             imagePickerController.sourceType = .photoLibrary
             imagePickerController.delegate = self
-            self.present(imagePickerController, animated: true, completion: nil)
+            self.navigationController?.present(imagePickerController, animated: true, completion: nil)
         }
     }
     
@@ -163,6 +164,7 @@ extension CreatePostVC: UIImagePickerControllerDelegate, UINavigationControllerD
     }
 }
 
+// MARK:- WS
 extension CreatePostVC {
     func createPost(title: String, description: String?, body: String?) {
         self.showNPLoader()
