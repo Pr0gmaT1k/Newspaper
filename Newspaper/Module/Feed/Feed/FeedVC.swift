@@ -31,7 +31,6 @@ final class FeedVC: UIViewController {
         delegate?.addpost()
     }
     
-    
     // MARK:- Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +46,7 @@ final class FeedVC: UIViewController {
     }
     
     func updatePosts(posts: Posts?) {
-        self.source = posts?.posts.map { $0 }
+        self.source = posts?.posts.reversed()
         self.tableView.reloadData()
     }
 }

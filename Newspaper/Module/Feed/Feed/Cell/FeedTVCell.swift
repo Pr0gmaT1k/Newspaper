@@ -17,6 +17,7 @@ final class FeedTVCell: UITableViewCell, NibReusable {
     
     // MARK:- funcs
     func fill(post: Post?) {
+        self.imageCell.layer.masksToBounds = true
         titleLabel.text = post?.title
         descriptionLabel.text = post?.postDescription
         let randomNumber = Int.random(in: 1...23)

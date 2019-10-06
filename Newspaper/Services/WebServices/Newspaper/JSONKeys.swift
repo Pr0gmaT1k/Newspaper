@@ -17,4 +17,8 @@ struct JSONKeys {
     static let authorisation = "Authorization"
     static let tokenUserID = "user_id"
     static let tokenExp = "exp"
+    static let post = "post"
+    static let postTitle = "title"
+    static let postDescription = "description"
+    static let postBody = "body"
 }

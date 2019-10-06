@@ -354,15 +354,13 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Ehr-jJ-3eU" firstAttribute="leading" secondItem="oV7-7N-j3V" secondAttribute="leading" id="Dba-fR-K0O"/>
+                                    <constraint firstItem="Ehr-jJ-3eU" firstAttribute="leading" secondItem="Ouq-Xx-aXy" secondAttribute="leading" id="Dba-fR-K0O"/>
                                     <constraint firstAttribute="bottom" secondItem="Ehr-jJ-3eU" secondAttribute="bottom" id="KNY-Rh-0xp"/>
                                     <constraint firstAttribute="trailing" secondItem="Ehr-jJ-3eU" secondAttribute="trailing" id="ac9-gT-MWB"/>
-                                    <constraint firstItem="oV7-7N-j3V" firstAttribute="trailing" secondItem="Ehr-jJ-3eU" secondAttribute="trailing" id="mGD-Ev-bDG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ehr-jJ-3eU" secondAttribute="trailing" id="mGD-Ev-bDG"/>
                                     <constraint firstItem="Ehr-jJ-3eU" firstAttribute="centerX" secondItem="Ouq-Xx-aXy" secondAttribute="centerX" id="qYI-lJ-ig3"/>
                                     <constraint firstItem="Ehr-jJ-3eU" firstAttribute="top" secondItem="Ouq-Xx-aXy" secondAttribute="top" id="te9-92-UUI"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="ARa-xv-eeL"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="oV7-7N-j3V"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -505,19 +503,6 @@
                                     <constraint firstAttribute="width" secondItem="ehb-t2-hYZ" secondAttribute="height" multiplier="414:317" id="EwI-mC-2ry"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTm-fm-5FA">
-                                <rect key="frame" x="20" y="64" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="C2O-bj-fbQ"/>
-                                    <constraint firstAttribute="width" constant="25" id="R5Z-vf-i4z"/>
-                                </constraints>
-                                <state key="normal" image="ArrowBack"/>
-                                <connections>
-                                    <action selector="backButtonDidTap:" destination="XZd-eL-Blc" eventType="touchUpInside" id="7o5-de-QaQ"/>
-                                    <action selector="backButtonDidTouch:" destination="DN6-wQ-VXB" eventType="touchUpInside" id="TyP-xl-Yhh"/>
-                                    <action selector="backButtonDidTouch:" destination="DNm-qq-KIY" eventType="touchUpInside" id="rsc-69-RfF"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCY-Rj-c9U">
                                 <rect key="frame" x="20" y="485" width="374" height="45"/>
                                 <constraints>
@@ -554,21 +539,14 @@
                             <constraint firstItem="O6g-6K-3zd" firstAttribute="top" secondItem="bCY-Rj-c9U" secondAttribute="bottom" constant="39" id="4aA-0o-wtd"/>
                             <constraint firstItem="Pjp-V9-4De" firstAttribute="trailing" secondItem="ehb-t2-hYZ" secondAttribute="trailing" id="8Qv-cd-RNe"/>
                             <constraint firstItem="bCY-Rj-c9U" firstAttribute="top" secondItem="ehb-t2-hYZ" secondAttribute="bottom" constant="32" id="CBh-v4-ZOx"/>
-                            <constraint firstItem="qTm-fm-5FA" firstAttribute="top" secondItem="Pjp-V9-4De" secondAttribute="top" constant="20" id="Cdc-EX-ew6"/>
                             <constraint firstItem="O6g-6K-3zd" firstAttribute="leading" secondItem="Pjp-V9-4De" secondAttribute="leading" constant="76" id="DXR-i9-l8R"/>
                             <constraint firstItem="Pjp-V9-4De" firstAttribute="trailing" secondItem="O6g-6K-3zd" secondAttribute="trailing" constant="76" id="LaN-MY-bEI"/>
                             <constraint firstItem="bCY-Rj-c9U" firstAttribute="leading" secondItem="Pjp-V9-4De" secondAttribute="leading" constant="20" id="NWI-Rx-v8v"/>
                             <constraint firstItem="Pjp-V9-4De" firstAttribute="centerY" secondItem="ehb-t2-hYZ" secondAttribute="bottom" id="XUY-QC-cEJ"/>
                             <constraint firstItem="ehb-t2-hYZ" firstAttribute="leading" secondItem="Pjp-V9-4De" secondAttribute="leading" id="Z6y-v5-x60"/>
                             <constraint firstItem="Pjp-V9-4De" firstAttribute="trailing" secondItem="bCY-Rj-c9U" secondAttribute="trailing" constant="20" id="btm-Cj-Jmd"/>
-                            <constraint firstItem="qTm-fm-5FA" firstAttribute="leading" secondItem="Pjp-V9-4De" secondAttribute="leading" constant="20" id="plP-43-vG5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pjp-V9-4De"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="qTm-fm-5FA"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="startButton" destination="O6g-6K-3zd" id="e84-k9-WYt"/>

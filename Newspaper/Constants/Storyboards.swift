@@ -26,6 +26,8 @@ internal enum StoryboardScene {
   internal enum Feed: StoryboardType {
     internal static let storyboardName = "Feed"
 
+    internal static let createPostVC = SceneType<Newspaper.CreatePostVC>(storyboard: Feed.self, identifier: "CreatePostVC")
+
     internal static let feedVC = SceneType<Newspaper.FeedVC>(storyboard: Feed.self, identifier: "FeedVC")
 
     internal static let friendVC = SceneType<Newspaper.FriendVC>(storyboard: Feed.self, identifier: "FriendVC")

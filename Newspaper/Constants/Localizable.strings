@@ -21,3 +21,13 @@
 // MARK: Feed
 "feed.header.title" = "Mi feed";
 "feed.addPost" = "Agregar";
+
+// MARK: Create Post
+"create.title" = "Crear post";
+"create.addTitle" = "Titulo";
+"create.addDescription" = "Descripción";
+"create.addBody" = "Detalles";
+"create.addPhoto" = "Agrega una foto";
+"create.addPostButton" = "Crear post";
+"create.countDescription" = "%u / 100";
+"create.countBody" = "%u / 1000";

@@ -32,6 +32,29 @@ internal enum L10n {
   /// Apellido
   internal static let surname = L10n.tr("Localizable", "Surname")
 
+  internal enum Create {
+    /// Detalles
+    internal static let addBody = L10n.tr("Localizable", "create.addBody")
+    /// Descripción
+    internal static let addDescription = L10n.tr("Localizable", "create.addDescription")
+    /// Agrega una foto
+    internal static let addPhoto = L10n.tr("Localizable", "create.addPhoto")
+    /// Crear post
+    internal static let addPostButton = L10n.tr("Localizable", "create.addPostButton")
+    /// Titulo
+    internal static let addTitle = L10n.tr("Localizable", "create.addTitle")
+    /// %u / 1000
+    internal static func countBody(_ p1: Int) -> String {
+      return L10n.tr("Localizable", "create.countBody", p1)
+    }
+    /// %u / 100
+    internal static func countDescription(_ p1: Int) -> String {
+      return L10n.tr("Localizable", "create.countDescription", p1)
+    }
+    /// Crear post
+    internal static let title = L10n.tr("Localizable", "create.title")
+  }
+
   internal enum Feed {
     /// Agregar
     internal static let addPost = L10n.tr("Localizable", "feed.addPost")

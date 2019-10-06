@@ -63,7 +63,7 @@ final class FeedCoordinator: CoordinatorNavigable {
 // MARK:- FeedVC Delegate
 extension FeedCoordinator: FeedVCDelegate {
     func requestposts(vc: FeedVC) {
-        wsClient.posts().observeOn(MainScheduler.instance)
+        wsClient.getPosts().observeOn(MainScheduler.instance)
         .subscribe { event in
             switch event {
             case .completed: break
@@ -74,7 +74,9 @@ extension FeedCoordinator: FeedVCDelegate {
     }
     
     func addpost() {
-        
+        let vc = StoryboardScene.Feed.createPostVC.instantiate()
+        vc.delegate = self
+        self.navigator.push(vc, animated: true)
     }
 }
 
@@ -95,4 +97,22 @@ extension FeedCoordinator: ProfileVCDelegate {
 // MARK:- FriendVC Delegate
 extension FeedCoordinator: FriendVCDelegate {
     
+}
+
+// MARK:- CreatePost Delegate
+extension FeedCoordinator: CreatePostVCDelegate {
+    func createPost(title: String, description: String?, body: String?) {
+        wsClient.createPost(title: title, description: description, body: body).observeOn(MainScheduler.instance)
+        .subscribe { event in
+            switch event {
+            case .completed: break
+            case .next: self.navigator.popViewController(animated: true)
+            case .error(let error): print(error)
+            }
+        }.disposed(by: bag)
+    }
+    
+    func back() {
+        self.navigator.popViewController(animated: true)
+    }
 }
