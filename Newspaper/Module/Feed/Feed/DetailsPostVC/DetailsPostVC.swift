@@ -20,11 +20,11 @@ final class DetailsPostVC: UIViewController {
     var post: Post?
     
     // MARK:- IBOutlets
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var imageHeader: UIImageView!
-    @IBOutlet weak var postTitleLabel: UILabel!
-    @IBOutlet weak var postDescriptionLabel: UILabel!
-    @IBOutlet weak var postBodyLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var imageHeader: UIImageView!
+    @IBOutlet private weak var postTitleLabel: UILabel!
+    @IBOutlet private weak var postDescriptionLabel: UILabel!
+    @IBOutlet private weak var postBodyLabel: UILabel!
     
     // MARK:- IBActions
     @IBAction func backButtonDIdtap(_ sender: Any) {
