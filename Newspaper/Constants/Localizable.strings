@@ -31,3 +31,7 @@
 "create.addPostButton" = "Crear post";
 "create.countDescription" = "%u / 100";
 "create.countBody" = "%u / 1000";
+
+// MARK: Details Post
+"details.title" = "Post";
+

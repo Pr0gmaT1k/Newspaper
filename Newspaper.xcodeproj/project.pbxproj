@@ -36,6 +36,7 @@
 		BA22AAB123490F4A00E77EE3 /* FeedTVHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA22AAAF23490F4A00E77EE3 /* FeedTVHeader.xib */; };
 		BA22AAB423490F7700E77EE3 /* FeedTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22AAB223490F7700E77EE3 /* FeedTVCell.swift */; };
 		BA22AAB523490F7700E77EE3 /* FeedTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA22AAB323490F7700E77EE3 /* FeedTVCell.xib */; };
+		BA39A6932349772700494510 /* DetailsPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA39A6922349772700494510 /* DetailsPostVC.swift */; };
 		BA46C57A234652BD00FC1E0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C558234652BD00FC1E0D /* AppDelegate.swift */; };
 		BA46C57B234652BD00FC1E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA46C55A234652BD00FC1E0D /* Assets.xcassets */; };
 		BA46C57C234652BD00FC1E0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA46C55B234652BD00FC1E0D /* LaunchScreen.storyboard */; };
@@ -156,6 +157,7 @@
 		BA22AAAF23490F4A00E77EE3 /* FeedTVHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTVHeader.xib; sourceTree = "<group>"; };
 		BA22AAB223490F7700E77EE3 /* FeedTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTVCell.swift; sourceTree = "<group>"; };
 		BA22AAB323490F7700E77EE3 /* FeedTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTVCell.xib; sourceTree = "<group>"; };
+		BA39A6922349772700494510 /* DetailsPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPostVC.swift; sourceTree = "<group>"; };
 		BA46C558234652BD00FC1E0D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA46C55A234652BD00FC1E0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA46C55C234652BD00FC1E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -270,12 +272,11 @@
 		BA22AA832347D5C200E77EE3 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				BA39A68E234976B500494510 /* Users */,
+				BA39A68D234976AC00494510 /* Profile */,
 				BA22AAAB23490EDD00E77EE3 /* Feed */,
 				BA22AA842347D5DA00E77EE3 /* Feed.storyboard */,
-				BA22AA8A2348C9AB00E77EE3 /* ProfileVC.swift */,
 				BA22AA8C2348CADB00E77EE3 /* TabBarVC.swift */,
-				BA22AA8E2348CFFF00E77EE3 /* FriendVC.swift */,
-				BA7C43792349380300F8166D /* CreatePostVC.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -303,9 +304,9 @@
 		BA22AAAB23490EDD00E77EE3 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				BA22AAAD23490EF900E77EE3 /* Header */,
-				BA22AAAC23490EF000E77EE3 /* Cell */,
-				BA22AA862347D5EA00E77EE3 /* FeedVC.swift */,
+				BA39A691234976FF00494510 /* DetailsPostVC */,
+				BA39A690234976D700494510 /* CreatePostVC */,
+				BA39A68F234976C600494510 /* FeedVC */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -326,6 +327,48 @@
 				BA22AAAF23490F4A00E77EE3 /* FeedTVHeader.xib */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		BA39A68D234976AC00494510 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BA22AA8A2348C9AB00E77EE3 /* ProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		BA39A68E234976B500494510 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				BA22AA8E2348CFFF00E77EE3 /* FriendVC.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		BA39A68F234976C600494510 /* FeedVC */ = {
+			isa = PBXGroup;
+			children = (
+				BA22AAAD23490EF900E77EE3 /* Header */,
+				BA22AAAC23490EF000E77EE3 /* Cell */,
+				BA22AA862347D5EA00E77EE3 /* FeedVC.swift */,
+			);
+			path = FeedVC;
+			sourceTree = "<group>";
+		};
+		BA39A690234976D700494510 /* CreatePostVC */ = {
+			isa = PBXGroup;
+			children = (
+				BA7C43792349380300F8166D /* CreatePostVC.swift */,
+			);
+			path = CreatePostVC;
+			sourceTree = "<group>";
+		};
+		BA39A691234976FF00494510 /* DetailsPostVC */ = {
+			isa = PBXGroup;
+			children = (
+				BA39A6922349772700494510 /* DetailsPostVC.swift */,
+			);
+			path = DetailsPostVC;
 			sourceTree = "<group>";
 		};
 		BA46C559234652BD00FC1E0D /* Ressources */ = {
@@ -834,6 +877,7 @@
 				BA46C57F234652BD00FC1E0D /* ListTransform.swift in Sources */,
 				BAA4C41A23465C9500F7E420 /* Status.swift in Sources */,
 				BAA4C40E23465C8D00F7E420 /* PostMapper.swift in Sources */,
+				BA39A6932349772700494510 /* DetailsPostVC.swift in Sources */,
 				BAA4C40D23465C8D00F7E420 /* UserMapper.swift in Sources */,
 				BA46C57A234652BD00FC1E0D /* AppDelegate.swift in Sources */,
 				BAA4C41623465C9500F7E420 /* Users.swift in Sources */,

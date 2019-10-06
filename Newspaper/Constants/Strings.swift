@@ -55,6 +55,11 @@ internal enum L10n {
     internal static let title = L10n.tr("Localizable", "create.title")
   }
 
+  internal enum Details {
+    /// Post
+    internal static let title = L10n.tr("Localizable", "details.title")
+  }
+
   internal enum Feed {
     /// Agregar
     internal static let addPost = L10n.tr("Localizable", "feed.addPost")

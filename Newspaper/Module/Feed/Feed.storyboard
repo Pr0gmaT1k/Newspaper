@@ -16,6 +16,9 @@
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
         </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--FriendVC-->
@@ -25,7 +28,7 @@
                     <view key="view" contentMode="scaleToFill" id="c60-f8-wIQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="N89-0r-It1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="command" catalog="system" id="fed-Y4-Uj9"/>
@@ -262,7 +265,7 @@
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldP-Cq-4SS">
                                         <rect key="frame" x="207" y="22.5" width="0.0" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -513,6 +516,94 @@
             </objects>
             <point key="canvasLocation" x="1879.7101449275365" y="-1035.2678571428571"/>
         </scene>
+        <!--Details PostVC-->
+        <scene sceneID="zQ3-G2-2fq">
+            <objects>
+                <viewController storyboardIdentifier="DetailsPostVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LB9-33-dsz" customClass="DetailsPostVC" customModule="Newspaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z3g-yK-Dwd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gs7-dh-FuD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Gs7-dh-FuD" secondAttribute="height" multiplier="1920:1080" id="8vA-mz-4dQ"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfZ-p7-Nad">
+                                <rect key="frame" x="21" y="58" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Hch-sF-ezu"/>
+                                    <constraint firstAttribute="width" constant="25" id="fAC-re-Igi"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="arrow.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonDIdtap:" destination="LB9-33-dsz" eventType="touchUpInside" id="XVX-a8-WWD"/>
+                                    <action selector="backButtonDidTap:" destination="ULb-z2-a8r" eventType="touchUpInside" id="SBe-gX-I6V"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6r-Zw-jWn">
+                                <rect key="frame" x="32" y="257" width="350" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="BoE-se-TGQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiP-Gr-duU">
+                                <rect key="frame" x="32" y="322" width="350" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsI-DY-U2m">
+                                <rect key="frame" x="32" y="338" width="350" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSk-az-hoN">
+                                <rect key="frame" x="207" y="70.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TsI-DY-U2m" firstAttribute="top" secondItem="WiP-Gr-duU" secondAttribute="bottom" constant="16" id="6tf-50-XJR"/>
+                            <constraint firstItem="Gs7-dh-FuD" firstAttribute="top" secondItem="z3g-yK-Dwd" secondAttribute="top" id="BJw-Es-Ptc"/>
+                            <constraint firstItem="pfZ-p7-Nad" firstAttribute="top" secondItem="4H7-3L-aWq" secondAttribute="top" constant="14" id="Da0-Lc-cg0"/>
+                            <constraint firstItem="TsI-DY-U2m" firstAttribute="leading" secondItem="4H7-3L-aWq" secondAttribute="leading" constant="32" id="I8O-y1-5r2"/>
+                            <constraint firstItem="pSk-az-hoN" firstAttribute="centerX" secondItem="z3g-yK-Dwd" secondAttribute="centerX" id="KLR-Kp-2KX"/>
+                            <constraint firstItem="WiP-Gr-duU" firstAttribute="leading" secondItem="4H7-3L-aWq" secondAttribute="leading" constant="32" id="Mc9-Ng-vld"/>
+                            <constraint firstItem="WiP-Gr-duU" firstAttribute="top" secondItem="w6r-Zw-jWn" secondAttribute="bottom" constant="15" id="Qoi-8J-9yS"/>
+                            <constraint firstItem="w6r-Zw-jWn" firstAttribute="leading" secondItem="4H7-3L-aWq" secondAttribute="leading" constant="32" id="Rge-Mj-Lgu"/>
+                            <constraint firstItem="4H7-3L-aWq" firstAttribute="trailing" secondItem="WiP-Gr-duU" secondAttribute="trailing" constant="32" id="Zs5-eJ-jol"/>
+                            <constraint firstItem="4H7-3L-aWq" firstAttribute="trailing" secondItem="TsI-DY-U2m" secondAttribute="trailing" constant="32" id="gbZ-Zp-vAr"/>
+                            <constraint firstItem="pSk-az-hoN" firstAttribute="centerY" secondItem="pfZ-p7-Nad" secondAttribute="centerY" id="hWq-q4-eJT"/>
+                            <constraint firstItem="w6r-Zw-jWn" firstAttribute="top" secondItem="Gs7-dh-FuD" secondAttribute="bottom" constant="24" id="igA-4J-y7O"/>
+                            <constraint firstItem="4H7-3L-aWq" firstAttribute="trailing" secondItem="Gs7-dh-FuD" secondAttribute="trailing" id="tYV-Ce-DiK"/>
+                            <constraint firstItem="4H7-3L-aWq" firstAttribute="trailing" secondItem="w6r-Zw-jWn" secondAttribute="trailing" constant="32" id="tab-WY-aJJ"/>
+                            <constraint firstItem="Gs7-dh-FuD" firstAttribute="leading" secondItem="4H7-3L-aWq" secondAttribute="leading" id="vAN-nc-AcJ"/>
+                            <constraint firstItem="pfZ-p7-Nad" firstAttribute="leading" secondItem="z3g-yK-Dwd" secondAttribute="leading" constant="21" id="xYf-pc-KEE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4H7-3L-aWq"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageHeader" destination="Gs7-dh-FuD" id="OW1-sA-gIW"/>
+                        <outlet property="postBodyLabel" destination="TsI-DY-U2m" id="UXw-ze-oJB"/>
+                        <outlet property="postDescriptionLabel" destination="WiP-Gr-duU" id="Bra-va-cgl"/>
+                        <outlet property="postTitleLabel" destination="w6r-Zw-jWn" id="3hH-cx-f7K"/>
+                        <outlet property="titleLabel" destination="pSk-az-hoN" id="NzM-Oy-R9s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5yb-06-Zat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2683" y="-1035"/>
+        </scene>
         <!--Tab BarVC-->
         <scene sceneID="9pM-cK-Ttk">
             <objects>
@@ -535,6 +626,7 @@
     </scenes>
     <resources>
         <image name="ArrowBack" width="96" height="96"/>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
         <image name="command" catalog="system" width="64" height="58"/>
         <image name="heart.fill" catalog="system" width="64" height="58"/>
         <image name="person.circle.fill" catalog="system" width="64" height="62"/>
