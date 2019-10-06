@@ -76,6 +76,11 @@ final class CreatePostVC: UIViewController {
         addPostButton.setTitle(L10n.Create.addPostButton, for: .normal)
         descriptionCountLabel.text = L10n.Create.countDescription(0)
         bodyCountlabel.text = L10n.Create.countBody(0)
+        
+        // Delegate
+        bodyTextField.delegate = self
+        descriptionTextField.delegate = self
+        titleTextField.delegate = self
     }
     
     deinit {

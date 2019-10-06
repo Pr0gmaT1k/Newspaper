@@ -10,6 +10,5 @@ target ‘Newspaper’ do
   pod 'SwiftLint'
   pod 'SwiftGen'
   pod 'RxSwift'
-  pod 'Kingfisher'
   pod 'JWTDecode'
 end

@@ -15,7 +15,6 @@ protocol AuthCoordinatorDelegate: class {
 }
 
 // MARK: - Coordinator
-
 final class AuthCoordinator: CoordinatorNavigable {
     // MARK:- Properties
     private let bag = DisposeBag()
