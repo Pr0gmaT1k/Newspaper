@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// A simple loader view. Integrated in UIViewController with showNPLoader: & hideNPLoader:
 final class NPLoaderView: UIView {
     override init(frame: CGRect) {
         let center = CGPoint(x: frame.size.width  / 2,

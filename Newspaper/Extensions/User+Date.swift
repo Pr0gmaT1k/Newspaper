@@ -9,15 +9,17 @@
 import UIKit
 
 extension User {
-    var dateObject: Date? {
+    /// The Date object of self.createdDate
+    var createdDateObject: Date? {
         guard let dateStr = self.created_at else { return nil }
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return formatter.date(from: dateStr)
     }
     
-    var formattedDate: String? {
-        guard let date = self.dateObject else { return "" }
+    /// The human readable string of self.createdDate
+    var createdFormattedDate: String? {
+        guard let date = self.createdDateObject else { return "" }
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd LLLL yyyy HH:mm"
