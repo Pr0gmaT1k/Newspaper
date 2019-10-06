@@ -37,9 +37,9 @@ final class AuthVC: UIViewController {
     // MARK:- Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.copyrightLabel.text = L10n.copyright
-        self.signInButton.setTitle(L10n.signIn.uppercased(), for: .normal)
-        self.signUpButton.setTitle(L10n.signUp.uppercased(), for: .normal)
+        self.copyrightLabel.text = L10n.Auth.copyright
+        self.signInButton.setTitle(L10n.Auth.signIn.uppercased(), for: .normal)
+        self.signUpButton.setTitle(L10n.Auth.signUp.uppercased(), for: .normal)
         
         // Could not be set in storyboard because borderColor take CGColor
         // and storyboard give a UIColor.

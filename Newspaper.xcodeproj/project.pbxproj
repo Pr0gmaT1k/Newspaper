@@ -109,6 +109,10 @@
 		BAA5715F234A42790035719A /* User+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA5715E234A42790035719A /* User+Date.swift */; };
 		BACC6A46234A946C0000AA66 /* CreatePostVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC6A45234A946C0000AA66 /* CreatePostVCTests.swift */; };
 		BACC6A48234A948F0000AA66 /* DetailsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC6A47234A948F0000AA66 /* DetailsVCTests.swift */; };
+		BACC6A4A234A96E40000AA66 /* ProfilVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC6A49234A96E40000AA66 /* ProfilVCTests.swift */; };
+		BACC6A4C234A97F10000AA66 /* UsersVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC6A4B234A97F10000AA66 /* UsersVCTests.swift */; };
+		BACC6A4F234A998D0000AA66 /* AuthCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC6A4E234A998D0000AA66 /* AuthCoordinatorTests.swift */; };
+		BACC6A51234A9C080000AA66 /* FeedCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC6A50234A9C080000AA66 /* FeedCoordinatorTests.swift */; };
 		BAD30682234650CF002335CF /* NewspaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD30681234650CF002335CF /* NewspaperTests.swift */; };
 		BAD3068D234650CF002335CF /* NewspaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3068C234650CF002335CF /* NewspaperUITests.swift */; };
 		BAD7F554234A57EE006A18C2 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7F552234A57EE006A18C2 /* LoaderView.swift */; };
@@ -249,6 +253,10 @@
 		BAA5715E234A42790035719A /* User+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Date.swift"; sourceTree = "<group>"; };
 		BACC6A45234A946C0000AA66 /* CreatePostVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVCTests.swift; sourceTree = "<group>"; };
 		BACC6A47234A948F0000AA66 /* DetailsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVCTests.swift; sourceTree = "<group>"; };
+		BACC6A49234A96E40000AA66 /* ProfilVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilVCTests.swift; sourceTree = "<group>"; };
+		BACC6A4B234A97F10000AA66 /* UsersVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVCTests.swift; sourceTree = "<group>"; };
+		BACC6A4E234A998D0000AA66 /* AuthCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorTests.swift; sourceTree = "<group>"; };
+		BACC6A50234A9C080000AA66 /* FeedCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinatorTests.swift; sourceTree = "<group>"; };
 		BAD30667234650CE002335CF /* Newspaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newspaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD3067D234650CF002335CF /* NewspaperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewspaperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD30681234650CF002335CF /* NewspaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewspaperTests.swift; sourceTree = "<group>"; };
@@ -413,6 +421,7 @@
 		BA2D41AB234A8FF600E7D99B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				BACC6A49234A96E40000AA66 /* ProfilVCTests.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -420,6 +429,7 @@
 		BA2D41AC234A8FFA00E7D99B /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				BACC6A4B234A97F10000AA66 /* UsersVCTests.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -647,6 +657,15 @@
 			path = UserTVCell;
 			sourceTree = "<group>";
 		};
+		BACC6A4D234A997C0000AA66 /* Coordination */ = {
+			isa = PBXGroup;
+			children = (
+				BACC6A4E234A998D0000AA66 /* AuthCoordinatorTests.swift */,
+				BACC6A50234A9C080000AA66 /* FeedCoordinatorTests.swift */,
+			);
+			path = Coordination;
+			sourceTree = "<group>";
+		};
 		BAD3065E234650CE002335CF = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +709,7 @@
 			isa = PBXGroup;
 			children = (
 				BA2D4193234A818700E7D99B /* Helpers */,
+				BACC6A4D234A997C0000AA66 /* Coordination */,
 				BA2D4192234A817100E7D99B /* Feed */,
 				BA2D4191234A816B00E7D99B /* Auth */,
 				BAD30681234650CF002335CF /* NewspaperTests.swift */,
@@ -1035,13 +1055,17 @@
 				BA2D41A7234A8AE300E7D99B /* RegisteredVCTests.swift in Sources */,
 				BA2D41A5234A89DD00E7D99B /* SignUpVCTests.swift in Sources */,
 				BA2D41A3234A87DF00E7D99B /* SignInVCTests.swift in Sources */,
+				BACC6A4A234A96E40000AA66 /* ProfilVCTests.swift in Sources */,
 				BACC6A46234A946C0000AA66 /* CreatePostVCTests.swift in Sources */,
 				BA2D419B234A818700E7D99B /* XCTest+Utils.swift in Sources */,
 				BA2D419D234A818700E7D99B /* EquatableExpectation.swift in Sources */,
 				BA2D419A234A818700E7D99B /* FulfillableViewController.swift in Sources */,
 				BA2D419E234A818700E7D99B /* TopLevelUIUtilities.swift in Sources */,
 				BA2D4190234A808100E7D99B /* AuthVCTests.swift in Sources */,
+				BACC6A51234A9C080000AA66 /* FeedCoordinatorTests.swift in Sources */,
 				BACC6A48234A948F0000AA66 /* DetailsVCTests.swift in Sources */,
+				BACC6A4C234A97F10000AA66 /* UsersVCTests.swift in Sources */,
+				BACC6A4F234A998D0000AA66 /* AuthCoordinatorTests.swift in Sources */,
 				BA2D41A9234A8C1600E7D99B /* FeedVCTests.swift in Sources */,
 				BAD30682234650CF002335CF /* NewspaperTests.swift in Sources */,
 				BA2D419F234A818700E7D99B /* XCTestCase+Utils.swift in Sources */,

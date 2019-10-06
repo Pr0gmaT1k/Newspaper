@@ -29,7 +29,7 @@ final class RegisteredVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.titleLabel.text = L10n.cratedAccount
-        self.startButton.setTitle(L10n.start, for: .normal)
+        self.titleLabel.text = L10n.Registered.accountCreated
+        self.startButton.setTitle(L10n.Registered.start, for: .normal)
     }
 }
