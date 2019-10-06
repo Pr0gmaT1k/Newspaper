@@ -53,10 +53,6 @@
 		BA46C57B234652BD00FC1E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA46C55A234652BD00FC1E0D /* Assets.xcassets */; };
 		BA46C57C234652BD00FC1E0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA46C55B234652BD00FC1E0D /* LaunchScreen.storyboard */; };
 		BA46C57F234652BD00FC1E0D /* ListTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C561234652BD00FC1E0D /* ListTransform.swift */; };
-		BA46C580234652BD00FC1E0D /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C565234652BD00FC1E0D /* Realm.swift */; };
-		BA46C582234652BD00FC1E0D /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C567234652BD00FC1E0D /* Array+Utils.swift */; };
-		BA46C583234652BD00FC1E0D /* Sequence+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C568234652BD00FC1E0D /* Sequence+Utils.swift */; };
-		BA46C585234652BD00FC1E0D /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C56A234652BD00FC1E0D /* String+Utils.swift */; };
 		BA46C586234652BD00FC1E0D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C56D234652BD00FC1E0D /* Environment.swift */; };
 		BA46C587234652BD00FC1E0D /* Colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA46C56F234652BD00FC1E0D /* Colors.txt */; };
 		BA46C588234652BD00FC1E0D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA46C570234652BD00FC1E0D /* Localizable.strings */; };
@@ -197,10 +193,6 @@
 		BA46C55C234652BD00FC1E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA46C55F234652BD00FC1E0D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA46C561234652BD00FC1E0D /* ListTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTransform.swift; sourceTree = "<group>"; };
-		BA46C565234652BD00FC1E0D /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
-		BA46C567234652BD00FC1E0D /* Array+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
-		BA46C568234652BD00FC1E0D /* Sequence+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Utils.swift"; sourceTree = "<group>"; };
-		BA46C56A234652BD00FC1E0D /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		BA46C56D234652BD00FC1E0D /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		BA46C56F234652BD00FC1E0D /* Colors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Colors.txt; sourceTree = "<group>"; };
 		BA46C570234652BD00FC1E0D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -304,9 +296,9 @@
 		BA22AA782347C2D500E77EE3 /* Coordination */ = {
 			isa = PBXGroup;
 			children = (
-				BA22AA792347C2F900E77EE3 /* AppCoordinator.swift */,
 				BA22AA7B2347C33400E77EE3 /* Coordinator.swift */,
 				BA22AA7D2347C34F00E77EE3 /* Navigator.swift */,
+				BA22AA792347C2F900E77EE3 /* AppCoordinator.swift */,
 				BA22AA7F2347C41E00E77EE3 /* AuthCoordinator.swift */,
 				BA22AA812347D59200E77EE3 /* FeedCoordinator.swift */,
 			);
@@ -527,10 +519,6 @@
 		BA46C564234652BD00FC1E0D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BA46C565234652BD00FC1E0D /* Realm.swift */,
-				BA46C567234652BD00FC1E0D /* Array+Utils.swift */,
-				BA46C568234652BD00FC1E0D /* Sequence+Utils.swift */,
-				BA46C56A234652BD00FC1E0D /* String+Utils.swift */,
 				BAA5715E234A42790035719A /* User+Date.swift */,
 			);
 			path = Extensions;
@@ -998,7 +986,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA46C585234652BD00FC1E0D /* String+Utils.swift in Sources */,
 				BA22AA7E2347C34F00E77EE3 /* Navigator.swift in Sources */,
 				BA22AA892347EA8C00E77EE3 /* RegisteredVC.swift in Sources */,
 				BA22AAB423490F7700E77EE3 /* FeedTVCell.swift in Sources */,
@@ -1027,7 +1014,6 @@
 				BA22AA8B2348C9AB00E77EE3 /* ProfileVC.swift in Sources */,
 				BAA4C40F23465C8D00F7E420 /* UsersMapper.swift in Sources */,
 				BAA5715C234A30150035719A /* UserTVCell.swift in Sources */,
-				BA46C583234652BD00FC1E0D /* Sequence+Utils.swift in Sources */,
 				BAA4C44C23467EB900F7E420 /* SignInVC.swift in Sources */,
 				BA22AA8F2348CFFF00E77EE3 /* UsersVC.swift in Sources */,
 				BA22AAB023490F4A00E77EE3 /* FeedTVHeader.swift in Sources */,
@@ -1042,9 +1028,7 @@
 				BA46C586234652BD00FC1E0D /* Environment.swift in Sources */,
 				BA22AA8D2348CADB00E77EE3 /* TabBarVC.swift in Sources */,
 				BA46C58C234652BD00FC1E0D /* NPWebServiceClient.swift in Sources */,
-				BA46C580234652BD00FC1E0D /* Realm.swift in Sources */,
 				BAA4C41E2346703D00F7E420 /* Fonts.swift in Sources */,
-				BA46C582234652BD00FC1E0D /* Array+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
