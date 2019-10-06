@@ -30,7 +30,7 @@ internal enum L10n {
     internal static let addPhoto = L10n.tr("Localizable", "create.addPhoto")
     /// Crear post
     internal static let addPostButton = L10n.tr("Localizable", "create.addPostButton")
-    /// Titulo
+    /// Título
     internal static let addTitle = L10n.tr("Localizable", "create.addTitle")
     /// %u / 1000
     internal static func countBody(_ p1: Int) -> String {
@@ -67,7 +67,7 @@ internal enum L10n {
     internal static let email = L10n.tr("Localizable", "profile.email")
     /// Nombre y apellido
     internal static let names = L10n.tr("Localizable", "profile.names")
-    /// Perfile
+    /// Perfil
     internal static let profile = L10n.tr("Localizable", "profile.profile")
   }
 

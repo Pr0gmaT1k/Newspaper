@@ -22,7 +22,7 @@
 "registered.start" = "Comenzar";
 
 // MARK: Profile
-"profile.profile" = "Perfile";
+"profile.profile" = "Perfil";
 "profile.names" = "Nombre y apellido";
 "profile.email" = "Correo electrónico";
 "profile.dni" = "RUT";
@@ -34,7 +34,7 @@
 
 // MARK: Create Post
 "create.title" = "Crear post";
-"create.addTitle" = "Titulo";
+"create.addTitle" = "Título";
 "create.addDescription" = "Descripción";
 "create.addBody" = "Detalles";
 "create.addPhoto" = "Agrega una foto";
