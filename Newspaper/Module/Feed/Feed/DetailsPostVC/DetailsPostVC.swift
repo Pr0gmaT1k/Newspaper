@@ -10,7 +10,7 @@ import UIKit
 
 // MARK:- Delegate
 protocol DetailsPostVCDelegate: class {
-    func back()
+    func didTapBack()
 }
 
 // MARK:- Class
@@ -28,7 +28,7 @@ final class DetailsPostVC: UIViewController {
     
     // MARK:- IBActions
     @IBAction func backButtonDIdtap(_ sender: Any) {
-        delegate?.back()
+        delegate?.didTapBack()
     }
     
     // MARK:- Funcs

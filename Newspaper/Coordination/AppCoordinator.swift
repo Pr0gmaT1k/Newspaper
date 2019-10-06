@@ -9,7 +9,6 @@
 import UIKit
 
 /** The application's root `Coordinator`. */
-
 final class AppCoordinator: CoordinatorPresentable {
     
     var childCoordinators: [Coordinator] = []

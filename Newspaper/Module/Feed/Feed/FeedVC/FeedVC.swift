@@ -7,21 +7,28 @@
 //
 
 import UIKit
+import RxSwift
 
 // MARK:- Delegate
 protocol FeedVCDelegate: class {
-    func requestposts(vc: FeedVC)
-    func addpost()
-    func viewPost(post: Post)
+    func didTapAddPost()
+    func didSelect(post: Post)
 }
 
 // MARK:- Class
 final class FeedVC: UIViewController {
     // MARK:- Properties
+    private let bag = DisposeBag()
+    private let wsClient = NPWebServiceClient()
     weak var delegate: FeedVCDelegate?
-    private static let cellRatio: CGFloat = 1920 / 1080 // (with / heigh)
+    private static let cellRatio: CGFloat = 1920 / 1080 // (width / heigh)
     private var source: [Post?]?
     private var photoSource: [UIImage]?
+    var shouldRefresh: Bool = true {
+        didSet {
+            self.updatePosts()
+        }
+    }
     
     // MARK:- IBOutlets
     @IBOutlet private weak var tableView: UITableView!
@@ -29,7 +36,7 @@ final class FeedVC: UIViewController {
     
     // MARK:- IBActions
     @IBAction func addPostButtonDidTap(_ sender: Any) {
-        delegate?.addpost()
+        delegate?.didTapAddPost()
     }
     
     // MARK:- Funcs
@@ -40,15 +47,10 @@ final class FeedVC: UIViewController {
         self.tableView.rowHeight = self.tableView.frame.width / FeedVC.cellRatio
         self.tableView.register(cellType: FeedTVCell.self)
         self.addPostButton.setTitle(L10n.Feed.addPost.uppercased(), for: .normal)
-        self.showNPLoader()
+        updatePosts()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        delegate?.requestposts(vc: self)
-    }
-    
-    func updatePosts(posts: Posts?) {
-        self.hideNPLoader()
+    private func refreshUI(posts: Posts?) {
         self.source = posts?.posts.reversed()
         self.tableView.reloadData()
     }
@@ -78,6 +80,22 @@ extension FeedVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let post = source?[indexPath.row] else { return }
-        self.delegate?.viewPost(post: post)
+        self.delegate?.didSelect(post: post)
+    }
+}
+
+// MARK:- WS Call
+extension FeedVC {
+     private func updatePosts() {
+        self.showNPLoader()
+        wsClient.getPosts().observeOn(MainScheduler.instance)
+        .subscribe { [weak self] event in
+            self?.hideNPLoader()
+            switch event {
+            case .completed: break
+            case .next(let posts): self?.refreshUI(posts: posts)
+            case .error(let error): print(error)
+            }
+        }.disposed(by: bag)
     }
 }

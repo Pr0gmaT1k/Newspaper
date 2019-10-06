@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import RxSwift
 
 // MARK:- Delegate
 protocol SignInVCDelegate: class {
-    func signInButtonDidTap(email: String, pwd: String, vc: SignInVC)
+    func didSignedIn()
+    func didTapBack()
 }
 
 // MARK:- Class
 final class SignInVC: UIViewController {
     // MARK:- Properties
+    private let bag = DisposeBag()
+    private let wsClient = NPWebServiceClient()
     weak var delegate: SignInVCDelegate?
     
     // MARK:- IBOutlets
@@ -23,8 +27,6 @@ final class SignInVC: UIViewController {
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var signInButton: UIButton!
-    @IBOutlet private weak var errorLabel: UILabel!
-    @IBOutlet private weak var errorView: UIView!
     
     // MARK:- IBActions
     @IBAction func showPwdDidTouch(_ sender: Any) {
@@ -32,36 +34,38 @@ final class SignInVC: UIViewController {
     }
     
     @IBAction func backButtonDidTouch(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        delegate?.didTapBack()
     }
     
     @IBAction func signInButtonDidTouch(_ sender: Any) {
-        // Should be move in a coordinator
         guard let email = emailTextField.text, let pwd = passwordTextField.text else { return }
-        delegate?.signInButtonDidTap(email: email, pwd: pwd, vc: self)
+        signIn(email: email, pwd: pwd)
     }
     
     // MARK:- Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
-        // error
-        errorView.alpha = 0
-        
         // Label
         titleLabel.text = L10n.signIn
         emailTextField.placeholder = L10n.email
         passwordTextField.placeholder = L10n.password
         signInButton.setTitle(L10n.signIn.uppercased(), for: .normal)
     }
-    
-    func displayError(error: String) {
-        errorLabel.text = error
-        UIView.animate(withDuration: 2.0, animations: {
-            self.errorView.alpha = 1.0
-        }) { (finished) in
-            UIView.animate(withDuration: 2.0, animations: {
-                self.errorView.alpha = 0.0
-            })
-        }
+}
+
+// MARK:- WSCall
+extension SignInVC {
+    private func signIn(email: String, pwd: String) {
+        self.showNPLoader()
+        wsClient.signIn(email: email, pwd: pwd)
+        .observeOn(MainScheduler.instance)
+        .subscribe { [weak self] event in
+            self?.hideNPLoader()
+            switch event {
+            case .completed: break
+            case .error(let error): print(error)
+            case .next: self?.delegate?.didSignedIn()
+            }
+        }.disposed(by: bag)
     }
 }

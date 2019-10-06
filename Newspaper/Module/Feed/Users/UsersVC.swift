@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import RxSwift
 
 // MARK:- Delegate
-protocol UsersVCDelegate: class {
-    func requestUser(vc: UsersVC)
-}
+protocol UsersVCDelegate: class {}
 
 // MARK:- Class
 final class UsersVC: UIViewController {
     // MARK:- Properties
+    private let bag = DisposeBag()
+    private let wsClient = NPWebServiceClient()
     weak var delegate: UsersVCDelegate?
     private var source: [User]?
     private let colorSource: [Color] = [ColorName.primary.color,
@@ -28,16 +29,15 @@ final class UsersVC: UIViewController {
     // MARK:- Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.register(cellType: UserTVCell.self)
-        delegate?.requestUser(vc: self)
-        self.showNPLoader()
+        tableView.dataSource = self
+        tableView.register(cellType: UserTVCell.self)
+        requestUsers()
     }
     
-    func updateUser(users: Users?) {
-        self.hideNPLoader()
-        self.source = users?.users.reversed()
-        self.tableView.reloadData()
+    private func fill(users: Users?) {
+        hideNPLoader()
+        source = users?.users.reversed()
+        tableView.reloadData()
     }
     
     /// Circular array applied to self.colorSource.
@@ -60,5 +60,21 @@ extension UsersVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return source?.count ?? 0
+    }
+}
+
+// MARK:- WS Call
+extension UsersVC {
+    func requestUsers() {
+        self.showNPLoader()
+        wsClient.getUsers().observeOn(MainScheduler.instance)
+        .subscribe { [weak self] event in
+            self?.hideNPLoader()
+            switch event {
+            case .completed: break
+            case .error(let error): print(error)
+            case .next(let users): self?.fill(users: users)
+            }
+        }.disposed(by: bag)
     }
 }
