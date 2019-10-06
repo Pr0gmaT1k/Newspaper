@@ -76,7 +76,7 @@ internal enum L10n {
     internal static let dni = L10n.tr("Localizable", "profile.dni")
     /// Correo electrónico
     internal static let email = L10n.tr("Localizable", "profile.email")
-    /// Nombre y appelido
+    /// Nombre y apellido
     internal static let names = L10n.tr("Localizable", "profile.names")
     /// Perfile
     internal static let profile = L10n.tr("Localizable", "profile.profile")
@@ -90,7 +90,7 @@ internal enum L10n {
       internal static func memberSince(_ p1: String) -> String {
         return L10n.tr("Localizable", "users.cell.memberSince", p1)
       }
-      /// Nombre y appelido
+      /// Nombre y apellido
       internal static let names = L10n.tr("Localizable", "users.cell.names")
     }
   }

@@ -31,9 +31,11 @@ final class UsersVC: UIViewController {
         self.tableView.dataSource = self
         self.tableView.register(cellType: UserTVCell.self)
         delegate?.requestUser(vc: self)
+        self.showNPLoader()
     }
     
     func updateUser(users: Users?) {
+        self.hideNPLoader()
         self.source = users?.users.reversed()
         self.tableView.reloadData()
     }
