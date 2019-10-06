@@ -21,7 +21,7 @@ final class FeedCoordinator: CoordinatorNavigable {
     var childCoordinators: [Coordinator] = []
     var navigator: NavigatorType
     var rootViewController: UINavigationController
-    private var retainedFeedVC: FeedVC
+    private var feedVCReference: FeedVC
     
     // MARK:- Func
     init() {
@@ -37,7 +37,7 @@ final class FeedCoordinator: CoordinatorNavigable {
         rootViewController = navigationController
         rootViewController.modalPresentationStyle = .fullScreen
         rootViewController.modalTransitionStyle = .crossDissolve
-        retainedFeedVC = feedVC
+        feedVCReference = feedVC
         
         feedVC.delegate = self
         profileVC.delegate = self
@@ -81,7 +81,7 @@ extension FeedCoordinator: UsersVCDelegate {}
 extension FeedCoordinator: CreatePostVCDelegate {
     func didCreatePost() {
         navigator.popViewController(animated: true)
-        retainedFeedVC.shouldRefresh = true
+        feedVCReference.shouldRefresh = true
     }
 }
 
