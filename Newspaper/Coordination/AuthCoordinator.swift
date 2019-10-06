@@ -15,7 +15,6 @@ protocol AuthCoordinatorDelegate: class {
 }
 
 // MARK: - Coordinator
-
 final class AuthCoordinator: CoordinatorNavigable {
     // MARK:- Properties
     private let bag = DisposeBag()
@@ -42,17 +41,14 @@ final class AuthCoordinator: CoordinatorNavigable {
         self.rootViewController.popViewController(animated: true)
     }
     
-    private func signIn(email: String, pwd: String, completion: @escaping (_ sucess: Bool) -> Void) {
+    private func signIn(email: String, pwd: String, completion: @escaping (_ error: String?) -> Void) {
         wsClient.auth(email: email, pwd: pwd)
         .observeOn(MainScheduler.instance)
         .subscribe { event in
             switch event {
             case .completed: break
-            case .error(let error):
-                print(error)
-                completion(false)
-            case .next:
-                completion(true)
+            case .error(let error): completion(error.localizedDescription)
+            case .next: completion(nil)
             }
         }.disposed(by: bag)
     }
@@ -75,9 +71,11 @@ extension AuthCoordinator: AuthVCDelegate {
 
 // MARK:- SIGNIN VC Delegate
 extension AuthCoordinator: SignInVCDelegate {
-    func signInButtonDidTap(email: String, pwd: String) {
-        signIn(email: email, pwd: pwd) { [unowned self] sucess in
-            if sucess {
+    func signInButtonDidTap(email: String, pwd: String, vc: SignInVC) {
+        signIn(email: email, pwd: pwd) { [unowned self] error in
+            if let error = error {
+                vc.displayError(error: error)
+            } else {
                 self.delegate?.authCoordinatorDidFinish(self)
             }
         }
@@ -99,8 +97,10 @@ extension AuthCoordinator: SignUpVCDelegate {
                 case .completed: break
                 case .error(let error): print(error)
                 case .next:
-                    self?.signIn(email: email, pwd: pwd) { sucess in
-                        if sucess {
+                    self?.signIn(email: email, pwd: pwd) { error in
+                        if let error = error {
+                            // display error
+                        } else {
                             let vc = StoryboardScene.Auth.registeredVC.instantiate()
                             vc.delegate = self
                             self?.navigator.push(vc, animated: true)
