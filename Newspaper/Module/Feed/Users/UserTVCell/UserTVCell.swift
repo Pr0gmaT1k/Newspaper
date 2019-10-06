@@ -28,7 +28,7 @@ final class UserTVCell: UITableViewCell, NibReusable {
     func fill(user: User?, color: UIColor) {
         emailLabel.text = user?.email
         nombreLabel.text = (user?.name ?? "") + " " + (user?.lastname ?? "")
-        memberLabel.text = L10n.Users.Cell.memberSince(user?.formattedDate ?? "")
+        memberLabel.text = L10n.Users.Cell.memberSince(user?.createdFormattedDate ?? "")
         backView.backgroundColor = color
     }
 }
