@@ -62,11 +62,16 @@ final class NPWebServiceClient {
         
     }
     
-    func post() {
-        
+    func createPost(title: String, description: String?, body: String?) -> Observable<Void> {
+        let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
+        let params = [JSONKeys.post: [JSONKeys.postTitle: title, JSONKeys.postDescription: (description ?? ""), JSONKeys.postBody: (body ?? "")]]
+        let requestParameters = RequestParameters(method: .post, route: NPRoute.posts, parameters: params, headers: [JSONKeys.authorisation: token])
+        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, _) -> Void in
+            // Whatever ....
+        }
     }
     
-    func posts() -> Observable<Posts?> {
+    func getPosts() -> Observable<Posts?> {
         let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
         let requestParameters = RequestParameters(method: .get, route: NPRoute.posts, headers: [JSONKeys.authorisation: token])
         return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Posts? in

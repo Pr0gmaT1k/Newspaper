@@ -24,6 +24,7 @@ final class CreatePostVC: UIViewController {
     static let descriptionLengthLimit = 100
     
     // MARK:- IBOutlets
+    @IBOutlet private weak var titleFieldBackground: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var titleTextField: UITextField!
     @IBOutlet private weak var descriptionTextField: UITextField!
@@ -38,12 +39,17 @@ final class CreatePostVC: UIViewController {
     
     // MARK:- IBActions
     @IBAction func addImageButtonDidTap(_ sender: Any) {
-        guard let title = titleLabel.text else { return }
-        delegate?.createPost(title: title, description: descriptionTextField.text, body: bodyTextField.text)
+        delegate?.addImage()
     }
     
     @IBAction func createPostDidTap(_ sender: Any) {
-        delegate?.addImage()
+        guard let title = titleTextField.text else { return }
+        if title.isEmpty == false {
+            delegate?.createPost(title: title, description: descriptionTextField.text, body: bodyTextField.text)
+        } else {
+            self.scrollView.setContentOffset(.zero, animated: true)
+            self.titleFieldBackground.backgroundColor = ColorName.scarlett.color.withAlphaComponent(30/100)
+        }
     }
     
     @IBAction func backButtonDidTap(_ sender: Any) {

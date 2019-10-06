@@ -499,6 +499,7 @@
                         <outlet property="descriptionTextField" destination="OlZ-pu-FN5" id="OdO-Hd-TFc"/>
                         <outlet property="postImage" destination="Bnw-W4-aBk" id="pTG-SG-df8"/>
                         <outlet property="scrollView" destination="5Gg-Ds-TJa" id="NG0-60-JXf"/>
+                        <outlet property="titleFieldBackground" destination="hzG-a6-aYg" id="53b-c7-9vu"/>
                         <outlet property="titleLabel" destination="ldP-Cq-4SS" id="ksJ-l4-fDj"/>
                         <outlet property="titleTextField" destination="Ekd-SB-mnd" id="RND-EJ-Hx9"/>
                     </connections>
