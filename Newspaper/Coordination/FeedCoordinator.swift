@@ -31,8 +31,8 @@ final class FeedCoordinator: CoordinatorNavigable {
         let tabBarVC = StoryboardScene.Feed.tabBarVC.instantiate()
         let feedVC = StoryboardScene.Feed.feedVC.instantiate()
         let profileVC = StoryboardScene.Feed.profileVC.instantiate()
-        let friendVC = StoryboardScene.Feed.friendVC.instantiate()
-        tabBarVC.viewControllers = [feedVC, profileVC, friendVC]
+        let usersVC = StoryboardScene.Feed.usersVC.instantiate()
+        tabBarVC.viewControllers = [feedVC, profileVC, usersVC]
         
         let navigationController = UINavigationController(rootViewController: tabBarVC)
         navigationController.navigationBar.isHidden = true
@@ -43,7 +43,7 @@ final class FeedCoordinator: CoordinatorNavigable {
         
         feedVC.delegate = self
         profileVC.delegate = self
-        friendVC.delegate = self
+        usersVC.delegate = self
     }
     
     private func requestUser(completion: @escaping (User?) -> Void) {
@@ -101,9 +101,18 @@ extension FeedCoordinator: ProfileVCDelegate {
     }
 }
 
-// MARK:- FriendVC Delegate
-extension FeedCoordinator: FriendVCDelegate {
-    
+// MARK:- UsersVC Delegate
+extension FeedCoordinator: UsersVCDelegate {
+    func requestUser(vc: UsersVC) {
+        wsClient.users().observeOn(MainScheduler.instance)
+        .subscribe { event in
+            switch event {
+            case .completed: break
+            case .error(let error): print(error)
+            case .next(let users): vc.updateUser(users: users)
+            }
+        }.disposed(by: bag)
+    }
 }
 
 // MARK:- CreatePost Delegate

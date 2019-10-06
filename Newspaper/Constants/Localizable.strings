@@ -35,3 +35,7 @@
 // MARK: Details Post
 "details.title" = "Post";
 
+// MARK: UsersCell
+"users.cell.memberSince" = "Miembro desde %@";
+"users.cell.email" = "Correo electrónico";
+"users.cell.names" = "Nombre y appelido";

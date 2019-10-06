@@ -81,6 +81,19 @@ internal enum L10n {
     /// Perfile
     internal static let profile = L10n.tr("Localizable", "profile.profile")
   }
+
+  internal enum Users {
+    internal enum Cell {
+      /// Correo electrónico
+      internal static let email = L10n.tr("Localizable", "users.cell.email")
+      /// Miembro desde %@
+      internal static func memberSince(_ p1: String) -> String {
+        return L10n.tr("Localizable", "users.cell.memberSince", p1)
+      }
+      /// Nombre y appelido
+      internal static let names = L10n.tr("Localizable", "users.cell.names")
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name
