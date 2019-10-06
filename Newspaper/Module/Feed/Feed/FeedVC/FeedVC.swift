@@ -12,6 +12,7 @@ import UIKit
 protocol FeedVCDelegate: class {
     func requestposts(vc: FeedVC)
     func addpost()
+    func viewPost(post: Post)
 }
 
 // MARK:- Class
@@ -71,5 +72,10 @@ extension FeedVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 95
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let post = source?[indexPath.row] else { return }
+        self.delegate?.viewPost(post: post)
     }
 }

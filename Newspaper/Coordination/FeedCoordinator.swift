@@ -78,6 +78,12 @@ extension FeedCoordinator: FeedVCDelegate {
         vc.delegate = self
         self.navigator.push(vc, animated: true)
     }
+    
+    func viewPost(post: Post) {
+        let vc = StoryboardScene.Feed.detailsPostVC.instantiate()
+        vc.delegate = self
+        self.navigator.push(vc, animated: true)
+    }
 }
 
 // MARK:- ProfileVC Delegate
@@ -116,3 +122,6 @@ extension FeedCoordinator: CreatePostVCDelegate {
         self.navigator.popViewController(animated: true)
     }
 }
+
+// MARK:- DetailsPostVC Delegate
+extension FeedCoordinator: DetailsPostVCDelegate {}
