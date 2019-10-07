@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.4'
+platform :ios, '13.0'
 
 target ‘Newspaper’ do
   use_frameworks!
@@ -10,5 +10,5 @@ target ‘Newspaper’ do
   pod 'SwiftLint'
   pod 'SwiftGen'
   pod 'RxSwift'
-  pod 'Kingfisher'
+  pod 'JWTDecode'
 end

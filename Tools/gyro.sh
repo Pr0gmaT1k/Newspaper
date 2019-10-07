@@ -17,5 +17,5 @@ MODEL_OUTPUT_DIR=$(dirname $0)/../Newspaper/Models/Realm
 gyro --model "$DATAMODEL_PATH" --output "$MODEL_OUTPUT_DIR" -t swift3
 
 
-MAPPER_OUTPUT_DIR=$(dirname $0)/../TestApp/Models/Mapper
+MAPPER_OUTPUT_DIR=$(dirname $0)/../Newspaper/Models/Mapper
 gyro --model "$DATAMODEL_PATH" --output "$MAPPER_OUTPUT_DIR" -t object-mapper

@@ -1,1 +1,3 @@
-MainColor: #d500f9
+Primary: #6200ee
+Secondary: #03dac4
+Scarlett: #b00020

@@ -1,4 +1,51 @@
 ////////////////////////////////////////////////////////////////////////////////
-// MARK: Common
-"toto" = "toto";
+// MARK: Auth
+"auth.copyright" = "todos los derechos reservados Jumpittlabs 2019";
+"auth.signIn" = "Ingresar";
+"auth.signUp" = "Crear cuenta";
 
+// MARK: SignIn
+"signin.email" = "Correo electrónico";
+"signin.password" = "Contraseña";
+"signin.signIn" = "Ingresar";
+
+// MARK: SignUP
+"signup.email" = "Correo electrónico";
+"signup.password" = "Contraseña";
+"signup.name" = "Nombre";
+"signup.surname" = "Apellido";
+"signup.IDNumber" = "RUT";
+"signup.signUp" = "Crear cuenta";
+
+// MARK: Registered
+"registered.accountCreated" = "Cuenta creada";
+"registered.start" = "Comenzar";
+
+// MARK: Profile
+"profile.profile" = "Perfil";
+"profile.names" = "Nombre y apellido";
+"profile.email" = "Correo electrónico";
+"profile.dni" = "RUT";
+"profile.closeSession" = "Cerrar sesión";
+
+// MARK: Feed
+"feed.header.title" = "Mi feed";
+"feed.addPost" = "Agregar";
+
+// MARK: Create Post
+"create.title" = "Crear post";
+"create.addTitle" = "Título";
+"create.addDescription" = "Descripción";
+"create.addBody" = "Detalles";
+"create.addPhoto" = "Agrega una foto";
+"create.addPostButton" = "Crear post";
+"create.countDescription" = "%u / 100";
+"create.countBody" = "%u / 1000";
+
+// MARK: Details Post
+"details.title" = "Post";
+
+// MARK: UsersCell
+"users.cell.memberSince" = "Miembro desde %@";
+"users.cell.email" = "Correo electrónico";
+"users.cell.names" = "Nombre y apellido";

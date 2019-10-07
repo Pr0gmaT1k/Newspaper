@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.9.0)
+  - JWTDecode (2.3.0)
   - KeychainAccess (3.2.0)
-  - Kingfisher (5.7.1)
   - NetworkStack (0.1.6):
     - Alamofire (~> 4.0)
     - KeychainAccess (~> 3.1)
@@ -22,7 +22,7 @@ PODS:
   - SwiftLint (0.35.0)
 
 DEPENDENCIES:
-  - Kingfisher
+  - JWTDecode
   - NetworkStack
   - ObjectMapper
   - RealmSwift
@@ -34,8 +34,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - JWTDecode
     - KeychainAccess
-    - Kingfisher
     - NetworkStack
     - ObjectMapper
     - Realm
@@ -47,8 +47,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  JWTDecode: fb77675c8049c1a7e9433c7cf448c3ce33ee4ac7
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
-  Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
   NetworkStack: b3b64b19fb27bbe323a7f1b1ca18325df4fc4e2a
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
@@ -58,6 +58,6 @@ SPEC CHECKSUMS:
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
 
-PODFILE CHECKSUM: 50488d9e0bb36d5b4a9f279f8e67305deddd2d3a
+PODFILE CHECKSUM: 9b443995340980ab218a019502e12a85bf10c5cd
 
 COCOAPODS: 1.7.5
