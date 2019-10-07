@@ -4,6 +4,8 @@ Newspaper iOS
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/NetworkStack.svg?style=flat-square)](https://cocoapods.org/pods/NetworkStack)
 [![CocoaPods](https://img.shields.io/badge/pod-v1.7.5-blue)]()
 
+<img src="Newspaper/Ressources/Assets.xcassets/Welcome.imageset/3.png">
+
 An incredible technical test.
 
 Building the code
