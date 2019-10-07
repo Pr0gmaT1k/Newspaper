@@ -39,8 +39,6 @@ Gyro is a tool to generate Realm model classes, for both Android (Java & Kotlin)
     ./gyro.sh
     ```
 
-libs:
------------------
 ## Networking:
 * **[NetworkStack](https://github.com/NijiDigital/NetworkStack):** NetworkStack is an networking library wrapping Alamofire, Rx, OAuth and replay mechanism in a reactive abstract API.
 * **[RxSwift](https://github.com/ReactiveX/RxSwift):** Rx is a generic abstraction of computation expressed through Observable<Element> interface. This is a Swift version of Rx.
