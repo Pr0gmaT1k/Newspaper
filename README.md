@@ -41,19 +41,19 @@ Gyro is a tool to generate Realm model classes, for both Android (Java & Kotlin)
 
 libs:
 -----------------
-### Networking
+## Networking:
 * **[NetworkStack](https://github.com/NijiDigital/NetworkStack):** NetworkStack is an networking library wrapping Alamofire, Rx, OAuth and replay mechanism in a reactive abstract API.
 * **[RxSwift](https://github.com/ReactiveX/RxSwift):** Rx is a generic abstraction of computation expressed through Observable<Element> interface. This is a Swift version of Rx.
 * **[JWTDecode](https://github.com/auth0/JWTDecode.swift):** This library will help you check JWT payload
 
-### Model & Decode
+## Model & Decode:
 * **[RealmSwift](https://github.com/realm/realm-cocoa):** Realm is a mobile database that runs directly inside phones, tablets or wearables. This repository holds the source code for the iOS, macOS, tvOS & watchOS versions of Realm Swift & Realm Objective-C.
 * **[ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper):** ObjectMapper is a framework written in Swift that makes it easy for you to convert your model objects (classes and structs) to and from JSON.
 
-### UI
+## UI:
 * **[Reusable](https://github.com/AliSoftware/Reusable):** A Swift mixin to use UITableViewCells, UICollectionViewCells and UIViewControllers in a type-safe way, without the need to manipulate their String-typed reuseIdentifiers.
 
-### Coding Tools
+## Coding Tools:
 * **[SwiftLint](https://github.com/realm/SwiftLint):** A tool to enforce Swift style and conventions, loosely based on GitHub's Swift Style Guide.
 * **[SwiftGen](https://github.com/SwiftGen/SwiftGen):** SwiftGen is a tool to auto-generate Swift code for resources of your projects, to make them type-safe to use.
 
