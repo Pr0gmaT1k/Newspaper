@@ -6,7 +6,6 @@ PODS:
     - Alamofire (~> 4.0)
     - KeychainAccess (~> 3.1)
     - RxSwift (~> 4.0)
-  - ObjectMapper (3.5.1)
   - Realm (3.17.3):
     - Realm/Headers (= 3.17.3)
   - Realm/Headers (3.17.3)
@@ -24,7 +23,6 @@ PODS:
 DEPENDENCIES:
   - JWTDecode
   - NetworkStack
-  - ObjectMapper
   - RealmSwift
   - Reusable
   - RxSwift
@@ -32,12 +30,11 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - JWTDecode
     - KeychainAccess
     - NetworkStack
-    - ObjectMapper
     - Realm
     - RealmSwift
     - Reusable
@@ -50,7 +47,6 @@ SPEC CHECKSUMS:
   JWTDecode: fb77675c8049c1a7e9433c7cf448c3ce33ee4ac7
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
   NetworkStack: b3b64b19fb27bbe323a7f1b1ca18325df4fc4e2a
-  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
   RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
   Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
@@ -58,6 +54,6 @@ SPEC CHECKSUMS:
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
 
-PODFILE CHECKSUM: 9b443995340980ab218a019502e12a85bf10c5cd
+PODFILE CHECKSUM: 5c21b65eea3727b8bc134ebf14e18b9fe5d9e986
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

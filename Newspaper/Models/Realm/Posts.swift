@@ -3,7 +3,7 @@
 import RealmSwift
 import Foundation
 
-final class Posts: Object {
+final class Posts: Object, Decodable {
 
   enum Attributes: String {
     case status = "status"
@@ -14,6 +14,6 @@ final class Posts: Object {
   }
 
   let status = RealmOptional<Bool>()
-    var posts = List<Post>()
+  var posts = List<Post>()
 
 }

@@ -3,7 +3,7 @@
 import RealmSwift
 import Foundation
 
-final class Auth: Object {
+final class Auth: Object, Decodable {
 
   enum Attributes: String {
     case exp = "exp"

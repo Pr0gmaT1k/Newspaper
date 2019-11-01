@@ -3,7 +3,7 @@
 import RealmSwift
 import Foundation
 
-final class Post: Object {
+final class Post: Object, Decodable {
 
   enum Attributes: String {
     case id = "id" /* Primary Key */
