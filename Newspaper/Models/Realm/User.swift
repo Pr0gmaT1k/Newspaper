@@ -5,7 +5,7 @@ import Foundation
 
 final class User: Object, Decodable {
 
-  enum Attributes: String {
+  private enum Attributes: String, CodingKey {
     case id = "id" /* Primary Key */
     case created_at = "created_at"
     case dni = "dni"
@@ -16,7 +16,7 @@ final class User: Object, Decodable {
     case updated_at = "updated_at"
   }
 
-  let id = RealmOptional<Int64>() /* Primary Key */
+  @objc dynamic var id: Int64 = 0 /* Primary Key */
   @objc dynamic var created_at: String?
   @objc dynamic var dni: String?
   @objc dynamic var email: String?

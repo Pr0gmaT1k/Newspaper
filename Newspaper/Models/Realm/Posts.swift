@@ -5,7 +5,7 @@ import Foundation
 
 final class Posts: Object, Decodable {
 
-  enum Attributes: String {
+  private enum Attributes: String, CodingKey {
     case status = "status"
   }
 

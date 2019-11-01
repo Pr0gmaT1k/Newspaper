@@ -5,7 +5,7 @@ import Foundation
 
 final class Users: Object, Decodable {
 
-  enum Attributes: String {
+  private enum Attributes: String, CodingKey {
     case status = "status"
   }
 
@@ -14,6 +14,6 @@ final class Users: Object, Decodable {
   }
 
   let status = RealmOptional<Bool>()
-    var users = List<User>()
+  var users = List<User>()
 
 }

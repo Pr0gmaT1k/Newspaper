@@ -5,7 +5,7 @@ import Foundation
 
 final class Status: Object, Decodable {
 
-  enum Attributes: String {
+  private enum Attributes: String, CodingKey {
     case message = "message"
     case status = "status"
   }

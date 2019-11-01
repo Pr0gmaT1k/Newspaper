@@ -5,17 +5,17 @@ import Foundation
 
 final class Post: Object, Decodable {
 
-  enum Attributes: String {
+  private enum Attributes: String, CodingKey {
     case id = "id" /* Primary Key */
     case body = "body"
     case created_at = "created_at"
-    case postDescription = "postDescription"
+    case postDescription = "description"
     case title = "title"
     case updated_at = "updated_at"
     case user_id = "user_id"
   }
 
-  let id = RealmOptional<Int64>() /* Primary Key */
+  @objc dynamic var id: Int64 = 0 /* Primary Key */
   @objc dynamic var body: String?
   @objc dynamic var created_at: String?
   @objc dynamic var postDescription: String?

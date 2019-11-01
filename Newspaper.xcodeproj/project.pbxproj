@@ -59,6 +59,7 @@
 		BA46C58A234652BD00FC1E0D /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA46C573234652BD00FC1E0D /* Auth.storyboard */; };
 		BA46C58C234652BD00FC1E0D /* NPWebServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */; };
 		BA46C58D234652BD00FC1E0D /* NPRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C579234652BD00FC1E0D /* NPRoute.swift */; };
+		BA7803AE236CCC0B0061B32A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7803AD236CCC0B0061B32A /* Post.swift */; };
 		BA7C437A2349380300F8166D /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C43792349380300F8166D /* CreatePostVC.swift */; };
 		BA84ED6D2346E63500804C26 /* JSONKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84ED6C2346E63500804C26 /* JSONKeys.swift */; };
 		BA8F5B0023465619009E266E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F5AFC23465619009E266E /* Strings.swift */; };
@@ -67,7 +68,7 @@
 		BA8F5B0323465619009E266E /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F5AFF23465619009E266E /* Storyboards.swift */; };
 		BAA4C41623465C9500F7E420 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41023465C9500F7E420 /* Users.swift */; };
 		BAA4C41723465C9500F7E420 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41123465C9500F7E420 /* Posts.swift */; };
-		BAA4C41823465C9500F7E420 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41223465C9500F7E420 /* Post.swift */; };
+		BAA4C41823465C9500F7E420 /* PostDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41223465C9500F7E420 /* PostDecodable.swift */; };
 		BAA4C41923465C9500F7E420 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41323465C9500F7E420 /* Auth.swift */; };
 		BAA4C41A23465C9500F7E420 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41423465C9500F7E420 /* Status.swift */; };
 		BAA4C41B23465C9500F7E420 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41523465C9500F7E420 /* User.swift */; };
@@ -193,6 +194,7 @@
 		BA46C573234652BD00FC1E0D /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPWebServiceClient.swift; sourceTree = "<group>"; };
 		BA46C579234652BD00FC1E0D /* NPRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPRoute.swift; sourceTree = "<group>"; };
+		BA7803AD236CCC0B0061B32A /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BA7C43792349380300F8166D /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		BA84ED6C2346E63500804C26 /* JSONKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONKeys.swift; sourceTree = "<group>"; };
 		BA8F5AFC23465619009E266E /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -201,7 +203,7 @@
 		BA8F5AFF23465619009E266E /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		BAA4C41023465C9500F7E420 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		BAA4C41123465C9500F7E420 /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
-		BAA4C41223465C9500F7E420 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		BAA4C41223465C9500F7E420 /* PostDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDecodable.swift; sourceTree = "<group>"; };
 		BAA4C41323465C9500F7E420 /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		BAA4C41423465C9500F7E420 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		BAA4C41523465C9500F7E420 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -480,8 +482,9 @@
 		BA46C563234652BD00FC1E0D /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				BA7803AD236CCC0B0061B32A /* Post.swift */,
+				BAA4C41223465C9500F7E420 /* PostDecodable.swift */,
 				BAA4C41323465C9500F7E420 /* Auth.swift */,
-				BAA4C41223465C9500F7E420 /* Post.swift */,
 				BAA4C41123465C9500F7E420 /* Posts.swift */,
 				BAA4C41423465C9500F7E420 /* Status.swift */,
 				BAA4C41523465C9500F7E420 /* User.swift */,
@@ -964,7 +967,7 @@
 				BA22AA892347EA8C00E77EE3 /* RegisteredVC.swift in Sources */,
 				BA22AAB423490F7700E77EE3 /* FeedTVCell.swift in Sources */,
 				BA8F5B0123465619009E266E /* Images.swift in Sources */,
-				BAA4C41823465C9500F7E420 /* Post.swift in Sources */,
+				BAA4C41823465C9500F7E420 /* PostDecodable.swift in Sources */,
 				BAA4C41B23465C9500F7E420 /* User.swift in Sources */,
 				BAA4C41923465C9500F7E420 /* Auth.swift in Sources */,
 				BA84ED6D2346E63500804C26 /* JSONKeys.swift in Sources */,
@@ -995,6 +998,7 @@
 				BA8F5B0223465619009E266E /* Colors.swift in Sources */,
 				BA46C586234652BD00FC1E0D /* Environment.swift in Sources */,
 				BA22AA8D2348CADB00E77EE3 /* TabBarVC.swift in Sources */,
+				BA7803AE236CCC0B0061B32A /* Post.swift in Sources */,
 				BA46C58C234652BD00FC1E0D /* NPWebServiceClient.swift in Sources */,
 				BAA4C41E2346703D00F7E420 /* Fonts.swift in Sources */,
 			);

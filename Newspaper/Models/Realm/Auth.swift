@@ -5,7 +5,7 @@ import Foundation
 
 final class Auth: Object, Decodable {
 
-  enum Attributes: String {
+  private enum Attributes: String, CodingKey {
     case exp = "exp"
     case message = "message"
     case status = "status"
