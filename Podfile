@@ -6,7 +6,6 @@ target ‘Newspaper’ do
   pod 'NetworkStack'
   pod 'RealmSwift'
   pod 'Reusable'
-  pod 'ObjectMapper'
   pod 'SwiftLint'
   pod 'SwiftGen'
   pod 'RxSwift'
