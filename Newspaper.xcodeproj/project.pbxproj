@@ -68,7 +68,6 @@
 		BA8F5B0323465619009E266E /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F5AFF23465619009E266E /* Storyboards.swift */; };
 		BAA4C41623465C9500F7E420 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41023465C9500F7E420 /* Users.swift */; };
 		BAA4C41723465C9500F7E420 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41123465C9500F7E420 /* Posts.swift */; };
-		BAA4C41823465C9500F7E420 /* PostDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41223465C9500F7E420 /* PostDecodable.swift */; };
 		BAA4C41923465C9500F7E420 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41323465C9500F7E420 /* Auth.swift */; };
 		BAA4C41A23465C9500F7E420 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41423465C9500F7E420 /* Status.swift */; };
 		BAA4C41B23465C9500F7E420 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4C41523465C9500F7E420 /* User.swift */; };
@@ -203,7 +202,6 @@
 		BA8F5AFF23465619009E266E /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		BAA4C41023465C9500F7E420 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		BAA4C41123465C9500F7E420 /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
-		BAA4C41223465C9500F7E420 /* PostDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDecodable.swift; sourceTree = "<group>"; };
 		BAA4C41323465C9500F7E420 /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		BAA4C41423465C9500F7E420 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		BAA4C41523465C9500F7E420 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -483,7 +481,6 @@
 			isa = PBXGroup;
 			children = (
 				BA7803AD236CCC0B0061B32A /* Post.swift */,
-				BAA4C41223465C9500F7E420 /* PostDecodable.swift */,
 				BAA4C41323465C9500F7E420 /* Auth.swift */,
 				BAA4C41123465C9500F7E420 /* Posts.swift */,
 				BAA4C41423465C9500F7E420 /* Status.swift */,
@@ -967,7 +964,6 @@
 				BA22AA892347EA8C00E77EE3 /* RegisteredVC.swift in Sources */,
 				BA22AAB423490F7700E77EE3 /* FeedTVCell.swift in Sources */,
 				BA8F5B0123465619009E266E /* Images.swift in Sources */,
-				BAA4C41823465C9500F7E420 /* PostDecodable.swift in Sources */,
 				BAA4C41B23465C9500F7E420 /* User.swift in Sources */,
 				BAA4C41923465C9500F7E420 /* Auth.swift in Sources */,
 				BA84ED6D2346E63500804C26 /* JSONKeys.swift in Sources */,

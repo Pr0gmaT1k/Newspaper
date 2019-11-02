@@ -4,16 +4,17 @@ import RealmSwift
 import Foundation
 
 final class Post: Object, Decodable {
+  private enum Keys: String, CodingKey {
+  case id = "id"/* Primary Key */
+  case body = "body"
+  case created_at = "created_at"
+  case postDescription = "description"
+  case title = "title"
+  case updated_at = "updated_at"
+  case user_id = "user_id"
 
-  private enum Attributes: String, CodingKey {
-    case id = "id" /* Primary Key */
-    case body = "body"
-    case created_at = "created_at"
-    case postDescription = "description"
-    case title = "title"
-    case updated_at = "updated_at"
-    case user_id = "user_id"
   }
+
 
   @objc dynamic var id: Int64 = 0 /* Primary Key */
   @objc dynamic var body: String?
@@ -27,4 +28,30 @@ final class Post: Object, Decodable {
     return "id"
   }
 
+
+
+
+  convenience required init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: Keys.self)
+    let id = try container.decode(Int64.self, forKey: .id) /* Primary Key */
+    let body = try container.decode(String?.self, forKey: .body)
+    let created_at = try container.decode(String?.self, forKey: .created_at)
+    let postDescription = try container.decode(String?.self, forKey: .postDescription)
+    let title = try container.decode(String?.self, forKey: .title)
+    let updated_at = try container.decode(String?.self, forKey: .updated_at)
+    let user_id = try container.decode(Int64?.self, forKey: .user_id)
+    self.init(id: id, body: body, created_at: created_at, postDescription: postDescription, title: title, updated_at: updated_at, user_id: user_id)
+  }
+
+  convenience init(id: Int64, body: String?, created_at: String?, postDescription: String?, title: String?, updated_at: String?, user_id: Int64?) {
+    self.init()
+    self.id = id
+    self.body = body
+    self.created_at = created_at
+    self.postDescription = postDescription
+    self.title = title
+    self.updated_at = updated_at
+    self.user_id.value = user_id
+
+  }
 }
