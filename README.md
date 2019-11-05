@@ -31,7 +31,7 @@ Tools:
 -----------------
 The `Realm` object and `ObjectMapper` decoder are generated from `Tools/DataModel.xcdatamodel` with Gyro.
 Gyro is a tool to generate Realm model classes, for both Android (Java & Kotlin) and iOS/macOS (Swift), from an `.xcdatamodel` file.
-1. Install [Gyro](https://github.com/NijiDigital/gyro):
+1. Install [Gyro](https://github.com/NijiDigital/gyro): :warning: Need an unreleased version (in review) with the new codable template. Will be validated soon. [Check progress](https://github.com/NijiDigital/gyro/pull/73) :warning:
     ```shell
     gem install gyro
     ```    
