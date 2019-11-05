@@ -5,13 +5,12 @@ import Foundation
 
 final class Auth: Object, Decodable {
   private enum Keys: String, CodingKey {
-  case exp = "exp"
-  case message = "message"
-  case status = "status"
-  case token = "token"
+    case exp = "exp"
+    case message = "message"
+    case status = "status"
+    case token = "token"
 
-  }
-
+    }
 
   @objc dynamic var exp: String?
   @objc dynamic var message: String?
@@ -23,10 +22,10 @@ final class Auth: Object, Decodable {
 
   convenience required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Keys.self)
-    let exp = try container.decode(String?.self, forKey: .exp)
-    let message = try container.decode(String?.self, forKey: .message)
-    let status = try container.decode(Bool?.self, forKey: .status)
-    let token = try container.decode(String?.self, forKey: .token)
+    let exp = try? container.decode(String?.self, forKey: .exp)
+    let message = try? container.decode(String?.self, forKey: .message)
+    let status = try? container.decode(Bool?.self, forKey: .status)
+    let token = try? container.decode(String?.self, forKey: .token)
     self.init(exp: exp, message: message, status: status, token: token)
   }
 

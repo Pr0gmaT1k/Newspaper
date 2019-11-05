@@ -5,10 +5,10 @@ import Foundation
 
 final class Posts: Object, Decodable {
   private enum Keys: String, CodingKey {
-  case status = "status"
-  case posts = "posts"
-  }
+    case status = "status"
+    case posts = "posts"
 
+    }
 
   let status = RealmOptional<Bool>()
   let posts = List<Post>()
@@ -18,7 +18,7 @@ final class Posts: Object, Decodable {
 
   convenience required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Keys.self)
-    let status = try container.decode(Bool?.self, forKey: .status)
+    let status = try? container.decode(Bool?.self, forKey: .status)
     let posts = try container.decode([Post].self, forKey: .posts)
     self.init(status: status, posts: posts)
   }
