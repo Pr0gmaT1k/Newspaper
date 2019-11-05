@@ -48,7 +48,7 @@ Gyro is a tool to generate Realm model classes, for both Android (Java & Kotlin)
 
 ## Model & Decode:
 * **[RealmSwift](https://github.com/realm/realm-cocoa):** Realm is a mobile database that runs directly inside phones, tablets or wearables. This repository holds the source code for the iOS, macOS, tvOS & watchOS versions of Realm Swift & Realm Objective-C.
-* **[ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper):** ObjectMapper is a framework written in Swift that makes it easy for you to convert your model objects (classes and structs) to and from JSON.
+* **[Codable](https://developer.apple.com/documentation/swift/codable):** A type that can convert itself into and out of an external representation.
 
 ## UI:
 * **[Reusable](https://github.com/AliSoftware/Reusable):** A Swift mixin to use UITableViewCells, UICollectionViewCells and UIViewControllers in a type-safe way, without the need to manipulate their String-typed reuseIdentifiers.
