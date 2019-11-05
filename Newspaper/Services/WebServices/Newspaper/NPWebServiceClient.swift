@@ -10,10 +10,10 @@ import RxSwift
 import Alamofire
 import NetworkStack
 import JWTDecode
-import ObjectMapper
 
 final class NPWebServiceClient {
     // MARK: - Properties
+    private let decoder = JSONDecoder()
     private static let keychainService = KeychainService(serviceType: Environment.Newspaper.appName)
     private static let networkStack = NetworkStack(baseURL: Environment.Newspaper.baseURL, keychainService: keychainService)
     public static var isLogged: Bool {
@@ -25,8 +25,8 @@ final class NPWebServiceClient {
     func signIn(email: String, pwd: String) -> Observable<Void> {
         let requestParameters = RequestParameters(method: .post, route: NPRoute.signIn, parameters: [JSONKeys.email: email, JSONKeys.pwd: pwd])
         
-        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Void in
-            let auth = Mapper<Auth>().map(JSONObject: json)
+        return NPWebServiceClient.networkStack.sendRequestWithDataResponse(requestParameters: requestParameters).map { (_, data) -> Void in
+            let auth = try? self.decoder.decode(Auth.self, from: data)
             guard let token = auth?.token else { return }
             NPWebServiceClient.keychainService.accessToken = token
             NPWebServiceClient.keychainService.expirationInterval = (try? decode(jwt: token))?.body[JSONKeys.tokenExp] as? Double
@@ -43,7 +43,8 @@ final class NPWebServiceClient {
         let requestParameters = RequestParameters(method: .post, route: NPRoute.signUp, parameters: [JSONKeys.user: [JSONKeys.dni: dni, JSONKeys.name: name, JSONKeys.lastName: lastname, JSONKeys.email: email, JSONKeys.pwd: pwd, JSONKeys.pwdConfirmation: pwdConfimation]])
         
         return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Void in
-            let auth = Mapper<Auth>().map(JSONObject: json)
+            guard let json = json as? Data else { return }
+            let auth = try? self.decoder.decode(Auth.self, from: json)
             NPWebServiceClient.keychainService.accessToken = auth?.token
         }
     }
@@ -57,8 +58,9 @@ final class NPWebServiceClient {
         let requestParameters = RequestParameters(method: .get, route: NPRoute.user(userId: userId), headers: [JSONKeys.authorisation: token])
         
         return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> User? in
-            let userJson = (json as? [String: Any])?[JSONKeys.user]
-            return Mapper<User>().map(JSONObject: userJson)
+            guard let userJson = (json as? [String: Any])?[JSONKeys.user],
+                let userData = try? JSONSerialization.data(withJSONObject: userJson) else { return nil }
+            return try? self.decoder.decode(User.self, from: userData)
         }
     }
     
@@ -68,8 +70,8 @@ final class NPWebServiceClient {
         
         let requestParameters = RequestParameters(method: .get, route: NPRoute.users, headers: [JSONKeys.authorisation: token])
         
-        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Users? in
-            return Mapper<Users>().map(JSONObject: json)
+        return NPWebServiceClient.networkStack.sendRequestWithDataResponse(requestParameters: requestParameters).map { (_, data) -> Users? in
+            return try? self.decoder.decode(Users.self, from: data)
         }
     }
     
@@ -89,8 +91,8 @@ final class NPWebServiceClient {
         
         let requestParameters = RequestParameters(method: .get, route: NPRoute.posts, headers: [JSONKeys.authorisation: token])
         
-        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Posts? in
-            return Mapper<Posts>().map(JSONObject: json)
+        return NPWebServiceClient.networkStack.sendRequestWithDataResponse(requestParameters: requestParameters).map { (_, data) -> Posts? in
+            return try? self.decoder.decode(Posts.self, from: data)
         }
     }
     
