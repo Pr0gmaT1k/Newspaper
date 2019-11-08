@@ -31,7 +31,7 @@ Tools:
 -----------------
 The `Realm` object and `ObjectMapper` decoder are generated from `Tools/DataModel.xcdatamodel` with Gyro.
 Gyro is a tool to generate Realm model classes, for both Android (Java & Kotlin) and iOS/macOS (Swift), from an `.xcdatamodel` file.
-1. Install [Gyro](https://github.com/NijiDigital/gyro):
+1. Install [Gyro](https://github.com/NijiDigital/gyro): :warning: Need an unreleased version (in review) with the new codable template. Will be validated soon. [Check progress](https://github.com/NijiDigital/gyro/pull/73) :warning:
     ```shell
     gem install gyro
     ```    
@@ -48,7 +48,7 @@ Gyro is a tool to generate Realm model classes, for both Android (Java & Kotlin)
 
 ## Model & Decode:
 * **[RealmSwift](https://github.com/realm/realm-cocoa):** Realm is a mobile database that runs directly inside phones, tablets or wearables. This repository holds the source code for the iOS, macOS, tvOS & watchOS versions of Realm Swift & Realm Objective-C.
-* **[ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper):** ObjectMapper is a framework written in Swift that makes it easy for you to convert your model objects (classes and structs) to and from JSON.
+* **[Codable](https://developer.apple.com/documentation/swift/codable):** A type that can convert itself into and out of an external representation.
 
 ## UI:
 * **[Reusable](https://github.com/AliSoftware/Reusable):** A Swift mixin to use UITableViewCells, UICollectionViewCells and UIViewControllers in a type-safe way, without the need to manipulate their String-typed reuseIdentifiers.
