@@ -10,4 +10,5 @@ target ‘Newspaper’ do
   pod 'SwiftGen'
   pod 'RxSwift'
   pod 'JWTDecode'
+  pod 'NetworkStack'
 end
