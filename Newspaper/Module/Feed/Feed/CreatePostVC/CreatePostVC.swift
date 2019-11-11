@@ -168,14 +168,9 @@ extension CreatePostVC: UIImagePickerControllerDelegate, UINavigationControllerD
 extension CreatePostVC {
     func createPost(title: String, description: String?, body: String?) {
         self.showNPLoader()
-        wsClient.createPost(title: title, description: description, body: body).observeOn(MainScheduler.instance)
-        .subscribe { [weak self] event in
-            self?.hideNPLoader()
-            switch event {
-            case .completed: break
-            case .next: self?.delegate?.didCreatePost()
-            case .error(let error): print(error)
-            }
-        }.disposed(by: bag)
+        try? wsClient.createPost(title: title, description: description, body: body) {
+            self.hideNPLoader()
+            self.delegate?.didCreatePost()
+        }
     }
 }

@@ -67,14 +67,9 @@ extension UsersVC: UITableViewDataSource {
 extension UsersVC {
     func requestUsers() {
         self.showNPLoader()
-        wsClient.getUsers().observeOn(MainScheduler.instance)
-        .subscribe { [weak self] event in
+        try? wsClient.getUsers { [weak self] users in
             self?.hideNPLoader()
-            switch event {
-            case .completed: break
-            case .error(let error): print(error)
-            case .next(let users): self?.fill(users: users)
-            }
-        }.disposed(by: bag)
+            self?.fill(users: users)
+        }
     }
 }

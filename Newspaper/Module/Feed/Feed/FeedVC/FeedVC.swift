@@ -87,14 +87,9 @@ extension FeedVC: UITableViewDataSource, UITableViewDelegate {
 extension FeedVC {
      private func updatePosts() {
         self.showNPLoader()
-        wsClient.getPosts().observeOn(MainScheduler.instance)
-        .subscribe { [weak self] event in
+        try? wsClient.getPosts { [weak self] posts in
             self?.hideNPLoader()
-            switch event {
-            case .completed: break
-            case .next(let posts): self?.refreshUI(posts: posts)
-            case .error(let error): print(error)
-            }
-        }.disposed(by: bag)
+            self?.refreshUI(posts: posts)
+        }
     }
 }

@@ -14,7 +14,7 @@ import JWTDecode
 final class NPWebServiceClient {
     // MARK: - Properties
     private let decoder = JSONDecoder()
-    private static let keychainService = KeychainService(serviceType: Environment.Newspaper.appName)
+    static let keychainService = KeychainService(serviceType: Environment.Newspaper.appName)
     private static let networkStack = NetworkStack(baseURL: Environment.Newspaper.baseURL, keychainService: keychainService)
     public static var isLogged: Bool {
         return self.keychainService.accessToken != nil
@@ -22,82 +22,72 @@ final class NPWebServiceClient {
     }
     
     // MARK: - Services
-    func signIn(email: String, pwd: String) -> Observable<Void> {
-        let requestParameters = RequestParameters(method: .post, route: NPRoute.signIn, parameters: [JSONKeys.email: email, JSONKeys.pwd: pwd])
-        
-        return NPWebServiceClient.networkStack.sendRequestWithDataResponse(requestParameters: requestParameters).map { (_, data) -> Void in
-            let auth = try? self.decoder.decode(Auth.self, from: data)
-            guard let token = auth?.token else { return }
-            NPWebServiceClient.keychainService.accessToken = token
-            NPWebServiceClient.keychainService.expirationInterval = (try? decode(jwt: token))?.body[JSONKeys.tokenExp] as? Double
+    func signIn(email: String, pwd: String, completion: (() -> Void)? = nil) throws {
+        NewspaperMoya.provider.request(.signIn(email: email, pwd: pwd)) { result in
+            if case let .success(response) = result {
+                let auth = try? self.decoder.decode(Auth.self, from: response.data)
+                guard let token = auth?.token else { return }
+                NPWebServiceClient.keychainService.accessToken = token
+                NPWebServiceClient.keychainService.expirationInterval = (try? JWTDecode.decode(jwt: token))?.body[JSONKeys.tokenExp] as? Double
+                completion?()
+            }
         }
     }
     
-    func register(name: String,
-                  lastname: String,
-                  dni: String,
-                  email: String,
-                  pwd: String,
-                  pwdConfimation: String) -> Observable<Void> {
-        
-        let requestParameters = RequestParameters(method: .post, route: NPRoute.signUp, parameters: [JSONKeys.user: [JSONKeys.dni: dni, JSONKeys.name: name, JSONKeys.lastName: lastname, JSONKeys.email: email, JSONKeys.pwd: pwd, JSONKeys.pwdConfirmation: pwdConfimation]])
-        
-        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> Void in
-            guard let json = json as? Data else { return }
-            let auth = try? self.decoder.decode(Auth.self, from: json)
-            NPWebServiceClient.keychainService.accessToken = auth?.token
+    func register(name: String, lastname: String, dni: String, email: String, pwd: String, pwdConfimation: String, completion: (() -> Void)? = nil) throws {
+        NewspaperMoya.provider.request(.signUp(name: name, lastname: lastname, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfimation)) { result in
+            if case .success(_) = result {
+                completion?()
+            }
         }
     }
     
-    func getCurrentUser()-> Observable<User?> {
+    func getCurrentUser(completion: ((User?) -> Void)? = nil) throws {
         
         let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
-        let userId: Int = (try? decode(jwt: token))?.body[JSONKeys.tokenUserID] as? Int ?? 00
+        let userId: Int = (try? JWTDecode.decode(jwt: token))?.body[JSONKeys.tokenUserID] as? Int ?? 00
         // Error will be returned by the WS if param is empty.
         
-        let requestParameters = RequestParameters(method: .get, route: NPRoute.user(userId: userId), headers: [JSONKeys.authorisation: token])
-        
-        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, json) -> User? in
-            guard let userJson = (json as? [String: Any])?[JSONKeys.user],
-                let userData = try? JSONSerialization.data(withJSONObject: userJson) else { return nil }
-            return try? self.decoder.decode(User.self, from: userData)
+        NewspaperMoya.provider.request(.user(userId: userId)) { result in
+            if case let .success(response) = result,
+                let userJson = (try? response.mapJSON() as? [String: Any])?[JSONKeys.user],
+                let data = try? JSONSerialization.data(withJSONObject: userJson) {
+                completion?(try? self.decode(data) as User)
+            }
         }
     }
     
-    func getUsers()-> Observable<Users?> {
-        let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
-        // Error will be returned by the WS if param is empty.
-        
-        let requestParameters = RequestParameters(method: .get, route: NPRoute.users, headers: [JSONKeys.authorisation: token])
-        
-        return NPWebServiceClient.networkStack.sendRequestWithDataResponse(requestParameters: requestParameters).map { (_, data) -> Users? in
-            return try? self.decoder.decode(Users.self, from: data)
+    func getUsers(completion: ((Users?) -> Void)? = nil) throws {
+        NewspaperMoya.provider.request(.users) { result in
+            if case let .success(response) = result {
+                completion?(try? self.decode(response.data) as Users)
+            }
         }
     }
     
-    func createPost(title: String, description: String?, body: String?) -> Observable<Void> {
-        let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
-        let params = [JSONKeys.post: [JSONKeys.postTitle: title, JSONKeys.postDescription: (description ?? ""), JSONKeys.postBody: (body ?? "")]]
-       
-        let requestParameters = RequestParameters(method: .post, route: NPRoute.posts, parameters: params, headers: [JSONKeys.authorisation: token])
-        
-        return NPWebServiceClient.networkStack.sendRequestWithJSONResponse(requestParameters: requestParameters).map { (_, _) -> Void in
-            // Whatever ....
+    func createPost(title: String, description: String?, body: String?, completion: (() -> Void)? = nil) throws {
+        NewspaperMoya.provider.request(.createPost(title: title, description: description, body: body)) { result in
+            if case .success(_) = result {
+                completion?()
+            }
         }
     }
     
-    func getPosts() -> Observable<Posts?> {
-        let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
-        
-        let requestParameters = RequestParameters(method: .get, route: NPRoute.posts, headers: [JSONKeys.authorisation: token])
-        
-        return NPWebServiceClient.networkStack.sendRequestWithDataResponse(requestParameters: requestParameters).map { (_, data) -> Posts? in
-            return try? self.decoder.decode(Posts.self, from: data)
+    func getPosts(completion: ((Posts?) -> Void)? = nil) throws {
+        NewspaperMoya.provider.request(.posts) { result in
+            if case let .success(response) = result {
+                completion?(try? self.decode(response.data) as Posts)
+            }
         }
     }
     
     func disconnect() {
         NPWebServiceClient.keychainService.accessToken = nil
         NPWebServiceClient.keychainService.expirationInterval = nil
+    }
+    
+    func decode<T>(_ data: Data, type: T.Type = T.self) throws -> T where T: Decodable {
+        let decoder = JSONDecoder()
+        return try decoder.decode(type, from: data)
     }
 }

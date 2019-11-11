@@ -6,42 +6,16 @@
 //  Copyright © 2017 Pr0g. All rights reserved.
 //
 //
-//import NetworkStack
-//
-//public enum NPRoute: Routable {
-//    case signIn
-//    case signUp
-//    case users
-//    case user(userId: Int)
-//    case post(postId: Int64)
-//    case posts
-//
-//    public var path: String {
-//        switch self {
-//        case .signIn: return "/user/signin"
-//        case .signUp: return "/user/signup"
-//        case .users: return "/user"
-//        case .user(userId: let userId): return "/user/\(userId)"
-//        case .post(postId: let postId): return "/post/\(postId)"
-//        case .posts: return "/post/"
-//        }
-//    }
-//}
+import NetworkStack
 
-import UIKit
-import Moya
-
-public enum NewspaperMoya: TargetType {
+public enum NPRoute: Routable {
     case signIn
     case signUp
     case users
     case user(userId: Int)
     case post(postId: Int64)
     case posts
-    
-    public var baseURL: URL { return URL(string: Environment.Newspaper.baseURL)! }
-    static let provider = MoyaProvider<Self>(plugins: [NetworkLoggerPlugin(verbose: true)])
-    
+
     public var path: String {
         switch self {
         case .signIn: return "/user/signin"
@@ -52,10 +26,40 @@ public enum NewspaperMoya: TargetType {
         case .posts: return "/post/"
         }
     }
+}
+
+import Moya
+
+public enum NewspaperMoya: TargetType {
+    case signIn(email: String, pwd: String)
+    case signUp(name: String, lastname: String, dni: String, email: String, pwd: String, pwdConfimation: String)
+    case users
+    case user(userId: Int)
+    case post(postId: Int64)
+    case posts
+    case createPost(title: String, description: String?, body: String?)
+    
+    private static var token: String { NewspaperMoya.keychainService.accessToken ?? "empty" }
+    private static let keychainService = KeychainService(serviceType: Environment.Newspaper.appName)
+    private static let authPlugin = AccessTokenPlugin { token }
+    
+    public var baseURL: URL { URL(string: Environment.Newspaper.baseURL)! }
+    static let provider = MoyaProvider<Self>(plugins: [NewspaperMoya.authPlugin])
+    
+    public var path: String {
+        switch self {
+        case .signIn: return "/user/signin"
+        case .signUp: return "/user/signup"
+        case .users: return "/user"
+        case .user(userId: let userId): return "/user/\(userId)"
+        case .post(postId: let postId): return "/post/\(postId)"
+        case .posts, .createPost: return "/post/"
+        }
+    }
     
     public var method: Moya.Method {
         switch self {
-        case .signIn, .signUp: return .post
+        case .signIn, .signUp, .createPost: return .post
         default: return .get
         }
     }
@@ -64,108 +68,34 @@ public enum NewspaperMoya: TargetType {
         return "to implement to use test".data(using: .utf8) ?? Data()
     }
     
-    public var task: Task { return .requestPlain }
-    
-    public var headers: [String: String]? {
-        return nil
-    }
-    
-    private func decode<T>(_ data: Data, type: T.Type = T.self) throws -> T where T: Decodable {
-        let decoder = JSONDecoder()
-        return try decoder.decode(type, from: data)
-    }
-}
-
-
-import Foundation
-import Moya
-
-// MARK: - Provider setup
-
-private func JSONResponseDataFormatter(_ data: Data) -> Data {
-    do {
-        let dataAsJSON = try JSONSerialization.jsonObject(with: data)
-        let prettyData =  try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)
-        return prettyData
-    } catch {
-        return data // fallback to original data if it can't be serialized.
-    }
-}
-
-let gitHubProvider = MoyaProvider<GitHub>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
-
-// MARK: - Provider support
-
-private extension String {
-    var urlEscaped: String {
-        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-    }
-}
-
-public enum GitHub {
-    case zen
-    case userProfile(String)
-    case userRepositories(String)
-}
-
-extension GitHub: TargetType {
-    public var baseURL: URL { return URL(string: "https://api.github.com")! }
-    public var path: String {
-        switch self {
-        case .zen:
-            return "/zen"
-        case .userProfile(let name):
-            return "/users/\(name.urlEscaped)"
-        case .userRepositories(let name):
-            return "/users/\(name.urlEscaped)/repos"
-        }
-    }
-    public var method: Moya.Method {
-        return .get
-    }
     public var task: Task {
         switch self {
-        case .userRepositories:
-            return .requestParameters(parameters: ["sort": "pushed"], encoding: URLEncoding.default)
-        default:
-            return .requestPlain
+        case .signIn(email: let email, pwd: let pwd):
+            return .requestParameters(parameters: [JSONKeys.email: email, JSONKeys.pwd: pwd],
+                                      encoding: URLEncoding.default)
+        case .signUp(name: let name,
+                    lastname: let lastname,
+                    dni: let dni,
+                    email: let email,
+                    pwd: let pwd,
+                    pwdConfimation: let pwdConfimation):
+            return .requestParameters(parameters: [JSONKeys.user: [JSONKeys.dni: dni, JSONKeys.name: name, JSONKeys.lastName: lastname, JSONKeys.email: email, JSONKeys.pwd: pwd, JSONKeys.pwdConfirmation: pwdConfimation]], encoding: URLEncoding.default)
+        case .createPost(title: let title, description: let description, body: let body):
+            return .requestParameters(parameters: [JSONKeys.post: [JSONKeys.postTitle: title,
+                                                   JSONKeys.postDescription: description ?? "",
+                                                   JSONKeys.postBody: body ?? ""]], encoding: URLEncoding.default)
+        default: return .requestPlain
         }
     }
-    public var validationType: ValidationType {
-        switch self {
-        case .zen:
-            return .successCodes
-        default:
-            return .none
-        }
-    }
-    public var sampleData: Data {
-        switch self {
-        case .zen:
-            return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
-        case .userProfile(let name):
-            return "{\"login\": \"\(name)\", \"id\": 100}".data(using: String.Encoding.utf8)!
-        case .userRepositories(let name):
-            return "[{\"name\": \"\(name)\"}]".data(using: String.Encoding.utf8)!
-        }
-    }
-    public var headers: [String: String]? {
-        return nil
-    }
+    
+    public var headers: [String: String]? { nil }
 }
 
-public func url(_ route: TargetType) -> String {
-    return route.baseURL.appendingPathComponent(route.path).absoluteString
-}
-
-// MARK: - Response Handlers
-
-extension Moya.Response {
-    func mapNSArray() throws -> NSArray {
-        let any = try self.mapJSON()
-        guard let array = any as? NSArray else {
-            throw MoyaError.jsonMapping(self)
+extension NewspaperMoya: AccessTokenAuthorizable {
+    public var authorizationType: AuthorizationType {
+        switch self {
+        case .signIn, .signUp: return .none
+        default: return .bearer
         }
-        return array
     }
 }

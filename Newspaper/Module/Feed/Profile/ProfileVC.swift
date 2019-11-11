@@ -63,14 +63,9 @@ final class ProfileVC: UIViewController {
 extension ProfileVC {
     private func requestUser() {
         self.showNPLoader()
-        wsClient.getCurrentUser().observeOn(MainScheduler.instance)
-        .subscribe { [weak self] event in
+        try? wsClient.getCurrentUser { [weak self] user in
             self?.hideNPLoader()
-            switch event {
-            case .completed: break
-            case .error(let error): print(error)
-            case .next(let user): self?.fill(user: user)
-            }
-        }.disposed(by: bag)
+            self?.fill(user: user)
+        }
     }
 }
