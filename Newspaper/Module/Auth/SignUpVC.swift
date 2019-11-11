@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK:- Delegate
 protocol SignUpVCDelegate: class {
@@ -19,7 +18,6 @@ protocol SignUpVCDelegate: class {
 final class SignUpVC: UIViewController {
     // MARK:- Properties
     weak var delegate: SignUpVCDelegate?
-    private let bag = DisposeBag()
     private let wsClient = NPWebServiceClient()
     
     // MARK:- IBOutlets

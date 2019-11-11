@@ -6,29 +6,8 @@
 //  Copyright © 2017 Pr0g. All rights reserved.
 //
 //
-import NetworkStack
-
-public enum NPRoute: Routable {
-    case signIn
-    case signUp
-    case users
-    case user(userId: Int)
-    case post(postId: Int64)
-    case posts
-
-    public var path: String {
-        switch self {
-        case .signIn: return "/user/signin"
-        case .signUp: return "/user/signup"
-        case .users: return "/user"
-        case .user(userId: let userId): return "/user/\(userId)"
-        case .post(postId: let postId): return "/post/\(postId)"
-        case .posts: return "/post/"
-        }
-    }
-}
-
 import Moya
+import KeychainAccess
 
 public enum NewspaperMoya: TargetType {
     case signIn(email: String, pwd: String)
@@ -39,8 +18,8 @@ public enum NewspaperMoya: TargetType {
     case posts
     case createPost(title: String, description: String?, body: String?)
     
-    private static var token: String { NewspaperMoya.keychainService.accessToken ?? "empty" }
-    private static let keychainService = KeychainService(serviceType: Environment.Newspaper.appName)
+    private static let keychainService = Keychain(service: Environment.Newspaper.appName)
+    private static var token: String { NewspaperMoya.keychainService[JSONKeys.authorisation] ?? "empty" }
     private static let authPlugin = AccessTokenPlugin { token }
     
     public var baseURL: URL { URL(string: Environment.Newspaper.baseURL)! }

@@ -6,18 +6,16 @@
 //  Copyright © 2017 Pr0g. All rights reserved.
 //
 
-import RxSwift
-import Alamofire
 import JWTDecode
+import KeychainAccess
 
 final class NPWebServiceClient {
     // MARK: - Properties
     private let decoder = JSONDecoder()
-    static let keychainService = KeychainService(serviceType: Environment.Newspaper.appName)
-    private static let networkStack = NetworkStack(baseURL: Environment.Newspaper.baseURL, keychainService: keychainService)
+    static let keychainService = Keychain(service: Environment.Newspaper.appName)
     public static var isLogged: Bool {
-        return self.keychainService.accessToken != nil
-            && self.keychainService.expirationInterval ?? 0 > Date().timeIntervalSince1970 
+        return self.keychainService[JSONKeys.authorisation] != nil
+        && Double(self.keychainService[JSONKeys.tokenExp] ?? "0") ?? 0 > Date().timeIntervalSince1970
     }
     
     // MARK: - Services
@@ -26,8 +24,8 @@ final class NPWebServiceClient {
             if case let .success(response) = result {
                 let auth = try? self.decoder.decode(Auth.self, from: response.data)
                 guard let token = auth?.token else { return }
-                NPWebServiceClient.keychainService.accessToken = token
-                NPWebServiceClient.keychainService.expirationInterval = (try? JWTDecode.decode(jwt: token))?.body[JSONKeys.tokenExp] as? Double
+                NPWebServiceClient.keychainService[JSONKeys.authorisation] = token
+                NPWebServiceClient.keychainService[JSONKeys.tokenExp] = try? JWTDecode.decode(jwt: token).body[JSONKeys.tokenExp] as? String
                 completion?()
             }
         }
@@ -43,7 +41,7 @@ final class NPWebServiceClient {
     
     func getCurrentUser(completion: ((User?) -> Void)? = nil) throws {
         
-        let token = NPWebServiceClient.keychainService.accessToken ?? "empty"
+        let token = NPWebServiceClient.keychainService[JSONKeys.authorisation] ?? "empty"
         let userId: Int = (try? JWTDecode.decode(jwt: token))?.body[JSONKeys.tokenUserID] as? Int ?? 00
         // Error will be returned by the WS if param is empty.
         
@@ -81,8 +79,8 @@ final class NPWebServiceClient {
     }
     
     func disconnect() {
-        NPWebServiceClient.keychainService.accessToken = nil
-        NPWebServiceClient.keychainService.expirationInterval = nil
+        NPWebServiceClient.keychainService[JSONKeys.authorisation] = nil
+        NPWebServiceClient.keychainService[JSONKeys.tokenExp] = nil
     }
     
     func decode<T>(_ data: Data, type: T.Type = T.self) throws -> T where T: Decodable {

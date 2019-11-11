@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK:- Delegate
 protocol UsersVCDelegate: class {}
@@ -15,7 +14,6 @@ protocol UsersVCDelegate: class {}
 // MARK:- Class
 final class UsersVC: UIViewController {
     // MARK:- Properties
-    private let bag = DisposeBag()
     private let wsClient = NPWebServiceClient()
     weak var delegate: UsersVCDelegate?
     private var source: [User]?
