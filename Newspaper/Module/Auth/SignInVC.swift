@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK:- Delegate
 protocol SignInVCDelegate: class {
@@ -18,7 +17,6 @@ protocol SignInVCDelegate: class {
 // MARK:- Class
 final class SignInVC: UIViewController {
     // MARK:- Properties
-    private let bag = DisposeBag()
     private let wsClient = NPWebServiceClient()
     weak var delegate: SignInVCDelegate?
     
@@ -57,15 +55,9 @@ final class SignInVC: UIViewController {
 extension SignInVC {
     private func signIn(email: String, pwd: String) {
         self.showNPLoader()
-        wsClient.signIn(email: email, pwd: pwd)
-        .observeOn(MainScheduler.instance)
-        .subscribe { [weak self] event in
-            self?.hideNPLoader()
-            switch event {
-            case .completed: break
-            case .error(let error): print(error)
-            case .next: self?.delegate?.didSignedIn()
-            }
-        }.disposed(by: bag)
+        try? wsClient.signIn(email: email, pwd: pwd) {
+            self.hideNPLoader()
+            self.delegate?.didSignedIn()
+        }
     }
 }

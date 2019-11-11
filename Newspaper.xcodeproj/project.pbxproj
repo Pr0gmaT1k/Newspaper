@@ -58,7 +58,7 @@
 		BA46C588234652BD00FC1E0D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA46C570234652BD00FC1E0D /* Localizable.strings */; };
 		BA46C58A234652BD00FC1E0D /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA46C573234652BD00FC1E0D /* Auth.storyboard */; };
 		BA46C58C234652BD00FC1E0D /* NPWebServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */; };
-		BA46C58D234652BD00FC1E0D /* NPRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C579234652BD00FC1E0D /* NPRoute.swift */; };
+		BA46C58D234652BD00FC1E0D /* NPProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C579234652BD00FC1E0D /* NPProvider.swift */; };
 		BA7803AE236CCC0B0061B32A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7803AD236CCC0B0061B32A /* Post.swift */; };
 		BA7C437A2349380300F8166D /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C43792349380300F8166D /* CreatePostVC.swift */; };
 		BA84ED6D2346E63500804C26 /* JSONKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84ED6C2346E63500804C26 /* JSONKeys.swift */; };
@@ -192,7 +192,7 @@
 		BA46C570234652BD00FC1E0D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BA46C573234652BD00FC1E0D /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPWebServiceClient.swift; sourceTree = "<group>"; };
-		BA46C579234652BD00FC1E0D /* NPRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPRoute.swift; sourceTree = "<group>"; };
+		BA46C579234652BD00FC1E0D /* NPProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPProvider.swift; sourceTree = "<group>"; };
 		BA7803AD236CCC0B0061B32A /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BA7C43792349380300F8166D /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		BA84ED6C2346E63500804C26 /* JSONKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONKeys.swift; sourceTree = "<group>"; };
@@ -557,7 +557,7 @@
 			isa = PBXGroup;
 			children = (
 				BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */,
-				BA46C579234652BD00FC1E0D /* NPRoute.swift */,
+				BA46C579234652BD00FC1E0D /* NPProvider.swift */,
 				BA84ED6C2346E63500804C26 /* JSONKeys.swift */,
 			);
 			path = Newspaper;
@@ -990,7 +990,7 @@
 				BA22AA802347C41E00E77EE3 /* AuthCoordinator.swift in Sources */,
 				BAA4C44E23467EC900F7E420 /* SignUpVC.swift in Sources */,
 				BAD7F554234A57EE006A18C2 /* LoaderView.swift in Sources */,
-				BA46C58D234652BD00FC1E0D /* NPRoute.swift in Sources */,
+				BA46C58D234652BD00FC1E0D /* NPProvider.swift in Sources */,
 				BA8F5B0223465619009E266E /* Colors.swift in Sources */,
 				BA46C586234652BD00FC1E0D /* Environment.swift in Sources */,
 				BA22AA8D2348CADB00E77EE3 /* TabBarVC.swift in Sources */,

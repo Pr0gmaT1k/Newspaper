@@ -3,11 +3,11 @@ platform :ios, '13.0'
 
 target ‘Newspaper’ do
   use_frameworks!
-  pod 'NetworkStack'
+  pod 'Moya'
   pod 'RealmSwift'
   pod 'Reusable'
   pod 'SwiftLint'
   pod 'SwiftGen'
-  pod 'RxSwift'
   pod 'JWTDecode'
+  pod 'KeychainAccess'
 end

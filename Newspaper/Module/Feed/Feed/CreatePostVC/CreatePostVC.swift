@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK:- Delegate
 protocol CreatePostVCDelegate: class {
@@ -18,7 +17,6 @@ protocol CreatePostVCDelegate: class {
 // MARK:- Class
 final class CreatePostVC: UIViewController {
     // MARK:- Properties
-    private let bag = DisposeBag()
     private let wsClient = NPWebServiceClient()
     weak var delegate: CreatePostVCDelegate?
     static let titleLengthLimit = 30
@@ -168,14 +166,9 @@ extension CreatePostVC: UIImagePickerControllerDelegate, UINavigationControllerD
 extension CreatePostVC {
     func createPost(title: String, description: String?, body: String?) {
         self.showNPLoader()
-        wsClient.createPost(title: title, description: description, body: body).observeOn(MainScheduler.instance)
-        .subscribe { [weak self] event in
-            self?.hideNPLoader()
-            switch event {
-            case .completed: break
-            case .next: self?.delegate?.didCreatePost()
-            case .error(let error): print(error)
-            }
-        }.disposed(by: bag)
+        try? wsClient.createPost(title: title, description: description, body: body) {
+            self.hideNPLoader()
+            self.delegate?.didCreatePost()
+        }
     }
 }
