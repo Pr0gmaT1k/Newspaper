@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK:- Delegate
 protocol UsersVCDelegate: class {}
@@ -15,7 +14,6 @@ protocol UsersVCDelegate: class {}
 // MARK:- Class
 final class UsersVC: UIViewController {
     // MARK:- Properties
-    private let bag = DisposeBag()
     private let wsClient = NPWebServiceClient()
     weak var delegate: UsersVCDelegate?
     private var source: [User]?
@@ -67,14 +65,9 @@ extension UsersVC: UITableViewDataSource {
 extension UsersVC {
     func requestUsers() {
         self.showNPLoader()
-        wsClient.getUsers().observeOn(MainScheduler.instance)
-        .subscribe { [weak self] event in
+        try? wsClient.getUsers { [weak self] users in
             self?.hideNPLoader()
-            switch event {
-            case .completed: break
-            case .error(let error): print(error)
-            case .next(let users): self?.fill(users: users)
-            }
-        }.disposed(by: bag)
+            self?.fill(users: users)
+        }
     }
 }

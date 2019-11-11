@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK:- Delegate
 protocol FeedVCDelegate: class {
@@ -18,7 +17,6 @@ protocol FeedVCDelegate: class {
 // MARK:- Class
 final class FeedVC: UIViewController {
     // MARK:- Properties
-    private let bag = DisposeBag()
     private let wsClient = NPWebServiceClient()
     weak var delegate: FeedVCDelegate?
     private static let cellRatio: CGFloat = 1920 / 1080 // (width / heigh)
@@ -87,14 +85,9 @@ extension FeedVC: UITableViewDataSource, UITableViewDelegate {
 extension FeedVC {
      private func updatePosts() {
         self.showNPLoader()
-        wsClient.getPosts().observeOn(MainScheduler.instance)
-        .subscribe { [weak self] event in
+        try? wsClient.getPosts { [weak self] posts in
             self?.hideNPLoader()
-            switch event {
-            case .completed: break
-            case .next(let posts): self?.refreshUI(posts: posts)
-            case .error(let error): print(error)
-            }
-        }.disposed(by: bag)
+            self?.refreshUI(posts: posts)
+        }
     }
 }

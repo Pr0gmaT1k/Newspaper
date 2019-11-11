@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK:- Delegate
 protocol ProfileVCDelegate: class {
@@ -17,7 +16,6 @@ protocol ProfileVCDelegate: class {
 // MARK:- Class
 final class ProfileVC: UIViewController {
     // MARK:- Properties
-    private let bag = DisposeBag()
     private let wsClient = NPWebServiceClient()
     weak var delegate: ProfileVCDelegate?
     
@@ -63,14 +61,9 @@ final class ProfileVC: UIViewController {
 extension ProfileVC {
     private func requestUser() {
         self.showNPLoader()
-        wsClient.getCurrentUser().observeOn(MainScheduler.instance)
-        .subscribe { [weak self] event in
+        try? wsClient.getCurrentUser { [weak self] user in
             self?.hideNPLoader()
-            switch event {
-            case .completed: break
-            case .error(let error): print(error)
-            case .next(let user): self?.fill(user: user)
-            }
-        }.disposed(by: bag)
+            self?.fill(user: user)
+        }
     }
 }

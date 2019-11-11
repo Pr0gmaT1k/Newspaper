@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK:- Delegate
 protocol SignUpVCDelegate: class {
@@ -19,7 +18,6 @@ protocol SignUpVCDelegate: class {
 final class SignUpVC: UIViewController {
     // MARK:- Properties
     weak var delegate: SignUpVCDelegate?
-    private let bag = DisposeBag()
     private let wsClient = NPWebServiceClient()
     
     // MARK:- IBOutlets
@@ -114,30 +112,16 @@ extension SignUpVC {
 extension SignUpVC {
     private func signUp(name: String, lastName: String, dni: String, email: String, pwd: String, pwdConfirmation: String) {
         self.showNPLoader()
-        wsClient.register(name: name, lastname: lastName, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfirmation)
-            .observeOn(MainScheduler.instance)
-            .subscribe { [weak self] event in
-                switch event {
-                case .completed: break
-                case .error(let error):
-                    self?.hideNPLoader()
-                    print(error)
-                case .next: self?.signIn(email: email, pwd: pwd)
-                }
-        }.disposed(by: bag)
+        try? wsClient.register(name: name, lastname: lastName, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfirmation) {
+            self.signIn(email: email, pwd: pwd)
+        }
     }
     
     private func signIn(email: String, pwd: String) {
         self.showNPLoader()
-        wsClient.signIn(email: email, pwd: pwd)
-        .observeOn(MainScheduler.instance)
-        .subscribe { [weak self] event in
-            self?.hideNPLoader()
-            switch event {
-            case .completed: break
-            case .error(let error): print(error)
-            case .next: self?.delegate?.didSignedUpAndIsSignedIn()
-            }
-        }.disposed(by: bag)
+        try? wsClient.signIn(email: email, pwd: pwd) {
+            self.hideNPLoader()
+            self.delegate?.didSignedUpAndIsSignedIn()
+        }
     }
 }
