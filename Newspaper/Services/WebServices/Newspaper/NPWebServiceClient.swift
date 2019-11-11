@@ -15,12 +15,11 @@ final class NPWebServiceClient {
     static let keychainService = Keychain(service: Environment.Newspaper.appName)
     public static var isLogged: Bool {
         return self.keychainService[JSONKeys.authorisation] != nil
-        && Double(self.keychainService[JSONKeys.tokenExp] ?? "0") ?? 0 > Date().timeIntervalSince1970
     }
     
     // MARK: - Services
     func signIn(email: String, pwd: String, completion: (() -> Void)? = nil) throws {
-        NewspaperMoya.provider.request(.signIn(email: email, pwd: pwd)) { result in
+        NPProvider.provider.request(.signIn(email: email, pwd: pwd)) { result in
             if case let .success(response) = result {
                 let auth = try? self.decoder.decode(Auth.self, from: response.data)
                 guard let token = auth?.token else { return }
@@ -32,7 +31,7 @@ final class NPWebServiceClient {
     }
     
     func register(name: String, lastname: String, dni: String, email: String, pwd: String, pwdConfimation: String, completion: (() -> Void)? = nil) throws {
-        NewspaperMoya.provider.request(.signUp(name: name, lastname: lastname, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfimation)) { result in
+        NPProvider.provider.request(.signUp(name: name, lastname: lastname, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfimation)) { result in
             if case .success(_) = result {
                 completion?()
             }
@@ -45,7 +44,7 @@ final class NPWebServiceClient {
         let userId: Int = (try? JWTDecode.decode(jwt: token))?.body[JSONKeys.tokenUserID] as? Int ?? 00
         // Error will be returned by the WS if param is empty.
         
-        NewspaperMoya.provider.request(.user(userId: userId)) { result in
+        NPProvider.provider.request(.user(userId: userId)) { result in
             if case let .success(response) = result,
                 let userJson = (try? response.mapJSON() as? [String: Any])?[JSONKeys.user],
                 let data = try? JSONSerialization.data(withJSONObject: userJson) {
@@ -55,7 +54,7 @@ final class NPWebServiceClient {
     }
     
     func getUsers(completion: ((Users?) -> Void)? = nil) throws {
-        NewspaperMoya.provider.request(.users) { result in
+        NPProvider.provider.request(.users) { result in
             if case let .success(response) = result {
                 completion?(try? self.decode(response.data) as Users)
             }
@@ -63,7 +62,7 @@ final class NPWebServiceClient {
     }
     
     func createPost(title: String, description: String?, body: String?, completion: (() -> Void)? = nil) throws {
-        NewspaperMoya.provider.request(.createPost(title: title, description: description, body: body)) { result in
+        NPProvider.provider.request(.createPost(title: title, description: description, body: body)) { result in
             if case .success(_) = result {
                 completion?()
             }
@@ -71,7 +70,7 @@ final class NPWebServiceClient {
     }
     
     func getPosts(completion: ((Posts?) -> Void)? = nil) throws {
-        NewspaperMoya.provider.request(.posts) { result in
+        NPProvider.provider.request(.posts) { result in
             if case let .success(response) = result {
                 completion?(try? self.decode(response.data) as Posts)
             }

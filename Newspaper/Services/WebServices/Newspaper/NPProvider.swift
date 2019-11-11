@@ -9,7 +9,7 @@
 import Moya
 import KeychainAccess
 
-public enum NewspaperMoya: TargetType {
+public enum NPProvider: TargetType {
     case signIn(email: String, pwd: String)
     case signUp(name: String, lastname: String, dni: String, email: String, pwd: String, pwdConfimation: String)
     case users
@@ -19,11 +19,11 @@ public enum NewspaperMoya: TargetType {
     case createPost(title: String, description: String?, body: String?)
     
     private static let keychainService = Keychain(service: Environment.Newspaper.appName)
-    private static var token: String { NewspaperMoya.keychainService[JSONKeys.authorisation] ?? "empty" }
+    private static var token: String { NPProvider.keychainService[JSONKeys.authorisation] ?? "empty" }
     private static let authPlugin = AccessTokenPlugin { token }
     
     public var baseURL: URL { URL(string: Environment.Newspaper.baseURL)! }
-    static let provider = MoyaProvider<Self>(plugins: [NewspaperMoya.authPlugin])
+    static let provider = MoyaProvider<Self>(plugins: [NPProvider.authPlugin])
     
     public var path: String {
         switch self {
@@ -70,7 +70,7 @@ public enum NewspaperMoya: TargetType {
     public var headers: [String: String]? { nil }
 }
 
-extension NewspaperMoya: AccessTokenAuthorizable {
+extension NPProvider: AccessTokenAuthorizable {
     public var authorizationType: AuthorizationType {
         switch self {
         case .signIn, .signUp: return .none
