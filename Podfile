@@ -8,7 +8,6 @@ target ‘Newspaper’ do
   pod 'Reusable'
   pod 'SwiftLint'
   pod 'SwiftGen'
-  pod 'RxSwift'
   pod 'JWTDecode'
-  pod 'NetworkStack'
+  pod 'KeychainAccess'
 end

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK:- Delegate
 protocol CreatePostVCDelegate: class {
@@ -18,7 +17,6 @@ protocol CreatePostVCDelegate: class {
 // MARK:- Class
 final class CreatePostVC: UIViewController {
     // MARK:- Properties
-    private let bag = DisposeBag()
     private let wsClient = NPWebServiceClient()
     weak var delegate: CreatePostVCDelegate?
     static let titleLengthLimit = 30

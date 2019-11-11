@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 // MARK:- Delegate
 protocol FeedVCDelegate: class {
@@ -18,7 +17,6 @@ protocol FeedVCDelegate: class {
 // MARK:- Class
 final class FeedVC: UIViewController {
     // MARK:- Properties
-    private let bag = DisposeBag()
     private let wsClient = NPWebServiceClient()
     weak var delegate: FeedVCDelegate?
     private static let cellRatio: CGFloat = 1920 / 1080 // (width / heigh)

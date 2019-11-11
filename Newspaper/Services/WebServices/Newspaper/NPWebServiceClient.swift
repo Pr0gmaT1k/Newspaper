@@ -8,7 +8,6 @@
 
 import RxSwift
 import Alamofire
-import NetworkStack
 import JWTDecode
 
 final class NPWebServiceClient {

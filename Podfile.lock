@@ -1,16 +1,12 @@
 PODS:
   - Alamofire (4.9.1)
   - JWTDecode (2.3.0)
-  - KeychainAccess (3.2.1)
+  - KeychainAccess (4.1.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
-  - NetworkStack (0.1.6):
-    - Alamofire (~> 4.0)
-    - KeychainAccess (~> 3.1)
-    - RxSwift (~> 4.0)
   - Realm (3.17.3):
     - Realm/Headers (= 3.17.3)
   - Realm/Headers (3.17.3)
@@ -22,17 +18,15 @@ PODS:
     - Reusable/View (= 4.1.0)
   - Reusable/Storyboard (4.1.0)
   - Reusable/View (4.1.0)
-  - RxSwift (4.5.0)
   - SwiftGen (6.1.0)
   - SwiftLint (0.35.0)
 
 DEPENDENCIES:
   - JWTDecode
+  - KeychainAccess
   - Moya
-  - NetworkStack
   - RealmSwift
   - Reusable
-  - RxSwift
   - SwiftGen
   - SwiftLint
 
@@ -42,30 +36,26 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - Reusable
-    - RxSwift
     - SwiftGen
     - SwiftLint
   trunk:
     - Alamofire
     - KeychainAccess
     - Moya
-    - NetworkStack
     - Result
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   JWTDecode: fb77675c8049c1a7e9433c7cf448c3ce33ee4ac7
-  KeychainAccess: d5470352939ced6d6f7fb51cb2e67aae51fc294f
+  KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  NetworkStack: b3b64b19fb27bbe323a7f1b1ca18325df4fc4e2a
   Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
   RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
 
-PODFILE CHECKSUM: b29f70614c74e32849d02f27e9c184ce0a697c46
+PODFILE CHECKSUM: 2b805db22163da71106ee0323d0c986039c7ad15
 
 COCOAPODS: 1.8.4
