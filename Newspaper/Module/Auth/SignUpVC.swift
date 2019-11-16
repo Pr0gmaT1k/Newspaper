@@ -116,7 +116,7 @@ extension SignUpVC {
             case .success: self?.signIn(email: email, pwd: pwd)
             case let .failure(error):
                 self?.hideNPLoader()
-                print(error)
+                self?.showToast(message: error, backgroundColor: Color(named: .scarlett))
             }
         }
     }
@@ -129,7 +129,6 @@ extension SignUpVC {
             case .success: self?.delegate?.didSignedUpAndIsSignedIn()
             case let .failure(error): print(error)
             }
-            
         }
     }
 }

@@ -58,7 +58,7 @@ extension SignInVC {
             self?.hideNPLoader()
             switch result {
             case .success: self?.delegate?.didSignedIn()
-            case let .failure(error): print(error)
+            case let .failure(error): self?.showToast(message: error, backgroundColor: Color(named: .scarlett))
             }
         }
     }

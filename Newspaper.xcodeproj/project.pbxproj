@@ -60,6 +60,7 @@
 		BA46C58D234652BD00FC1E0D /* NPProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C579234652BD00FC1E0D /* NPProvider.swift */; };
 		BA6F27602380702B00F7ED08 /* NPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6F275F2380702A00F7ED08 /* NPError.swift */; };
 		BA6F2762238074F900F7ED08 /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6F2761238074F900F7ED08 /* String+Error.swift */; };
+		BA6F27642380850300F7ED08 /* UIVIewController+ShowMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6F27632380850300F7ED08 /* UIVIewController+ShowMessage.swift */; };
 		BA7803AE236CCC0B0061B32A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7803AD236CCC0B0061B32A /* Post.swift */; };
 		BA7C437A2349380300F8166D /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C43792349380300F8166D /* CreatePostVC.swift */; };
 		BA84ED6D2346E63500804C26 /* JSONKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84ED6C2346E63500804C26 /* JSONKeys.swift */; };
@@ -195,6 +196,7 @@
 		BA46C579234652BD00FC1E0D /* NPProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPProvider.swift; sourceTree = "<group>"; };
 		BA6F275F2380702A00F7ED08 /* NPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPError.swift; sourceTree = "<group>"; };
 		BA6F2761238074F900F7ED08 /* String+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Error.swift"; sourceTree = "<group>"; };
+		BA6F27632380850300F7ED08 /* UIVIewController+ShowMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+ShowMessage.swift"; sourceTree = "<group>"; };
 		BA7803AD236CCC0B0061B32A /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BA7C43792349380300F8166D /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		BA84ED6C2346E63500804C26 /* JSONKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONKeys.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 			children = (
 				BAA5715E234A42790035719A /* User+Date.swift */,
 				BA6F2761238074F900F7ED08 /* String+Error.swift */,
+				BA6F27632380850300F7ED08 /* UIVIewController+ShowMessage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				BA6F27602380702B00F7ED08 /* NPError.swift in Sources */,
 				BA22AAB423490F7700E77EE3 /* FeedTVCell.swift in Sources */,
 				BA8F5B0123465619009E266E /* Images.swift in Sources */,
+				BA6F27642380850300F7ED08 /* UIVIewController+ShowMessage.swift in Sources */,
 				BAA4C41B23465C9500F7E420 /* User.swift in Sources */,
 				BAA4C41923465C9500F7E420 /* Auth.swift in Sources */,
 				BA84ED6D2346E63500804C26 /* JSONKeys.swift in Sources */,

@@ -68,7 +68,7 @@ extension UsersVC {
             self?.hideNPLoader()
             switch result {
             case let .success(users): self?.fill(users: users)
-            case let .failure(error): print(error)
+            case let .failure(error): self?.showToast(message: error, backgroundColor: Color(named: .scarlett))
             }
         }
     }

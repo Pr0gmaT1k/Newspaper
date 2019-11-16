@@ -89,7 +89,7 @@ extension FeedVC {
             self?.hideNPLoader()
             switch result {
             case let .success(posts): self?.refreshUI(posts: posts)
-            case let .failure(error): print(error)
+            case let .failure(error): self?.showToast(message: error, backgroundColor: Color(named: .scarlett))
             }
         }
     }
