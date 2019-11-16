@@ -54,9 +54,12 @@ final class SignInVC: UIViewController {
 extension SignInVC {
     private func signIn(email: String, pwd: String) {
         self.showNPLoader()
-        try? NPWebServiceClient.signIn(email: email, pwd: pwd) {
-            self.hideNPLoader()
-            self.delegate?.didSignedIn()
+        NPWebServiceClient.signIn(email: email, pwd: pwd) { [weak self] result in
+            self?.hideNPLoader()
+            switch result {
+            case .success: self?.delegate?.didSignedIn()
+            case let .failure(error): self?.showToast(message: error, backgroundColor: Color(named: .scarlett))
+            }
         }
     }
 }

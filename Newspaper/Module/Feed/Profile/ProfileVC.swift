@@ -60,9 +60,12 @@ final class ProfileVC: UIViewController {
 extension ProfileVC {
     private func requestUser() {
         self.showNPLoader()
-        try? NPWebServiceClient.getCurrentUser { [weak self] user in
+        NPWebServiceClient.getCurrentUser { [weak self] result in
             self?.hideNPLoader()
-            self?.fill(user: user)
+            switch result {
+            case let .success(user): self?.fill(user: user)
+            case let .failure(error): self?.showToast(message: error, backgroundColor: Color(named: .scarlett))
+            }
         }
     }
 }

@@ -111,16 +111,24 @@ extension SignUpVC {
 extension SignUpVC {
     private func signUp(name: String, lastName: String, dni: String, email: String, pwd: String, pwdConfirmation: String) {
         self.showNPLoader()
-        try? NPWebServiceClient.register(name: name, lastname: lastName, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfirmation) {
-            self.signIn(email: email, pwd: pwd)
+        NPWebServiceClient.register(name: name, lastname: lastName, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfirmation) { [weak self] result in
+            switch result {
+            case .success: self?.signIn(email: email, pwd: pwd)
+            case let .failure(error):
+                self?.hideNPLoader()
+                self?.showToast(message: error, backgroundColor: Color(named: .scarlett))
+            }
         }
     }
     
     private func signIn(email: String, pwd: String) {
         self.showNPLoader()
-        try? NPWebServiceClient.signIn(email: email, pwd: pwd) {
-            self.hideNPLoader()
-            self.delegate?.didSignedUpAndIsSignedIn()
+        NPWebServiceClient.signIn(email: email, pwd: pwd) { [weak self] result in
+            self?.hideNPLoader()
+            switch result {
+            case .success: self?.delegate?.didSignedUpAndIsSignedIn()
+            case let .failure(error): print(error)
+            }
         }
     }
 }
