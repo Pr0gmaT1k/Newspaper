@@ -85,9 +85,12 @@ extension FeedVC: UITableViewDataSource, UITableViewDelegate {
 extension FeedVC {
      private func updatePosts() {
         self.showNPLoader()
-        try? wsClient.getPosts { [weak self] posts in
+        NPWebServiceClient.getPosts { [weak self] result in
             self?.hideNPLoader()
-            self?.refreshUI(posts: posts)
+            switch result {
+            case let .success(posts): self?.refreshUI(posts: posts)
+            case let .failure(error): self?.showToast(message: error, backgroundColor: Color(named: .scarlett))
+            }
         }
     }
 }

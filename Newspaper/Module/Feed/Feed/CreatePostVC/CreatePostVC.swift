@@ -17,7 +17,6 @@ protocol CreatePostVCDelegate: class {
 // MARK:- Class
 final class CreatePostVC: UIViewController {
     // MARK:- Properties
-    private let wsClient = NPWebServiceClient()
     weak var delegate: CreatePostVCDelegate?
     static let titleLengthLimit = 30
     static let bodylengthLimit = 1000
@@ -166,9 +165,12 @@ extension CreatePostVC: UIImagePickerControllerDelegate, UINavigationControllerD
 extension CreatePostVC {
     func createPost(title: String, description: String?, body: String?) {
         self.showNPLoader()
-        try? wsClient.createPost(title: title, description: description, body: body) {
-            self.hideNPLoader()
-            self.delegate?.didCreatePost()
+        NPWebServiceClient.createPost(title: title, description: description, body: body) { [weak self] result in
+            self?.hideNPLoader()
+            switch result {
+            case .success: self?.delegate?.didCreatePost()
+            case let .failure(error): self?.showToast(message: error, backgroundColor: Color(named: .scarlett))
+            }
         }
     }
 }

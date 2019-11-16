@@ -16,7 +16,6 @@ protocol ProfileVCDelegate: class {
 // MARK:- Class
 final class ProfileVC: UIViewController {
     // MARK:- Properties
-    private let wsClient = NPWebServiceClient()
     weak var delegate: ProfileVCDelegate?
     
     // MARK:- IBOutlets
@@ -31,7 +30,7 @@ final class ProfileVC: UIViewController {
     
     // MARK:- IBActions
     @IBAction func closeSessionButtonDidTouch(_ sender: Any) {
-        wsClient.disconnect()
+        NPWebServiceClient.disconnect()
         delegate?.didClosedSession()
     }
     
@@ -61,9 +60,12 @@ final class ProfileVC: UIViewController {
 extension ProfileVC {
     private func requestUser() {
         self.showNPLoader()
-        try? wsClient.getCurrentUser { [weak self] user in
+        NPWebServiceClient.getCurrentUser { [weak self] result in
             self?.hideNPLoader()
-            self?.fill(user: user)
+            switch result {
+            case let .success(user): self?.fill(user: user)
+            case let .failure(error): self?.showToast(message: error, backgroundColor: Color(named: .scarlett))
+            }
         }
     }
 }
