@@ -14,7 +14,6 @@ protocol UsersVCDelegate: class {}
 // MARK:- Class
 final class UsersVC: UIViewController {
     // MARK:- Properties
-    private let wsClient = NPWebServiceClient()
     weak var delegate: UsersVCDelegate?
     private var source: [User]?
     private let colorSource: [Color] = [ColorName.primary.color,
@@ -65,7 +64,7 @@ extension UsersVC: UITableViewDataSource {
 extension UsersVC {
     func requestUsers() {
         self.showNPLoader()
-        try? wsClient.getUsers { [weak self] users in
+        try? NPWebServiceClient.getUsers { [weak self] users in
             self?.hideNPLoader()
             self?.fill(users: users)
         }

@@ -22,7 +22,7 @@ public enum NPProvider: TargetType {
     private static var token: String { NPProvider.keychainService[JSONKeys.authorisation] ?? "empty" }
     private static let authPlugin = AccessTokenPlugin { token }
     
-    public var baseURL: URL { URL(string: Environment.Newspaper.baseURL)! }
+    public var baseURL: URL { URL(string: Environment.Newspaper.baseURL) ?? URL(fileURLWithPath: "error") }
     static let provider = MoyaProvider<Self>(plugins: [NPProvider.authPlugin])
     
     public var path: String {

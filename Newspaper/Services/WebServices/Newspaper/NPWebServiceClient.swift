@@ -9,19 +9,19 @@
 import JWTDecode
 import KeychainAccess
 
-final class NPWebServiceClient {
+struct NPWebServiceClient {
     // MARK: - Properties
-    private let decoder = JSONDecoder()
     static let keychainService = Keychain(service: Environment.Newspaper.appName)
     public static var isLogged: Bool {
-        return self.keychainService[JSONKeys.authorisation] != nil
+        guard let token = self.keychainService[JSONKeys.authorisation] else { return false }
+        return (try? JWTDecode.decode(jwt: token).expired == false) ?? false
     }
     
     // MARK: - Services
-    func signIn(email: String, pwd: String, completion: (() -> Void)? = nil) throws {
+    static func signIn(email: String, pwd: String, completion: (() -> Void)? = nil) throws {
         NPProvider.provider.request(.signIn(email: email, pwd: pwd)) { result in
             if case let .success(response) = result {
-                let auth = try? self.decoder.decode(Auth.self, from: response.data)
+                let auth = try? NPWebServiceClient.decode(response.data) as Auth
                 guard let token = auth?.token else { return }
                 NPWebServiceClient.keychainService[JSONKeys.authorisation] = token
                 NPWebServiceClient.keychainService[JSONKeys.tokenExp] = try? JWTDecode.decode(jwt: token).body[JSONKeys.tokenExp] as? String
@@ -30,7 +30,7 @@ final class NPWebServiceClient {
         }
     }
     
-    func register(name: String, lastname: String, dni: String, email: String, pwd: String, pwdConfimation: String, completion: (() -> Void)? = nil) throws {
+    static func register(name: String, lastname: String, dni: String, email: String, pwd: String, pwdConfimation: String, completion: (() -> Void)? = nil) throws {
         NPProvider.provider.request(.signUp(name: name, lastname: lastname, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfimation)) { result in
             if case .success(_) = result {
                 completion?()
@@ -38,7 +38,7 @@ final class NPWebServiceClient {
         }
     }
     
-    func getCurrentUser(completion: ((User?) -> Void)? = nil) throws {
+    static func getCurrentUser(completion: ((User?) -> Void)? = nil) throws {
         
         let token = NPWebServiceClient.keychainService[JSONKeys.authorisation] ?? "empty"
         let userId: Int = (try? JWTDecode.decode(jwt: token))?.body[JSONKeys.tokenUserID] as? Int ?? 00
@@ -53,7 +53,7 @@ final class NPWebServiceClient {
         }
     }
     
-    func getUsers(completion: ((Users?) -> Void)? = nil) throws {
+    static func getUsers(completion: ((Users?) -> Void)? = nil) throws {
         NPProvider.provider.request(.users) { result in
             if case let .success(response) = result {
                 completion?(try? self.decode(response.data) as Users)
@@ -61,7 +61,7 @@ final class NPWebServiceClient {
         }
     }
     
-    func createPost(title: String, description: String?, body: String?, completion: (() -> Void)? = nil) throws {
+    static func createPost(title: String, description: String?, body: String?, completion: (() -> Void)? = nil) throws {
         NPProvider.provider.request(.createPost(title: title, description: description, body: body)) { result in
             if case .success(_) = result {
                 completion?()
@@ -69,7 +69,7 @@ final class NPWebServiceClient {
         }
     }
     
-    func getPosts(completion: ((Posts?) -> Void)? = nil) throws {
+    static func getPosts(completion: ((Posts?) -> Void)? = nil) throws {
         NPProvider.provider.request(.posts) { result in
             if case let .success(response) = result {
                 completion?(try? self.decode(response.data) as Posts)
@@ -77,12 +77,12 @@ final class NPWebServiceClient {
         }
     }
     
-    func disconnect() {
+    static func disconnect() {
         NPWebServiceClient.keychainService[JSONKeys.authorisation] = nil
         NPWebServiceClient.keychainService[JSONKeys.tokenExp] = nil
     }
     
-    func decode<T>(_ data: Data, type: T.Type = T.self) throws -> T where T: Decodable {
+    static private func decode<T>(_ data: Data, type: T.Type = T.self) throws -> T where T: Decodable {
         let decoder = JSONDecoder()
         return try decoder.decode(type, from: data)
     }

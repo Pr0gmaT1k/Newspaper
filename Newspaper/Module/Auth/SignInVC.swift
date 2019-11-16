@@ -17,7 +17,6 @@ protocol SignInVCDelegate: class {
 // MARK:- Class
 final class SignInVC: UIViewController {
     // MARK:- Properties
-    private let wsClient = NPWebServiceClient()
     weak var delegate: SignInVCDelegate?
     
     // MARK:- IBOutlets
@@ -55,7 +54,7 @@ final class SignInVC: UIViewController {
 extension SignInVC {
     private func signIn(email: String, pwd: String) {
         self.showNPLoader()
-        try? wsClient.signIn(email: email, pwd: pwd) {
+        try? NPWebServiceClient.signIn(email: email, pwd: pwd) {
             self.hideNPLoader()
             self.delegate?.didSignedIn()
         }
