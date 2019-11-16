@@ -8,6 +8,7 @@
 
 import JWTDecode
 import KeychainAccess
+import Moya
 
 struct NPWebServiceClient {
     // MARK: - Properties
@@ -20,59 +21,87 @@ struct NPWebServiceClient {
     // MARK: - Services
     static func signIn(email: String, pwd: String, completion: (() -> Void)? = nil) throws {
         NPProvider.provider.request(.signIn(email: email, pwd: pwd)) { result in
-            if case let .success(response) = result {
-                let auth = try? NPWebServiceClient.decode(response.data) as Auth
-                guard let token = auth?.token else { return }
-                NPWebServiceClient.keychainService[JSONKeys.authorisation] = token
-                NPWebServiceClient.keychainService[JSONKeys.tokenExp] = try? JWTDecode.decode(jwt: token).body[JSONKeys.tokenExp] as? String
-                completion?()
+            switch result {
+            case let .success(response):
+                do {
+                    let auth = try response.filterSuccessfulStatusAndRedirectCodes().map(Auth.self)
+                    guard let token = auth.token else { return }
+                    NPWebServiceClient.keychainService[JSONKeys.authorisation] = token
+                    NPWebServiceClient.keychainService[JSONKeys.tokenExp] = try? JWTDecode.decode(jwt: token).body[JSONKeys.tokenExp] as? String
+                    completion?()
+                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
+            case let .failure(error): print(error)
             }
         }
     }
     
     static func register(name: String, lastname: String, dni: String, email: String, pwd: String, pwdConfimation: String, completion: (() -> Void)? = nil) throws {
         NPProvider.provider.request(.signUp(name: name, lastname: lastname, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfimation)) { result in
-            if case .success(_) = result {
-                completion?()
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusAndRedirectCodes()
+                    completion?()
+                } catch let error { print(error) }
+            case let .failure(error): print(error)
             }
         }
     }
     
-    static func getCurrentUser(completion: ((User?) -> Void)? = nil) throws {
+    static func getCurrentUser(completion: ((User) -> Void)? = nil) throws {
         
         let token = NPWebServiceClient.keychainService[JSONKeys.authorisation] ?? "empty"
         let userId: Int = (try? JWTDecode.decode(jwt: token))?.body[JSONKeys.tokenUserID] as? Int ?? 00
         // Error will be returned by the WS if param is empty.
         
         NPProvider.provider.request(.user(userId: userId)) { result in
-            if case let .success(response) = result,
-                let userJson = (try? response.mapJSON() as? [String: Any])?[JSONKeys.user],
-                let data = try? JSONSerialization.data(withJSONObject: userJson) {
-                completion?(try? self.decode(data) as User)
+            switch result {
+            case let .success(response):
+                do {
+                    let filteredResponse = try response.filterSuccessfulStatusAndRedirectCodes()
+                    let userJson = (try filteredResponse.mapJSON() as? [String: Any])?[JSONKeys.user]
+                    let data = try JSONSerialization.data(withJSONObject: userJson as Any)
+                    completion?(try NPWebServiceClient.decode(data) as User)
+                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
+            case let .failure(error): print(error)
             }
         }
     }
     
-    static func getUsers(completion: ((Users?) -> Void)? = nil) throws {
+    static func getUsers(completion: ((Users) -> Void)? = nil) throws {
         NPProvider.provider.request(.users) { result in
-            if case let .success(response) = result {
-                completion?(try? self.decode(response.data) as Users)
+            switch result {
+            case let .success(response):
+                do {
+                    completion?(try response.filterSuccessfulStatusAndRedirectCodes().map(Users.self))
+                } catch let error { print(error) }
+            case let .failure(error): print(error)
             }
         }
     }
     
     static func createPost(title: String, description: String?, body: String?, completion: (() -> Void)? = nil) throws {
         NPProvider.provider.request(.createPost(title: title, description: description, body: body)) { result in
-            if case .success(_) = result {
+            switch result {
+            case let .success(response):
+                do {
+                    _ = try response.filterSuccessfulStatusAndRedirectCodes()
+                    completion?()
+                } catch let error { print(error) }
                 completion?()
+            case let .failure(error): print(error)
             }
         }
     }
     
-    static func getPosts(completion: ((Posts?) -> Void)? = nil) throws {
+    static func getPosts(completion: ((Posts) -> Void)? = nil) throws {
         NPProvider.provider.request(.posts) { result in
-            if case let .success(response) = result {
-                completion?(try? self.decode(response.data) as Posts)
+            switch result {
+            case let .success(response):
+                do {
+                    completion?(try response.filterSuccessfulStatusAndRedirectCodes().map(Posts.self))
+                } catch let error { print(error) }
+            case let .failure(error): print(error)
             }
         }
     }
@@ -85,5 +114,10 @@ struct NPWebServiceClient {
     static private func decode<T>(_ data: Data, type: T.Type = T.self) throws -> T where T: Decodable {
         let decoder = JSONDecoder()
         return try decoder.decode(type, from: data)
+    }
+    
+    static private func decodeError(error: MoyaError?) -> String? {
+        guard let error = error else { return nil }
+        return try? error.response?.mapString()
     }
 }
