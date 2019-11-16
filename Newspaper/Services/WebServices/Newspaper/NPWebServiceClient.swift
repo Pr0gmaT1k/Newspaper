@@ -30,7 +30,8 @@ struct NPWebServiceClient {
                     NPWebServiceClient.keychainService[JSONKeys.tokenExp] = try? JWTDecode.decode(jwt: token).body[JSONKeys.tokenExp] as? String
                     completion?()
                 } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
-            case let .failure(error): print(error)
+            case let .failure(error):
+                print(error.localizedDescription)
             }
         }
     }
@@ -42,8 +43,8 @@ struct NPWebServiceClient {
                 do {
                     _ = try response.filterSuccessfulStatusAndRedirectCodes()
                     completion?()
-                } catch let error { print(error) }
-            case let .failure(error): print(error)
+                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
+            case let .failure(error): print(error.localizedDescription)
             }
         }
     }
@@ -63,8 +64,7 @@ struct NPWebServiceClient {
                     let data = try JSONSerialization.data(withJSONObject: userJson as Any)
                     completion?(try NPWebServiceClient.decode(data) as User)
                 } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
-            case let .failure(error): print(error)
-            }
+            case let .failure(error): print(error.localizedDescription) }
         }
     }
     
@@ -74,8 +74,8 @@ struct NPWebServiceClient {
             case let .success(response):
                 do {
                     completion?(try response.filterSuccessfulStatusAndRedirectCodes().map(Users.self))
-                } catch let error { print(error) }
-            case let .failure(error): print(error)
+                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
+            case let .failure(error): print(error.localizedDescription)
             }
         }
     }
@@ -87,9 +87,9 @@ struct NPWebServiceClient {
                 do {
                     _ = try response.filterSuccessfulStatusAndRedirectCodes()
                     completion?()
-                } catch let error { print(error) }
+                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
                 completion?()
-            case let .failure(error): print(error)
+            case let .failure(error): print(error.localizedDescription)
             }
         }
     }
@@ -100,8 +100,8 @@ struct NPWebServiceClient {
             case let .success(response):
                 do {
                     completion?(try response.filterSuccessfulStatusAndRedirectCodes().map(Posts.self))
-                } catch let error { print(error) }
-            case let .failure(error): print(error)
+                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
+            case let .failure(error): print(error.localizedDescription)
             }
         }
     }
