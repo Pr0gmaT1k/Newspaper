@@ -52,13 +52,13 @@
 		BA46C57A234652BD00FC1E0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C558234652BD00FC1E0D /* AppDelegate.swift */; };
 		BA46C57B234652BD00FC1E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA46C55A234652BD00FC1E0D /* Assets.xcassets */; };
 		BA46C57C234652BD00FC1E0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA46C55B234652BD00FC1E0D /* LaunchScreen.storyboard */; };
-		BA46C57F234652BD00FC1E0D /* ListTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C561234652BD00FC1E0D /* ListTransform.swift */; };
 		BA46C586234652BD00FC1E0D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C56D234652BD00FC1E0D /* Environment.swift */; };
 		BA46C587234652BD00FC1E0D /* Colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA46C56F234652BD00FC1E0D /* Colors.txt */; };
 		BA46C588234652BD00FC1E0D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA46C570234652BD00FC1E0D /* Localizable.strings */; };
 		BA46C58A234652BD00FC1E0D /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA46C573234652BD00FC1E0D /* Auth.storyboard */; };
 		BA46C58C234652BD00FC1E0D /* NPWebServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */; };
 		BA46C58D234652BD00FC1E0D /* NPProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C579234652BD00FC1E0D /* NPProvider.swift */; };
+		BA6F27602380702B00F7ED08 /* NPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6F275F2380702A00F7ED08 /* NPError.swift */; };
 		BA7803AE236CCC0B0061B32A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7803AD236CCC0B0061B32A /* Post.swift */; };
 		BA7C437A2349380300F8166D /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C43792349380300F8166D /* CreatePostVC.swift */; };
 		BA84ED6D2346E63500804C26 /* JSONKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84ED6C2346E63500804C26 /* JSONKeys.swift */; };
@@ -186,13 +186,13 @@
 		BA46C55A234652BD00FC1E0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA46C55C234652BD00FC1E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA46C55F234652BD00FC1E0D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA46C561234652BD00FC1E0D /* ListTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTransform.swift; sourceTree = "<group>"; };
 		BA46C56D234652BD00FC1E0D /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		BA46C56F234652BD00FC1E0D /* Colors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Colors.txt; sourceTree = "<group>"; };
 		BA46C570234652BD00FC1E0D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BA46C573234652BD00FC1E0D /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPWebServiceClient.swift; sourceTree = "<group>"; };
 		BA46C579234652BD00FC1E0D /* NPProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPProvider.swift; sourceTree = "<group>"; };
+		BA6F275F2380702A00F7ED08 /* NPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPError.swift; sourceTree = "<group>"; };
 		BA7803AD236CCC0B0061B32A /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BA7C43792349380300F8166D /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		BA84ED6C2346E63500804C26 /* JSONKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONKeys.swift; sourceTree = "<group>"; };
@@ -471,7 +471,6 @@
 		BA46C560234652BD00FC1E0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BA46C561234652BD00FC1E0D /* ListTransform.swift */,
 				BA46C563234652BD00FC1E0D /* Realm */,
 			);
 			path = Models;
@@ -480,6 +479,7 @@
 		BA46C563234652BD00FC1E0D /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				BA6F275F2380702A00F7ED08 /* NPError.swift */,
 				BA7803AD236CCC0B0061B32A /* Post.swift */,
 				BAA4C41323465C9500F7E420 /* Auth.swift */,
 				BAA4C41123465C9500F7E420 /* Posts.swift */,
@@ -962,6 +962,7 @@
 			files = (
 				BA22AA7E2347C34F00E77EE3 /* Navigator.swift in Sources */,
 				BA22AA892347EA8C00E77EE3 /* RegisteredVC.swift in Sources */,
+				BA6F27602380702B00F7ED08 /* NPError.swift in Sources */,
 				BA22AAB423490F7700E77EE3 /* FeedTVCell.swift in Sources */,
 				BA8F5B0123465619009E266E /* Images.swift in Sources */,
 				BAA4C41B23465C9500F7E420 /* User.swift in Sources */,
@@ -972,7 +973,6 @@
 				BA22AA872347D5EA00E77EE3 /* FeedVC.swift in Sources */,
 				BA22AA822347D59200E77EE3 /* FeedCoordinator.swift in Sources */,
 				BAA4C41723465C9500F7E420 /* Posts.swift in Sources */,
-				BA46C57F234652BD00FC1E0D /* ListTransform.swift in Sources */,
 				BAA4C41A23465C9500F7E420 /* Status.swift in Sources */,
 				BA39A6932349772700494510 /* DetailsPostVC.swift in Sources */,
 				BA46C57A234652BD00FC1E0D /* AppDelegate.swift in Sources */,

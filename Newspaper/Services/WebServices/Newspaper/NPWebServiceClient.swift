@@ -118,6 +118,6 @@ struct NPWebServiceClient {
     
     static private func decodeError(error: MoyaError?) -> String? {
         guard let error = error else { return nil }
-        return try? error.response?.mapString()
+        return try? error.response?.map(NPError.self).message
     }
 }
