@@ -59,6 +59,7 @@
 		BA46C58C234652BD00FC1E0D /* NPWebServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */; };
 		BA46C58D234652BD00FC1E0D /* NPProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA46C579234652BD00FC1E0D /* NPProvider.swift */; };
 		BA6F27602380702B00F7ED08 /* NPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6F275F2380702A00F7ED08 /* NPError.swift */; };
+		BA6F2762238074F900F7ED08 /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6F2761238074F900F7ED08 /* String+Error.swift */; };
 		BA7803AE236CCC0B0061B32A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7803AD236CCC0B0061B32A /* Post.swift */; };
 		BA7C437A2349380300F8166D /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C43792349380300F8166D /* CreatePostVC.swift */; };
 		BA84ED6D2346E63500804C26 /* JSONKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84ED6C2346E63500804C26 /* JSONKeys.swift */; };
@@ -193,6 +194,7 @@
 		BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPWebServiceClient.swift; sourceTree = "<group>"; };
 		BA46C579234652BD00FC1E0D /* NPProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPProvider.swift; sourceTree = "<group>"; };
 		BA6F275F2380702A00F7ED08 /* NPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPError.swift; sourceTree = "<group>"; };
+		BA6F2761238074F900F7ED08 /* String+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Error.swift"; sourceTree = "<group>"; };
 		BA7803AD236CCC0B0061B32A /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BA7C43792349380300F8166D /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		BA84ED6C2346E63500804C26 /* JSONKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONKeys.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				BAA5715E234A42790035719A /* User+Date.swift */,
+				BA6F2761238074F900F7ED08 /* String+Error.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -997,6 +1000,7 @@
 				BA7803AE236CCC0B0061B32A /* Post.swift in Sources */,
 				BA46C58C234652BD00FC1E0D /* NPWebServiceClient.swift in Sources */,
 				BAA4C41E2346703D00F7E420 /* Fonts.swift in Sources */,
+				BA6F2762238074F900F7ED08 /* String+Error.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

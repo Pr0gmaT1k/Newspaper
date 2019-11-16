@@ -19,7 +19,7 @@ struct NPWebServiceClient {
     }
     
     // MARK: - Services
-    static func signIn(email: String, pwd: String, completion: (() -> Void)? = nil) throws {
+    static func signIn(email: String, pwd: String, completion: ((Result<Void?, String>) -> Void)? = nil) {
         NPProvider.provider.request(.signIn(email: email, pwd: pwd)) { result in
             switch result {
             case let .success(response):
@@ -28,28 +28,26 @@ struct NPWebServiceClient {
                     guard let token = auth.token else { return }
                     NPWebServiceClient.keychainService[JSONKeys.authorisation] = token
                     NPWebServiceClient.keychainService[JSONKeys.tokenExp] = try? JWTDecode.decode(jwt: token).body[JSONKeys.tokenExp] as? String
-                    completion?()
-                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
-            case let .failure(error):
-                print(error.localizedDescription)
+                    completion?(.success(nil))
+                } catch let error { completion?(.failure(NPWebServiceClient.decodeError(error: error))) }
+            case let .failure(error): completion?(.failure(NPWebServiceClient.decodeError(error: error)))
             }
         }
     }
     
-    static func register(name: String, lastname: String, dni: String, email: String, pwd: String, pwdConfimation: String, completion: (() -> Void)? = nil) throws {
+    static func register(name: String, lastname: String, dni: String, email: String, pwd: String, pwdConfimation: String, completion: ((Result<Void?, String>) -> Void)? = nil) {
         NPProvider.provider.request(.signUp(name: name, lastname: lastname, dni: dni, email: email, pwd: pwd, pwdConfimation: pwdConfimation)) { result in
             switch result {
             case let .success(response):
                 do {
-                    _ = try response.filterSuccessfulStatusAndRedirectCodes()
-                    completion?()
-                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
-            case let .failure(error): print(error.localizedDescription)
+                    completion?(.success(_ = try response.filterSuccessfulStatusAndRedirectCodes()))
+                } catch let error { completion?(.failure(NPWebServiceClient.decodeError(error: error))) }
+            case let .failure(error): completion?(.failure(NPWebServiceClient.decodeError(error: error)))
             }
         }
     }
     
-    static func getCurrentUser(completion: ((User) -> Void)? = nil) throws {
+    static func getCurrentUser(completion: ((Result<User, String>) -> Void)? = nil) {
         
         let token = NPWebServiceClient.keychainService[JSONKeys.authorisation] ?? "empty"
         let userId: Int = (try? JWTDecode.decode(jwt: token))?.body[JSONKeys.tokenUserID] as? Int ?? 00
@@ -62,46 +60,47 @@ struct NPWebServiceClient {
                     let filteredResponse = try response.filterSuccessfulStatusAndRedirectCodes()
                     let userJson = (try filteredResponse.mapJSON() as? [String: Any])?[JSONKeys.user]
                     let data = try JSONSerialization.data(withJSONObject: userJson as Any)
-                    completion?(try NPWebServiceClient.decode(data) as User)
-                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
-            case let .failure(error): print(error.localizedDescription) }
-        }
-    }
-    
-    static func getUsers(completion: ((Users) -> Void)? = nil) throws {
-        NPProvider.provider.request(.users) { result in
-            switch result {
-            case let .success(response):
-                do {
-                    completion?(try response.filterSuccessfulStatusAndRedirectCodes().map(Users.self))
-                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
-            case let .failure(error): print(error.localizedDescription)
+                    completion?(.success(try NPWebServiceClient.decode(data) as User))
+                } catch let error { completion?(.failure(NPWebServiceClient.decodeError(error: error))) }
+            case let .failure(error): completion?(.failure(NPWebServiceClient.decodeError(error: error)))
             }
         }
     }
     
-    static func createPost(title: String, description: String?, body: String?, completion: (() -> Void)? = nil) throws {
+    static func getUsers(completion: ((Result<Users, String>) -> Void)? = nil) {
+        NPProvider.provider.request(.users) { result in
+            switch result {
+            case let .success(response):
+                do {
+                    completion?(.success(try response.filterSuccessfulStatusAndRedirectCodes().map(Users.self)))
+                } catch let error { completion?(.failure(NPWebServiceClient.decodeError(error: error))) }
+            case let .failure(error): completion?(.failure(NPWebServiceClient.decodeError(error: error)))
+            }
+        }
+    }
+    
+    static func createPost(title: String, description: String?, body: String?, completion: ((Result<Void?, String>) -> Void)? = nil) {
         NPProvider.provider.request(.createPost(title: title, description: description, body: body)) { result in
             switch result {
             case let .success(response):
                 do {
                     _ = try response.filterSuccessfulStatusAndRedirectCodes()
-                    completion?()
-                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
-                completion?()
-            case let .failure(error): print(error.localizedDescription)
+                    completion?(.success(nil))
+                } catch let error { completion?(.failure(NPWebServiceClient.decodeError(error: error))) }
+            case let .failure(error): completion?(.failure(NPWebServiceClient.decodeError(error: error)))
             }
         }
     }
     
-    static func getPosts(completion: ((Posts) -> Void)? = nil) throws {
+    static func getPosts(completion: ((Result<Posts, String>) -> Void)? = nil) {
         NPProvider.provider.request(.posts) { result in
             switch result {
             case let .success(response):
                 do {
-                    completion?(try response.filterSuccessfulStatusAndRedirectCodes().map(Posts.self))
-                } catch let error { print(NPWebServiceClient.decodeError(error: error as? MoyaError) as Any) }
-            case let .failure(error): print(error.localizedDescription)
+                    let posts = try response.filterSuccessfulStatusAndRedirectCodes().map(Posts.self)
+                    completion?(Result.success(posts))
+                } catch let error { completion?(.failure(NPWebServiceClient.decodeError(error: error))) }
+            case let .failure(error): completion?(.failure(NPWebServiceClient.decodeError(error: error)))
             }
         }
     }
@@ -116,8 +115,8 @@ struct NPWebServiceClient {
         return try decoder.decode(type, from: data)
     }
     
-    static private func decodeError(error: MoyaError?) -> String? {
-        guard let error = error else { return nil }
-        return try? error.response?.map(NPError.self).message
+    static private func decodeError(error: Error) -> String {
+        guard let error = error as? MoyaError else { return "" }
+        return (try? error.response?.map(NPError.self).message) ?? ""
     }
 }

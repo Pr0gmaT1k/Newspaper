@@ -64,9 +64,12 @@ extension UsersVC: UITableViewDataSource {
 extension UsersVC {
     func requestUsers() {
         self.showNPLoader()
-        try? NPWebServiceClient.getUsers { [weak self] users in
+        NPWebServiceClient.getUsers { [weak self] result in
             self?.hideNPLoader()
-            self?.fill(users: users)
+            switch result {
+            case let .success(users): self?.fill(users: users)
+            case let .failure(error): print(error)
+            }
         }
     }
 }
