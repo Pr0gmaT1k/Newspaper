@@ -16,6 +16,6 @@ jobs:
       - name: Build
         run: |
           pod install
-          xcodebuild clean build -project Newspaper.xcodeproj -scheme Newspaper -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild clean build -workspace Newspaper.xcworkspace -scheme Newspaper -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
         env:
          destination: ${{ matrix.destination }}
