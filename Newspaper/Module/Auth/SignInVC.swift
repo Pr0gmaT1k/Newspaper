@@ -15,9 +15,9 @@ protocol SignInVCDelegate: class {
 }
 
 // MARK:- Class
-final class SignInVC: UIViewController {
+final class SignInVC : UIViewController {
     // MARK:- Properties
-    weak var delegate: SignInVCDelegate?
+    var delegate: SignInVCDelegate?
     
     // MARK:- IBOutlets
     @IBOutlet private weak var titleLabel: UILabel!
