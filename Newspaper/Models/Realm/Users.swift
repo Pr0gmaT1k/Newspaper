@@ -3,7 +3,7 @@
 import RealmSwift
 import Foundation
 
-final class Users: Object, Decodable {
+final class Users: Object, Codable {
   private enum Keys: String, CodingKey {
     case status = "status"
     case users = "users"

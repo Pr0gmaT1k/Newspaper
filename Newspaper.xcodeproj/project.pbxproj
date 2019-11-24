@@ -62,6 +62,8 @@
 		BA6F2762238074F900F7ED08 /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6F2761238074F900F7ED08 /* String+Error.swift */; };
 		BA6F27642380850300F7ED08 /* UIVIewController+ShowMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6F27632380850300F7ED08 /* UIVIewController+ShowMessage.swift */; };
 		BA7803AE236CCC0B0061B32A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7803AD236CCC0B0061B32A /* Post.swift */; };
+		BA7AD9D52389F27900E3F42C /* NPProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7AD9D42389F27900E3F42C /* NPProviderTests.swift */; };
+		BA7AD9D72389F4EF00E3F42C /* NPSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7AD9D62389F4EF00E3F42C /* NPSampleData.swift */; };
 		BA7C437A2349380300F8166D /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7C43792349380300F8166D /* CreatePostVC.swift */; };
 		BA84ED6D2346E63500804C26 /* JSONKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84ED6C2346E63500804C26 /* JSONKeys.swift */; };
 		BA8F5B0023465619009E266E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F5AFC23465619009E266E /* Strings.swift */; };
@@ -198,6 +200,8 @@
 		BA6F2761238074F900F7ED08 /* String+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Error.swift"; sourceTree = "<group>"; };
 		BA6F27632380850300F7ED08 /* UIVIewController+ShowMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+ShowMessage.swift"; sourceTree = "<group>"; };
 		BA7803AD236CCC0B0061B32A /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		BA7AD9D42389F27900E3F42C /* NPProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPProviderTests.swift; sourceTree = "<group>"; };
+		BA7AD9D62389F4EF00E3F42C /* NPSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSampleData.swift; sourceTree = "<group>"; };
 		BA7C43792349380300F8166D /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		BA84ED6C2346E63500804C26 /* JSONKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONKeys.swift; sourceTree = "<group>"; };
 		BA8F5AFC23465619009E266E /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -565,8 +569,33 @@
 				BA46C578234652BD00FC1E0D /* NPWebServiceClient.swift */,
 				BA46C579234652BD00FC1E0D /* NPProvider.swift */,
 				BA84ED6C2346E63500804C26 /* JSONKeys.swift */,
+				BA7AD9D62389F4EF00E3F42C /* NPSampleData.swift */,
 			);
 			path = Newspaper;
+			sourceTree = "<group>";
+		};
+		BA7AD9D02389F18F00E3F42C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BA7AD9D12389F19E00E3F42C /* WebServices */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BA7AD9D12389F19E00E3F42C /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				BA7AD9D32389F1C100E3F42C /* Newsaper */,
+			);
+			path = WebServices;
+			sourceTree = "<group>";
+		};
+		BA7AD9D32389F1C100E3F42C /* Newsaper */ = {
+			isa = PBXGroup;
+			children = (
+				BA7AD9D42389F27900E3F42C /* NPProviderTests.swift */,
+			);
+			path = Newsaper;
 			sourceTree = "<group>";
 		};
 		BAA4C41C23466A8E00F7E420 /* Auth */ = {
@@ -676,6 +705,7 @@
 		BAD30680234650CF002335CF /* NewspaperTests */ = {
 			isa = PBXGroup;
 			children = (
+				BA7AD9D02389F18F00E3F42C /* Services */,
 				BA2D4193234A818700E7D99B /* Helpers */,
 				BACC6A4D234A997C0000AA66 /* Coordination */,
 				BA2D4192234A817100E7D99B /* Feed */,
@@ -992,6 +1022,7 @@
 				BA22AA8F2348CFFF00E77EE3 /* UsersVC.swift in Sources */,
 				BA22AAB023490F4A00E77EE3 /* FeedTVHeader.swift in Sources */,
 				BA22AA7A2347C2F900E77EE3 /* AppCoordinator.swift in Sources */,
+				BA7AD9D72389F4EF00E3F42C /* NPSampleData.swift in Sources */,
 				BAA4C44A2346720D00F7E420 /* AuthVC.swift in Sources */,
 				BA8F5B0323465619009E266E /* Storyboards.swift in Sources */,
 				BA22AA802347C41E00E77EE3 /* AuthCoordinator.swift in Sources */,
@@ -1018,6 +1049,7 @@
 				BACC6A4A234A96E40000AA66 /* ProfilVCTests.swift in Sources */,
 				BACC6A46234A946C0000AA66 /* CreatePostVCTests.swift in Sources */,
 				BA2D419B234A818700E7D99B /* XCTest+Utils.swift in Sources */,
+				BA7AD9D52389F27900E3F42C /* NPProviderTests.swift in Sources */,
 				BA2D419D234A818700E7D99B /* EquatableExpectation.swift in Sources */,
 				BA2D419A234A818700E7D99B /* FulfillableViewController.swift in Sources */,
 				BA2D419E234A818700E7D99B /* TopLevelUIUtilities.swift in Sources */,

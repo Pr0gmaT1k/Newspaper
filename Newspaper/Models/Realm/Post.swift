@@ -3,7 +3,7 @@
 import RealmSwift
 import Foundation
 
-final class Post: Object, Decodable {
+final class Post: Object, Codable {
   private enum Keys: String, CodingKey {
     case id = "id"/* Primary Key */
     case body = "body"
@@ -12,7 +12,6 @@ final class Post: Object, Decodable {
     case title = "title"
     case updated_at = "updated_at"
     case user_id = "user_id"
-
     }
 
   @objc dynamic var id: Int64 = 0 /* Primary Key */
