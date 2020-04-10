@@ -44,7 +44,13 @@ public enum NPProvider: TargetType {
     }
     
     public var sampleData: Data {
-        return "to implement to use test".data(using: .utf8) ?? Data()
+        switch self {
+        case .signIn: return NPSampleData.encodedAuth
+        case .signUp, .user: return NPSampleData.encodedUser
+        case .createPost, .post: return NPSampleData.encodedPost
+        case .users: return NPSampleData.encodedusers
+        case .posts: return NPSampleData.encodedPosts
+        }
     }
     
     public var task: Task {
