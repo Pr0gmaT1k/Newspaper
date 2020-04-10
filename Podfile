@@ -10,4 +10,8 @@ target ‘Newspaper’ do
   pod 'SwiftGen'
   pod 'JWTDecode'
   pod 'KeychainAccess'
+
+    target 'NewspaperTests' do
+        inherit! :search_paths
+    end
 end

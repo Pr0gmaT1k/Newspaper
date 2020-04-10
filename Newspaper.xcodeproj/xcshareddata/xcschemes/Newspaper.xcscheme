@@ -29,6 +29,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BAD3067C234650CF002335CF"
+               BuildableName = "NewspaperTests.xctest"
+               BlueprintName = "NewspaperTests"
+               ReferencedContainer = "container:Newspaper.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BAD30687234650CF002335CF"
+               BuildableName = "NewspaperUITests.xctest"
+               BlueprintName = "NewspaperUITests"
+               ReferencedContainer = "container:Newspaper.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
